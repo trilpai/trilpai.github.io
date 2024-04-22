@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logo TRILP</title>
+  </head>
+  <body>
+    <canvas
+      id="triangleCanvas"
+      width="400"
+      height="400"
+      style="border: 1px solid #c3c3c3"
+    >
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+      var canvas = document.getElementById("triangleCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Constants for scaling and triangle dimensions
+      var scaleFactor = 100;
+      var baseLength = 3 * scaleFactor;
+      var altitude = 1.5 * scaleFactor;
+
+      // Coordinates for the base and top of the triangle
+      var baseCenterX = canvas.width / 2;
+      var startY = canvas.height / 2 + altitude / 2;
+      var topY = canvas.height / 2 - altitude / 2;
+
+      // Set styles for the lines
+      ctx.strokeStyle = "#F7B924"; // gold-like yellow Xanthous color / Amber color: FFA500
+      ctx.fillStyle = "#F7B924"; // Set the color to gold-like yellow Xanthous color
+      ctx.lineWidth = 40; // 40 pixels thick line
+      ctx.font = "50px Arial"; // Font set to Arial, size 50px
+
+      // Draw and label the first line
+      var firstLineStartX = baseCenterX - baseLength / 2;
+      ctx.beginPath();
+      ctx.moveTo(firstLineStartX, startY);
+      ctx.lineTo(baseCenterX, topY);
+      ctx.stroke();
+      ctx.fillText("त्रि", firstLineStartX, startY + 65);
+
+      // Draw and label the second line
+      var secondLineStartX = baseCenterX - baseLength / 2 + 0.75 * scaleFactor;
+      var secondLineEndX = secondLineStartX + 1.125 * scaleFactor;
+      ctx.beginPath();
+      ctx.moveTo(secondLineStartX, startY);
+      ctx.lineTo(secondLineEndX, startY - 1.125 * scaleFactor);
+      ctx.stroke();
+      ctx.fillText("ल्", secondLineStartX, startY + 65);
+
+      // Draw and label the third line
+      var thirdLineStartX = baseCenterX - baseLength / 2 + 1.5 * scaleFactor;
+      ctx.beginPath();
+      ctx.moveTo(thirdLineStartX, startY);
+      ctx.lineTo(
+        thirdLineStartX + 0.75 * scaleFactor,
+        startY - 0.75 * scaleFactor
+      );
+      ctx.stroke();
+      ctx.fillText("प", thirdLineStartX, startY + 65);
+    </script>
+  </body>
+</html>

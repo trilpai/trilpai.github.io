@@ -1,0 +1,87 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff; /* This is the default background color */
+    overflow: hidden; /* Hide any overflow */
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #28282B; /* Darker color for the clipped area */
+    clip-path: polygon(0 15%, 100% 35%, 100% 0, 0 0); /* Adjusted to be visible */
+    z-index: 0; /* Positioned below the content but above the background */
+  }
+
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right of the bar */
+    align-items: center;
+    padding: 0 10%; /* Adds padding on both sides for better visibility on mobile */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+    z-index: 1;
+    overflow: visible; /* Ensures that nothing is hidden */
+  }
+
+  .logo {
+    height: 40px; /* Adjust based on your logo's aspect ratio */
+    margin-left: 10px; /* Space between logo and last nav item */
+  }
+
+  .nav-link {
+    margin-left: 10px; /* Space between links */
+    color: white;
+    text-decoration: none; /* Removes underline from links */
+    font-size: 16px;
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  .nav-link:hover {
+    text-decoration: underline; /* Adds underline on hover for better UX */
+  }
+
+
+  .handwriting {
+    font-family: 'Bradley Hand', 'Brush Script MT', 'Comic Sans MS', cursive;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3; /* Above the pseudo-element */
+    color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px; /* Add padding to avoid content hiding behind the footer */
+    padding-top: 60px; /* Add padding for top menu bar */
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px; /* Set the height of the footer */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
+    text-align: center;
+    line-height: 20px; /* Align text vertically */
+    z-index: 2; /* Ensures the footer is above all content */
+  }
