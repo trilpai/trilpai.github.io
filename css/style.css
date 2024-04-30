@@ -1,93 +1,108 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #fff; /* This is the default background color */
-    overflow: hidden; /* Hide any overflow */
-  }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff; /* This is the default background color */
+  /* background-image: linear-gradient(to bottom right, #28282B, transparent 50%); */
+  background: rgb(40, 40, 43);
+  background: linear-gradient(
+    186deg,
+    rgba(40, 40, 43, 1) 28%,
+    rgba(255, 255, 255, 1) 28%
+  );
+  overflow: hidden; /* Hide any overflow */
+}
 
+body {
+  display: flex;
+}
 
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #28282B; /* Darker color for the clipped area */
-    clip-path: polygon(0 15%, 100% 35%, 100% 0, 0 0); /* Adjusted to be visible */
-    z-index: 0; /* Positioned below the content but above the background */
-  }
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right of the bar */
+  align-items: center;
+  padding: 0 10%; /* Adds padding on both sides for better visibility on mobile */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  z-index: 3;
+  overflow: visible; /* Ensures that nothing is hidden */
+}
 
-  .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    display: flex;
-    justify-content: flex-end; /* Aligns items to the right of the bar */
-    align-items: center;
-    padding: 0 10%; /* Adds padding on both sides for better visibility on mobile */
-    box-sizing: border-box; /* Includes padding in the width calculation */
-    z-index: 3;
-    overflow: visible; /* Ensures that nothing is hidden */
-  }
+.logo {
+  height: 40px; /* Adjust based on your logo's aspect ratio */
+  margin-left: 10px; /* Space between logo and last nav item */
+}
 
-  .logo {
-    height: 40px; /* Adjust based on your logo's aspect ratio */
-    margin-left: 10px; /* Space between logo and last nav item */
-  }
+.nav-link {
+  margin-left: 10px; /* Space between links */
+  color: white;
+  text-decoration: none; /* Removes underline from links */
+  font-size: 16px;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
 
-  .nav-link {
-    margin-left: 10px; /* Space between links */
-    color: white;
-    text-decoration: none; /* Removes underline from links */
-    font-size: 16px;
-    white-space: nowrap; /* Prevents text from wrapping */
-  }
+.nav-link:hover {
+  text-decoration: underline; /* Adds underline on hover for better UX */
+  cursor: pointer; /* Changes cursor to a pointer to indicate a link */
+}
 
-  .nav-link:hover {
-    text-decoration: underline; /* Adds underline on hover for better UX */
-    cursor: pointer; /* Changes cursor to a pointer to indicate a link */
-  }
+.content {
+  color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  text-align: center;
+  margin-top: 40vh;
+  gap: 33vh;
+}
 
-  .content {
-    position: relative;
-    z-index: 2; /* Above the pseudo-element */
-    color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
-    width: 100%; /* Full width */
-    height: calc(100vh - 1vh); /* Full height minus the heights of the top bar and footer */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Align children vertically center */
-    align-items: center; /* Align children horizontally center */
-    text-align: center;
-  }
+.handwriting {
+  font-family: "Bradley Hand", "Brush Script MT", "Comic Sans MS", cursive;
+  font-size: x-large;
+}
 
-  .handwriting {
-    font-family: 'Bradley Hand', 'Brush Script MT', 'Comic Sans MS', cursive;
-    font-size: x-large;
-  }
+.staticText {
+  color: #444;
+  font-size: small;
+  padding-top: 40px;
+  display: inline-block; /* This makes sure transform applies correctly */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /*animation: none; */
+  /*waveMotion 4s infinite ease-in-out;  or horizontalOscillation 2s infinite;*/
+}
 
-  .staticText {
-    color: #FAFAFA;
-    font-size: small;
-    padding-top: 40px;
-    display: inline-block; /* This makes sure transform applies correctly */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /*animation: none; */
-    /*waveMotion 4s infinite ease-in-out; */ or /*horizontalOscillation 2s infinite;*/
-  }
+.footnote {
+  display: flex;
+}
+
+.footnote > * {
+  padding: 40px;
+}
+
+.footnote_l {
+  width: 70%;
+  text-align: left;
+  font-size: 8px;
+}
+
+.footnote_r {
+  width: 30%;
+  text-align: left;
+}
 
 @keyframes waveMotion {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0px, 0px);
   }
   25% {
@@ -102,28 +117,29 @@ body, html {
 }
 
 @keyframes horizontalOscillation {
-  0%, 100% {
-      transform: translateX(-10px); /* Moves text 10px left from the center */
+  0%,
+  100% {
+    transform: translateX(-10px); /* Moves text 10px left from the center */
   }
   50% {
-      transform: translateX(10px); /* Moves text 10px right from the center */
+    transform: translateX(10px); /* Moves text 10px right from the center */
   }
 }
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px; /* Set the height of the footer */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
-    text-align: center;
-    line-height: 20px; /* Align text vertically */
-    z-index: 1; /* Ensures the footer is above all content */
-  }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px; /* Set the height of the footer */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
+  text-align: center;
+  line-height: 20px; /* Align text vertically */
+  z-index: 1; /* Ensures the footer is above all content */
+}
 
-  /* Media query for mobile devices */
+/* Media query for mobile devices */
 @media (max-width: 600px) {
   .staticText {
     font-size: xx-small; /* Smaller font size for mobile screens */
