@@ -122,6 +122,15 @@ body {
   text-decoration: none;
 }
 
+.grid-item a:hover {
+  text-decoration: underline;
+}
+
+.content_service {
+  text-align: left;
+  padding: 0 20%;
+}
+
 .footer {
   width: 100%;
   height: 40px; /* Set the height of the footer */
