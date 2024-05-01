@@ -1,131 +1,144 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #fff; /* This is the default background color */
-    overflow: hidden; /* Hide any overflow */
-  }
-
-
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #28282B; /* Darker color for the clipped area */
-    clip-path: polygon(0 15%, 100% 35%, 100% 0, 0 0); /* Adjusted to be visible */
-    z-index: 0; /* Positioned below the content but above the background */
-  }
-
-  .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    display: flex;
-    justify-content: flex-end; /* Aligns items to the right of the bar */
-    align-items: center;
-    padding: 0 10%; /* Adds padding on both sides for better visibility on mobile */
-    box-sizing: border-box; /* Includes padding in the width calculation */
-    z-index: 3;
-    overflow: visible; /* Ensures that nothing is hidden */
-  }
-
-  .logo {
-    height: 40px; /* Adjust based on your logo's aspect ratio */
-    margin-left: 10px; /* Space between logo and last nav item */
-  }
-
-  .nav-link {
-    margin-left: 10px; /* Space between links */
-    color: white;
-    text-decoration: none; /* Removes underline from links */
-    font-size: 16px;
-    white-space: nowrap; /* Prevents text from wrapping */
-  }
-
-  .nav-link:hover {
-    text-decoration: underline; /* Adds underline on hover for better UX */
-    cursor: pointer; /* Changes cursor to a pointer to indicate a link */
-  }
-
-  .content {
-    position: relative;
-    z-index: 2; /* Above the pseudo-element */
-    color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
-    width: 100%; /* Full width */
-    height: calc(100vh - 1vh); /* Full height minus the heights of the top bar and footer */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Align children vertically center */
-    align-items: center; /* Align children horizontally center */
-    text-align: center;
-  }
-
-  .handwriting {
-    font-family: 'Bradley Hand', 'Brush Script MT', 'Comic Sans MS', cursive;
-    font-size: x-large;
-  }
-
-  .staticText {
-    color: #FAFAFA;
-    font-size: small;
-    padding-top: 40px;
-    display: inline-block; /* This makes sure transform applies correctly */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /*animation: none; */
-    /*waveMotion 4s infinite ease-in-out; */ or /*horizontalOscillation 2s infinite;*/
-  }
-
-@keyframes waveMotion {
-  0%, 100% {
-    transform: translate(0px, 0px);
-  }
-  25% {
-    transform: translate(-10px, -5px);
-  }
-  50% {
-    transform: translate(0px, -10px);
-  }
-  75% {
-    transform: translate(10px, -5px);
-  }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(40, 40, 43);
+  background: linear-gradient(
+    186deg,
+    rgba(40, 40, 43, 1) 355px,
+    rgba(255, 255, 255, 1) 355px
+  );
 }
 
-@keyframes horizontalOscillation {
-  0%, 100% {
-      transform: translateX(-10px); /* Moves text 10px left from the center */
-  }
-  50% {
-      transform: translateX(10px); /* Moves text 10px right from the center */
-  }
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px; /* Set the height of the footer */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
-    text-align: center;
-    line-height: 20px; /* Align text vertically */
-    z-index: 1; /* Ensures the footer is above all content */
-  }
+.top-bar {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right of the bar */
+  align-items: center;
+  padding: 10px 10%; /* Adds padding on both sides for better visibility on mobile */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+}
 
-  /* Media query for mobile devices */
-@media (max-width: 600px) {
-  .staticText {
-    font-size: xx-small; /* Smaller font size for mobile screens */
-  }
+.logo {
+  height: 40px; /* Adjust based on your logo's aspect ratio */
+  margin-left: 10px; /* Space between logo and last nav item */
+}
+
+.nav-link {
+  margin-left: 10px; /* Space between links */
+  color: white;
+  text-decoration: none; /* Removes underline from links */
+  font-size: 16px;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* Adds underline on hover for better UX */
+  cursor: pointer; /* Changes cursor to a pointer to indicate a link */
+}
+
+.content {
+  color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  text-align: center;
+  flex: 1 1 auto;
+  margin-top: 40vh;
+  gap: 16vh;
+}
+
+.handwriting {
+  font-family: "Bradley Hand", "Brush Script MT", "Comic Sans MS", cursive;
+  font-size: x-large;
+  margin-bottom: 11vh;
+}
+
+.footnote {
+  display: flex;
+}
+
+.footnote > * {
+  padding: 40px;
+}
+
+.footnote_l {
+  width: 70%;
+  text-align: left;
+  font-size: 8px;
+}
+
+.footnote_r {
+  width: 30%;
+  text-align: left;
+}
+
+.footnote_r .t {
+  color: #0030ad;
+}
+
+.footnote_r .r {
+  color: #3b6040;
+}
+
+.footnote_r .i {
+  color: #28282b;
+}
+
+.footnote_r .l {
+  color: #9b2f25;
+}
+
+.footnote_r .p {
+  color: #5e2b89;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.grid-item {
+  background-color: #ccc;
+  padding: 20px;
+  height: 70px;
+  width: 50%;
+}
+
+.grid-item a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0030ad;
+  text-decoration: none;
+}
+
+.grid-item a:hover {
+  text-decoration: underline;
+}
+
+.content_service {
+  text-align: left;
+  padding: 0 20%;
+}
+
+.footer {
+  width: 100%;
+  height: 40px; /* Set the height of the footer */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
+  padding-top: 15px;
+  background: rgba(40, 40, 43, 0.2);
+  text-align: center;
+  line-height: 20px; /* Align text vertically */
 }
