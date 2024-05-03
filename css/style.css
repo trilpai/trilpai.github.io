@@ -54,6 +54,7 @@ body {
   flex: 1 1 auto;
   margin-top: 40vh;
   gap: 16vh;
+  align-items: center;
 }
 
 .handwriting {
@@ -103,10 +104,12 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   padding: 20px;
   justify-items: center;
+  width: 50%;
+  justify-content: center;
 }
 
 .grid-item {
@@ -127,10 +130,18 @@ body {
 
 .service_card {
   transition: transform 0.2s;
+  font-size: 18px;
+  border-radius: 50px;
 }
 
 .service_card:hover {
   transform: scale(1.1);
+}
+
+.service_card_text {
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 0 0 25px 25px;
 }
 
 .content_service {
