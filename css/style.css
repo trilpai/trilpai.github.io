@@ -104,16 +104,15 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  padding: 10px;
+  grid-gap: 10px;
+  padding: 20px;
   justify-items: center;
 }
 
 .grid-item {
-  background-color: #ccc;
+  display: inline-block;
   padding: 20px;
-  height: 70px;
-  width: 50%;
+  height: 100%;
 }
 
 .grid-item a {
@@ -124,6 +123,14 @@ body {
 
 .grid-item a:hover {
   text-decoration: underline;
+}
+
+.service_card {
+  transition: transform 0.2s;
+}
+
+.service_card:hover {
+  transform: scale(1.1);
 }
 
 .content_service {
