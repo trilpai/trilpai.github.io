@@ -132,8 +132,9 @@ body::before {
 /* Footer styling */
 .footer {
   text-align: center;
-  padding: 1.5vh;
+  padding: 1vh;
   color: #CC0000;
+  font-size: smaller;
 }
 
 .footer a img {
@@ -148,5 +149,8 @@ body::before {
   }
   .important_note_left, .important_note_right {
     font-size: xx-small;
+  }
+  .footer {
+    font-size: x-small;
   }
 }
