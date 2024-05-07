@@ -1,162 +1,152 @@
-body,
-html {
+/* Base setup */
+body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   width: 100%;
-  min-height: 100vh;
-  background: rgb(40, 40, 43);
-  background: linear-gradient(
-    186deg,
-    rgba(40, 40, 43, 1) 355px,
-    rgba(255, 255, 255, 1) 355px
-  );
+  background-color: #fff; /* Default background color */
 }
 
-body {
+/* Background styling with clip-path */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #28282B; /* Dark background color */
+  clip-path: polygon(0 8vh, 100vw 25vh, 100vw 0, 0 0); /* Adjusted to use viewport units */
+  z-index: 0; /* Ensure it's below all interactive content */
+}
+
+/* cedarville cursive google font
+<font-size>: Use a value from 8px to 300px */
+.cedarville-cursive-regular {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-size: 36px;
+  font-style: normal;
+}
+
+/* montserrat google font
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 900 */
+.montserrat-reg {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Base container setup */
+.container {
+  width: 70%;
+  margin: 0 auto;
+  z-index: 1; /* Higher stacking context than the pseudo-background */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Ensures footer sticks to the bottom */
 }
 
-.top-bar {
-  width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+/* Top navigation bar styling */
+.topbar {
   color: white;
+  padding: 2vh 0; /* Adjusted to use viewport height units */
+  z-index: 2; /* Higher stacking context than the pseudo-background */
+}
+
+.topbar nav ul {
   display: flex;
-  justify-content: flex-end; /* Aligns items to the right of the bar */
+  justify-content: flex-end;
   align-items: center;
-  padding: 10px 10%; /* Adds padding on both sides for better visibility on mobile */
-  box-sizing: border-box; /* Includes padding in the width calculation */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
 }
 
-.logo {
-  height: 40px; /* Adjust based on your logo's aspect ratio */
-  margin-left: 10px; /* Space between logo and last nav item */
+.topbar nav ul li {
+  display: inline;
+  margin-left: 2vw; /* Adjusted to use viewport width units */
 }
 
-.nav-link {
-  margin-left: 10px; /* Space between links */
+.topbar nav ul li a {
   color: white;
-  text-decoration: none; /* Removes underline from links */
-  font-size: 16px;
-  white-space: nowrap; /* Prevents text from wrapping */
-}
-
-.nav-link:hover {
-  text-decoration: underline; /* Adds underline on hover for better UX */
-  cursor: pointer; /* Changes cursor to a pointer to indicate a link */
-}
-
-.content {
-  color: #0030ad; /* Diamine Kensington Blue Ink OxBlue text color for visibility */
-  display: flex;
-  flex-direction: column; /* Stack children vertically */
-  text-align: center;
-  flex: 1 1 auto;
-  margin-top: 40vh;
-  gap: 16vh;
-  align-items: center;
-}
-
-.handwriting {
-  font-family: "Bradley Hand", "Brush Script MT", "Comic Sans MS", cursive;
-  font-size: x-large;
-  margin-bottom: 11vh;
-}
-
-.footnote {
-  display: flex;
-}
-
-.footnote > * {
-  padding: 40px;
-}
-
-.footnote_l {
-  width: 70%;
-  text-align: left;
-  font-size: 8px;
-}
-
-.footnote_r {
-  width: 30%;
-  text-align: left;
-}
-
-.footnote_r .t {
-  color: #0030ad;
-}
-
-.footnote_r .r {
-  color: #3b6040;
-}
-
-.footnote_r .i {
-  color: #28282b;
-}
-
-.footnote_r .l {
-  color: #9b2f25;
-}
-
-.footnote_r .p {
-  color: #5e2b89;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  padding: 20px;
-  justify-items: center;
-  width: 50%;
-  justify-content: center;
-}
-
-.grid-item {
-  display: inline-block;
-  padding: 20px;
-  height: 100%;
-}
-
-.grid-item a {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #0030ad;
   text-decoration: none;
 }
 
-.grid-item a:hover {
-  text-decoration: underline;
+.topbar nav ul li img {
+  height: 5vh;
+  margin-right: 2vw;
 }
 
-.service_card {
-  transition: transform 0.2s;
-  font-size: 18px;
-  border-radius: 50px;
+.content {
+  flex-grow: 1; /* Takes up all available space */
+  margin-top: calc(25vh - 9vh); /* Starts from the bottom of the clip-path, accounting for the topbar height */
+  display: flex; /* Enables flexbox centering */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  padding: 1.25rem;
 }
 
-.service_card:hover {
-  transform: scale(1.1);
-}
-
-.service_card_text {
-  background-color: #ccc;
-  padding: 10px;
-  border-radius: 0 0 25px 25px;
-}
-
-.content_service {
-  text-align: left;
-  padding: 0 20%;
-}
-
-.footer {
-  width: 100%;
-  height: 40px; /* Set the height of the footer */
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: small;
-  color: #85121a; /* Diamine Kensington Red Ink OxBlood Footer text color */
-  padding-top: 15px;
-  background: rgba(40, 40, 43, 0.2);
+/* Styling the slogan */
+.centered-slogan {
   text-align: center;
-  line-height: 20px; /* Align text vertically */
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-size: 36px;
+  color: #0030ad; /* Text color */
+}
+
+/* Important note styling */
+.important_note {
+  display: flex;
+  padding: 0.5vh;
+}
+
+.important_note_left, .important_note_right {
+  font-size: small;
+}
+
+.important_note_left {
+  color: grey;
+  width: 70%;
+  padding-right: 2vw;
+}
+
+.important_note_right {
+  width: 30%;
+}
+
+.important_note_right div {
+  color: #CC0000; /* Default text color */
+  margin-bottom: 0.25rem; /* Spacing between lines */
+}
+
+.important_note_right div span {
+  color: grey; /* Color for the rest of the text after the first letter */
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 1.5vh;
+  color: #CC0000;
+}
+
+.footer a img {
+  vertical-align: middle;
+  height: 2vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 100%; /* More screen usage on smaller devices */
+  }
+  .important_note_left, .important_note_right {
+    font-size: xx-small;
+  }
 }
