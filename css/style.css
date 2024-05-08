@@ -100,6 +100,48 @@ body::before {
   color: #0030ad; /* Text color */
 }
 
+/* Grid Container styling */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 10px;
+  padding: 5px;
+}
+
+
+/* Grid Item styling */
+.grid-item {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Service Card styling */
+.service_card {
+  border: 1px solid #ccc; /* subtle border */
+  padding: 5px;
+  text-align: center; /* Center text */
+  background-color: #f9f9f9; /* Light background for the card */
+  transition: transform 0.3s ease; /* Smooth transform effect for hover */
+}
+
+.service_card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for lifted effect */
+}
+
+.service_card img {
+  max-width: 100%; /* Ensure image is responsive and fits the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.service_card_text {
+  margin-top: 5px; /* Space between image and text */
+  color: #333; /* Text color for readability */
+  font-size: small; /* Adequate font size for visibility */
+}
+
+
 /* Important note styling */
 .important_note {
   display: flex;
@@ -143,14 +185,36 @@ body::before {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 220px);
+  }
+}
+
+@media (max-width: 950px) {
   .container {
     width: 100%; /* More screen usage on smaller devices */
   }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 768px) {
   .important_note_left, .important_note_right {
     font-size: xx-small;
   }
   .footer {
     font-size: x-small;
+  }
+  .grid-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 550px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
