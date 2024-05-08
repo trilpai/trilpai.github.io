@@ -116,12 +116,15 @@ body::before {
   align-items: center; /* Center content horizontally */
 }
 
+.grid-item a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Optional: ensures the link color matches the text color */
+}
+
 /* Service Card styling */
 .service_card {
-  border: 1px solid #ccc; /* subtle border */
   padding: 5px;
   text-align: center; /* Center text */
-  background-color: #f9f9f9; /* Light background for the card */
   transition: transform 0.3s ease; /* Smooth transform effect for hover */
 }
 
@@ -137,10 +140,14 @@ body::before {
 
 .service_card_text {
   margin-top: 5px; /* Space between image and text */
-  color: #333; /* Text color for readability */
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #0030ad; /* Text color */
   font-size: small; /* Adequate font size for visibility */
 }
-
 
 /* Important note styling */
 .important_note {
