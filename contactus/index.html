@@ -43,59 +43,36 @@
     
     <script type="application/ld+json">
       {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "trilp",
-        "url": "https://www.trilp.in/",
-        "logo": "https://www.trilp.in/img/logo/trilplogo-white-bg.png",
-        "image": "https://www.trilp.in/img/logo/trilp-sm-share.jpg",
-        "description": "Discover Trilp, Pune's leading AI driven software development consultancy. Expert in AI, machine learning, and full-stack software like custom LMS, ERP, CRM.",
-        "keywords": "software development outsourcing company in India, customised software development company in India, top ai software development company in India, custom lms learning management system development company in India, top edtech software development company in India, best full stack developer in Pune India, top full stack software architect in Pune India",
-        "founder": [
-          {
-            "@type": "Person",
-            "name": "Pradyumna Das Roy",
-            "sameAs": "https://www.linkedin.com/in/pradyroy/"
-          },
-          {
-            "@type": "Person",
-            "name": "Ratan Upadhyay",
-            "sameAs": "https://www.linkedin.com/in/ratanupadhyaycsm/"
-          },
-          {
-            "@type": "Person",
-            "name": "Asad Mahmood",
-            "sameAs": "https://www.linkedin.com/in/asad-mahmood-3144581a7/"
-          }
-        ],
-        "foundingDate": "2024-04-15",
-        "brand": {
+        "@context": "http://schema.org",
+        "@type": "ContactPage",
+        "url": "https://www.trilp.in/contactus",
+        "description": "Get in touch with trilp for all your AI and software development needs. Visit our contact page for more information on how to reach us.",
+        "provider": {
+          "@type": "Organization",
           "name": "trilp",
+          "url": "https://www.trilp.in/",
           "logo": "https://www.trilp.in/img/logo/trilplogo-white-bg.png",
-          "slogan": "We design, develop and deliver software"
-    
-        },
-        "location":{
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Magarpatta City",
-            "addressLocality": "Pune",
-            "addressRegion": "Maharashtra",
-            "postalCode": "411013",
-            "addressCountry": "India"
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Magarpatta City",
+              "addressLocality": "Pune",
+              "addressRegion": "Maharashtra",
+              "postalCode": "411013",
+              "addressCountry": "India"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "18.51471623183104",
+              "longitude": "73.93113109619145"
+            }
           },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "18.51471623183104",
-            "longitude": "73.93113109619145"
-          }
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "contact@trilp.in",
-          "contactType": "founder",
-          "areaServed": [
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@trilp.in",
+            "contactType": "customer support",
+            "areaServed": [
               "Pune",
               "Mumbai",
               "Bengaluru",
@@ -106,13 +83,23 @@
               "United Kingdom",
               "Australia",
               "Global"
-          ]
+            ]
+          }
         },
-        "sameAs": [
-          "https://github.com/trilpai"
-        ]
+        "potentialAction": {
+          "@type": "ContactAction",
+          "name": "Contact Customer Support",
+          "handler": {
+            "@type": "HttpActionHandler",
+            "url": "https://www.trilp.in/contactus"
+          },
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.trilp.in/contactus"
+          }
+        }
       }
-      </script>
+      </script>      
   </head>
   <body>
     <div class="container">
