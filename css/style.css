@@ -149,6 +149,14 @@ body::before {
   font-size: small; /* Adequate font size for visibility */
 }
 
+.spaced-text {
+  letter-spacing: 0.04em;
+}
+
+.bold-font {
+  font-weight: 500; /* Adjust as needed, provided 600 is supported */
+}
+
 .contactus {
   display: flex; /* Enables flexbox */
   flex-direction: column; /* Stacks children vertically */
