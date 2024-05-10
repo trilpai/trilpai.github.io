@@ -149,6 +149,24 @@ body::before {
   font-size: small; /* Adequate font size for visibility */
 }
 
+.contactus {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers children horizontally */
+  justify-content: center; /* Centers children vertically */
+  width: 100%; /* Takes full width of its parent */
+  height: 100%; /* Takes full height to align vertically within .content */
+  text-align: center; /* Aligns text in the center for any text inside */
+}
+
+.red {
+  color:#CC0000
+}
+
+.blueink {
+  color: #0030ad;
+}
+
 /* Important note styling */
 .important_note {
   display: flex;
