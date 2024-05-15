@@ -1,4 +1,15 @@
 /* Base setup */
+/*
+Use below colors only:
+$background-color: #fff; //white color
+$dark-background-color: #28282B; //matte black color
+$logo-color: #F7B924; //gold-like yellow Xanthous color
+$text-color-blue: #0030AD; //blue ink color
+$text-color-red: #CC0000; //red color
+$text-color-green: #006633; //green color
+$text-color-purple: #B266FF; //purple color
+$text-color-grey: grey; //grey color
+*/
 body, html {
   margin: 0;
   padding: 0;
