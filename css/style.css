@@ -88,6 +88,10 @@ body::before {
   text-decoration: none;
 }
 
+.topbar nav ul li a.active {
+  color: #F7B924; /* Use the gold-like yellow color for active link */
+}
+
 .topbar nav ul li img {
   height: 5vh;
   margin-right: 2vw;
