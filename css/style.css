@@ -123,8 +123,7 @@ body::before {
 
 .content_service {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 20px;
+  grid-template-columns: 48% 48%;
   line-height: 1.4;
 }
 
@@ -140,13 +139,16 @@ body::before {
   letter-spacing: 1px;
   text-align: center;
   transition: .3s;
+  margin: 10px;
 }
 
 .service_content_item strong {
   display: block;
-  font-size: 28px;
+  font-size: 1.5rem;
   margin: 10px 0;
   color: #cc0000;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .service_content_item ol {
@@ -279,5 +281,15 @@ body::before {
 @media (max-width: 550px) {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content_service {
+    grid-template-columns: 100%;
+  }
+  .ii {
+    grid-column-start: auto;
+    grid-column-end: auto;
   }
 }
