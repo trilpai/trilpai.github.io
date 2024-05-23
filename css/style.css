@@ -243,6 +243,7 @@ body::before {
 .important_note_left {
   color: grey;
   width: 70%;
+  padding-left: 2vw;
   padding-right: 2vw;
 }
 
