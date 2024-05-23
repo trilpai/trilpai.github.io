@@ -50,6 +50,10 @@ body::before {
   font-style: normal;
 }
 
+.handwriting {
+  font-family: 'Bradley Hand', 'Brush Script MT', 'Comic Sans MS', cursive;
+}
+
 /* Base container setup */
 .container {
   width: 70%;
