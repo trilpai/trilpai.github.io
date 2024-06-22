@@ -168,6 +168,25 @@ body::before {
   font-size: small; /* Adequate font size for visibility */
 }
 
+.content_service_wrapper {
+  width: 100%; /* Takes the full width to align with the parent */
+  display: flex; /* Uses Flexbox to manage its children */
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers children horizontally */
+  justify-content: flex-start; /* Aligns children to the start vertically */
+}
+
+
+.content_service_heading {
+  font-size: 24px;
+  font-weight: 500;
+  width: 100%;
+  color: #28282B;
+  padding-left: 20px;
+  margin-bottom: 20px; /* Adds space below the heading */
+  display: block; /* Ensure it's a block-level element */
+}
+
 .content_service {
   display: grid;
   grid-template-columns: 48% 48%;
@@ -179,7 +198,7 @@ body::before {
   grid-column-end: 3;
 }
 
-.service_content_item {
+.content_service_item {
   background: #EEE;
   border-radius: 5px;
   padding: 1rem 2rem;
@@ -189,7 +208,7 @@ body::before {
   margin: 10px;
 }
 
-.service_content_item strong {
+.content_service_item strong {
   display: block;
   font-size: 1.5rem;
   margin: 10px 0;
@@ -198,12 +217,12 @@ body::before {
   letter-spacing: 0.04em;
 }
 
-.service_content_item ol {
+.content_service_item ol {
   text-align: left;
   margin: 0 auto;
 }
 
-.service_content_item:hover{
+.content_service_item:hover{
   background: #DDD;
   transform: scale(1.05);
 }
