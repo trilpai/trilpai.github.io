@@ -1,24 +1,22 @@
-title: Your awesome title
+title: Trilp Software Pune
 author:
-  name: GitHub User
-  email: your-email@domain.com
+  name: Pradyumna Das Roy
+  email: hello@trilp.in
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
+  Discover Trilp Software Pune, India's leading AI driven software development 
+  consultancy. Expert in AI, machine learning, and full-stack software like 
+  custom ERP, CRM, LMS.
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Theme-specific settings
-
-# If you want to link only specific pages in your header, use this and add the path to the pages
-# in order as they should show up.
+# If you want to link only specific pages in your header, use this and add the path 
+# to the pages in order as they should show up.
 header_pages:
   - about.md
 
@@ -29,7 +27,7 @@ trilp:
   # Trilp date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #date_format: "%b-%d-%Y"
+  date_format: "%b-%d-%Y"
 
   # Generate social links in footer.
   #social_links:
