@@ -19,6 +19,8 @@ plugins:
 # to the pages in order as they should show up.
 header_pages:
   - posts.md
+  - author.md
+  - gridmain.md
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
