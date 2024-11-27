@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name     = "trilp"
   spec.version  = "3.0.0.dev"
   spec.authors  = ["Pradyumna Das Roy"]
-  spec.email    = ["hello@trilp.in"]
+  spec.email    = ["contact@trilp.in"]
 
   spec.summary  = "A beautiful theme for Jekyll."
   spec.homepage = "https://github.com/trilpai/trilpai.github.io"
