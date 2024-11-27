@@ -3346,16 +3346,7 @@ input, select, textarea {
 					padding-top: 4rem;
 					width: 100%;
 				}
-				    /* Add this specific rule for the Home link */
-					#wrapper > section.intro > header > a.icon.solid.fa-home {
-						position: absolute; /* Position the link absolutely within the header */
-						top: 0; /* Adjust spacing from the top */
-						left: 0; /* Adjust spacing from the left */
-						padding: 1rem;
-						text-decoration: none; /* Optional: remove underline */
-						color: inherit; /* Optional: match current color */
-						z-index: 10; /* Ensure it stays above other elements */
-					}
+				    
 
 					#wrapper > section.intro > header > * {
 						margin-left: auto;
