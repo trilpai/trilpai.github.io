@@ -1,0 +1,74 @@
+logo_img_url: assets/images/logo/trilp-logo.png
+title: Trilp Software
+subtitle: Intelligent Journal & Ledgers
+
+section1:
+  title: THE CODE
+  subtitle: CRAFTING INTELLIGENCE PERPETUALLY
+  article1:
+    heading: SOFTWARE DEVELOPMENT, MAINTENANCE & SALES
+    text: >
+      We develop and sell ERP and CRM software for MSMEs, offering 
+      seamless solutions for Purchase, Inventory, Sales, Invoicing, 
+      Accounting, HR, Helpdesk, Chatbots and more, powered by our 
+      intelligent journal & ledgers platform.
+    cta_text: View Details
+    cta_url: 
+  article2:
+    heading: SOFTWARE CONSULTING, TRAINING & INTERNSHIP
+    text: >
+      We offer free and paid software consulting, training and internships 
+      for aspiring full-stack developers, focusing on API development with 
+      Python/NodeJS, ReactJS, & AI/ML, offering hands-on experience for 
+      building careers in tech.
+    cta_text: View Offerings
+    cta_url: 
+
+section2:
+  title: Skunk Works
+  subtitle: <span>w<sub>n+1</sub> = w<sub>n</sub> + μe<sub>n</sub>x<sub>n</sub></span>
+  article1:
+    image_url: assets/images/ledgers-journals-platform.jpg
+    heading: Intelligent Journal & Ledgers
+    text: >
+      Intelligent Journal & Ledgers serves as a robust core platform, featuring 
+      a modular plug-in architecture. Built using Python and MySQL, it is 
+      engineered for scalability and offers seamless data integration, enabling 
+      advanced and efficient bookkeeping solutions.
+    cta_text: Learn More
+    cta_url: 
+  article2:
+    image_url: assets/images/app-plugins.jpg
+    heading: Business Apps as Plugins
+    text: >
+      Business applications like Purchase, Inventory, Sales, Invoicing, Accounting, 
+      and more seamlessly integrate with the core Journal & Ledgers platform. Its 
+      adaptable plug-in architecture enables users to easily add or remove 
+      applications to suit their specific needs.
+    cta_text: Learn More
+    cta_url: 
+
+section3:
+  title: Skunk Works
+  subtitle: 
+  article1:
+    icon: assets/images/ledgers-journals-platform.jpg
+    heading: Intelligent Journal & Ledgers
+    text: >
+      Intelligent Journal & Ledgers serves as a robust core platform, featuring 
+      a modular plug-in architecture. Built using Python and MySQL, it is 
+      engineered for scalability and offers seamless data integration, enabling 
+      advanced and efficient bookkeeping solutions.
+    cta_text: Learn More
+    cta_url: 
+  article2:
+    icon: assets/images/app-plugins.jpg
+    heading: Business Apps as Plugins
+    text: >
+      Business applications like Purchase, Inventory, Sales, Invoicing, Accounting, 
+      and more seamlessly integrate with the core Journal & Ledgers platform. Its 
+      adaptable plug-in architecture enables users to easily add or remove 
+      applications to suit their specific needs.
+    cta_text: Learn More
+    cta_url: 
+ 
