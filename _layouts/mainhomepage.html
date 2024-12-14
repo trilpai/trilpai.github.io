@@ -9,7 +9,7 @@
 		<meta name="keywords" content="Trilp Software Pune software development company in India, top ai software development company in India, top edtech software development company in India, best full stack developer in Pune India, best software architect in Pune India, ai ml internship india, ai ml training india">
 
 		<link rel="canonical" href="https://www.trilp.in/">
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{{ 'assets/css/main.css' | absolute_url }}" />
 
 		<meta name="robots" content="index, follow">
 
@@ -97,12 +97,12 @@
 		<!-- Banner -->
 			<section id="banner">
 				<header class="major">
-					<span class="image"><img src="{{ site.data.homepage.logo_img_url }}" alt=""></span>
+					<span class="image"><img src="{{ site.data.homepage.logo_img_url | absolute_url }}" alt=""></span>
 					<h1>{{ site.data.homepage.title }}</h1>
 					<p>{{ site.data.homepage.subtitle }}</p>
 				</header>
 				<ul class="actions special">
-					<li><a href="#one" class="button scrolly">Proceed</a></li>
+					<li><a href="{{ site.data.homepage.start_cta_url | absolute_url }}" class="button scrolly">{{ site.data.homepage.start_cta_text }}</a></li>
 				</ul>
 			</section>
 
@@ -115,17 +115,17 @@
 					</header>
 					<section class="split">
 						<article>
-							<h4>{{ site.data.homepage.section1.article2.heading }}</h4>
-							<p>{{ site.data.homepage.section1.article2.text }}</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">{{ site.data.homepage.section1.article2.cta_text }}</a></li>
-							</ul>
-						</article>
-						<article>
 							<h4>{{ site.data.homepage.section1.article1.heading }}</h4>
 							<p>{{ site.data.homepage.section1.article1.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">{{ site.data.homepage.section1.article1.cta_text }}</a></li>
+								<li><a href="{{ site.data.homepage.section1.article1.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section1.article1.cta_text }}</a></li>
+							</ul>
+						</article>
+						<article>
+							<h4>{{ site.data.homepage.section1.article2.heading }}</h4>
+							<p>{{ site.data.homepage.section1.article2.text }}</p>
+							<ul class="actions special">
+								<li><a href="{{ site.data.homepage.section1.article2.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section1.article2.cta_text }}</a></li>
 							</ul>
 						</article>
 					</section>
@@ -137,46 +137,46 @@
 			<section id="two" class="wrapper style3 special">
 				<div class="inner">
 					<header class="major">
-						<h2>Global Digital Academy</h2>
-						<p>Affordable Software Skills Training for Livelihood</p>
+						<h2>{{ site.data.homepage.section2.title }}</h2>
+						<p>{{ site.data.homepage.section2.subtitle }}</p>
 					</header>
 					<section class="features">
 						<section>
-							<span class="icon solid fa-cubes style3"></span>
-							<h4>Software Developer Basic Training/Internship</h4>
-							<p>Linux Shell Scripting, Basic SQL using MySQL, Basics of Source Control using Github, Basic web programming using HTML, CSS and plain Javascript.</p>
+							<span class="icon solid {{ site.data.homepage.section2.article1.icon }} style3"></span>
+							<h4>{{ site.data.homepage.section2.article1.heading }}</h4>
+							<p>{{ site.data.homepage.section2.article1.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="{{ site.data.homepage.section2.article1.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section2.article1.cta_text }}</a></li>
 							</ul>
 						</section>
 						<section>
-							<span class="icon solid fa-sun style5"></span>
-							<h4>Full Stack Developer-I Training/Internship(Python)</h4>
-							<p>Hands-on training and internship certificate in Python backend development, RESTful API creation using Flask, database integration with MySQL, and version control using Git for full-stack application development.</p>
+							<span class="icon solid {{ site.data.homepage.section2.article2.icon }} style5"></span>
+							<h4>{{ site.data.homepage.section2.article2.heading }}</h4>
+							<p>{{ site.data.homepage.section2.article2.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="{{ site.data.homepage.section2.article2.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section2.article2.cta_text }}</a></li>
 							</ul>
 						</section>
 						<section>
-							<span class="icon fa-gem style4"></span>
-							<h4>Full Stack Developer-II Training(Next.js/React.js)</h4>
-							<p>Hands-on training and internship certificate in Next.js(React.js framework) frontend development, consuming RESTful APIs, JWT based authentication, and version control using Git for full-stack application development.</p>
+							<span class="icon {{ site.data.homepage.section2.article3.icon }} style4"></span>
+							<h4>{{ site.data.homepage.section2.article3.heading }}</h4>
+							<p>{{ site.data.homepage.section2.article3.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="{{ site.data.homepage.section2.article3.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section2.article3.cta_text }}</a></li>
 							</ul>
 						</section>
 						<section>
-							<span class="icon solid fa-brain style2"></span>
-							<h4>AI/ML Data Science Training(Python + Tableau)</h4>
-							<p>Hands-on training in Python for AI/ML, including data preprocessing, model building, and machine learning algorithms, combined with data visualization using Tableau for powerful insights and real-world data science applications.</p>
+							<span class="icon solid {{ site.data.homepage.section2.article4.icon }} style2"></span>
+							<h4>{{ site.data.homepage.section2.article4.heading }}</h4>
+							<p>{{ site.data.homepage.section2.article4.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="{{ site.data.homepage.section2.article4.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section2.article4.cta_text }}</a></li>
 							</ul>
 						</section>
 					</section>
 					<footer class="major">
 						<ul class="actions special">
-							<li><a href="#" class="button">Take a Quiz</a></li>
+							<li><a href="{{ site.data.homepage.section2.end_cta_url | absolute_url }}" class="button">{{ site.data.homepage.section2.end_cta_text }}</a></li>
 						</ul>
 					</footer>
 				</div>
@@ -186,56 +186,36 @@
 			<section id="three" class="wrapper style1 special">
 				<div class="inner">
 					<header class="major">
-						<h2>{{ site.data.homepage.section2.title }}</h2>
+						<h2>{{ site.data.homepage.section3.title }}</h2>
 						<p style="font-family: Arial, sans-serif !important; text-transform: none !important;font-size: 1em;">
-							{{ site.data.homepage.section2.subtitle }}
+							{{ site.data.homepage.section3.subtitle }}
 						</p>
 					</header>
 					<section class="spotlights">
 						<section>
-							<span class="image"><img src="{{ site.data.homepage.section2.article1.image_url }}" alt="" /></span>
-							<h4>{{ site.data.homepage.section2.article1.heading }}</h4>
-							<p>{{ site.data.homepage.section2.article1.text }}</p>
+							<span class="image"><img src="{{ site.data.homepage.section3.article1.image_url | absolute_url }}" alt="" /></span>
+							<h4>{{ site.data.homepage.section3.article1.heading }}</h4>
+							<p>{{ site.data.homepage.section3.article1.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">{{ site.data.homepage.section2.article1.cta_text }}</a></li>
+								<li><a href="{{ site.data.homepage.section3.article1.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section3.article1.cta_text }}</a></li>
 							</ul>
 						</section>
 						<section>
-							<span class="image"><img src="{{ site.data.homepage.section2.article2.image_url }}" alt="" /></span>
-							<h4>{{ site.data.homepage.section2.article2.heading }}</h4>
-							<p>{{ site.data.homepage.section2.article2.text }}</p>
+							<span class="image"><img src="{{ site.data.homepage.section3.article2.image_url }}" alt="" /></span>
+							<h4>{{ site.data.homepage.section3.article2.heading }}</h4>
+							<p>{{ site.data.homepage.section3.article2.text }}</p>
 							<ul class="actions special">
-								<li><a href="#" class="button">{{ site.data.homepage.section2.article2.cta_text }}</a></li>
+								<li><a href="{{ site.data.homepage.section3.article2.cta_url | absolute_url }}" class="button">{{ site.data.homepage.section3.article2.cta_text }}</a></li>
 							</ul>
 						</section>
 					</section>
 				</div>
 			</section>
-
-
 		<!-- Four -->
-		 	<!--
-			<section id="four" class="wrapper style4 special-alt">
-				<div class="inner split">
-					<section>
-						<header class="major">
-							<h2>ज्ञानं ज्ञानार्थम्</h2>
-						</header>
-						<p>Gyanam Gyanartham. Pursuing knowledge for its own intrinsic value, with a focus on continuous learning, growth, and intellectual curiosity. Knowledge as the ultimate purpose, expanding our minds and understanding.</p>
-					</section>
-					<form method="post" action="#">
-						<ul class="actions">
-							<li><a href="#" class="button">Take a Quiz</a></li>
-						</ul>
-					</form>
-				</div>
-			</section>
-			-->
-		<!-- Five -->
-			<section id="five" class="wrapper style4 special alt">
+			<section id="four" class="wrapper style4 special alt">
 				<div class="inner">
-					<h4>योगः कर्मसु कौशलम्</h4>
-					<p>Yogaḥ Karmasu Kauśalam. Performing one's work with skill and focus is considered the path of Yoga.</p>
+					<h4>{{ site.data.homepage.section4.title }}</h4>
+					<p>{{ site.data.homepage.section4.subtitle }}</p>
 				</div>
 			</section>
 
@@ -260,13 +240,13 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{{ 'assets/js/jquery.min.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/jquery.scrolly.min.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/jquery.scrollex.min.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/browser.min.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/breakpoints.min.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/util.js' | absolute_url }}"></script>
+			<script src="{{ 'assets/js/main.js' | absolute_url }}"></script>
 
 	</body>
 </html>
