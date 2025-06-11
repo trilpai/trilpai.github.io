@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Primary Meta Tags -->
+    <title>ARK - Applied Research Kernel by Trilp Software</title>
+    <meta
+      name="description"
+      content="ARK by Trilp Software – The Applied Research Kernel for innovative software prototypes, open-source starter kits, and modular business platforms."
+    />
+    <meta
+      name="keywords"
+      content="ARK, Trilp Software, Applied Research Kernel, Software Engineering, Python Starter Kit, Open Source, Journals Ledgers Platform, Modular Accounting"
+    />
+    <meta name="author" content="Pradyumna Das Roy" />
+    <link rel="canonical" href="https://www.trilp.in/ark" />
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Trilp" />
+    <link rel="manifest" href="/assets/img/favicons/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="ARK - Applied Research Kernel by Trilp Software" />
+    <meta
+      property="og:description"
+      content="Discover Trilp Software's ARK – a Skunk Works-style R&D lab focused on scalable engineering tools, open platforms, and experimental prototypes."
+    />
+    <meta property="og:image" content="https://www.trilp.in/assets/img/trilp-software-logo.png" />
+    <meta property="og:url" content="https://www.trilp.in/ark" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ARK - Applied Research Kernel by Trilp Software" />
+    <meta
+      name="twitter:description"
+      content="Explore the cutting-edge of Trilp Software with ARK – from API starter kits to modular ERP tools, built for developers and innovators."
+    />
+    <meta name="twitter:image" content="https://www.trilp.in/assets/img/trilp-software-logo.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ARK - Applied Research Kernel by Trilp Software",
+        "alternateName": "ARK",
+        "url": "https://www.trilp.in/ark",
+        "logo": "https://www.trilp.in/assets/img/trilp-software-logo.png",
+        "description": "ARK by Trilp Software – The Applied Research Kernel for innovative software prototypes, open-source starter kits, and modular business platforms.",
+        "keywords": [
+          "ARK",
+          "Trilp Software",
+          "Applied Research Kernel",
+          "Software Engineering",
+          "Open Source",
+          "Python Starter Kit",
+          "Journals Ledgers Platform",
+          "Modular Accounting",
+          "Experimental Software Projects"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Pradyumna Das Roy",
+          "url": "https://www.linkedin.com/in/pradyroy/"
+        },
+        "foundingDate": "2023-11-01",
+        "brand": {
+          "name": "Trilp Software",
+          "logo": "https://www.trilp.in/assets/img/trilp-software-logo.png",
+          "slogan": "Empowering Minds. Engineering Futures."
+        },
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Magarpatta City",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "postalCode": "411013",
+            "addressCountry": "India"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "18.51471623183104",
+            "longitude": "73.93113109619145"
+          }
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "contact@trilp.in",
+            "contactType": "software consulting"
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "contact@trilp.in",
+            "contactType": "open source collaboration"
+          }
+        ],
+        "areaServed": ["India", "USA"],
+        "sameAs": "https://github.com/trilpai"
+      }
+    </script>
+
+    <!-- Inter Font for sleek sans-serif typography -->
+    <link rel="stylesheet" href="/assets/css/inter-font.css" />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandcolorblue: '#002B5B',
+              brandcolorred: '#D72638',
+              brandcolorlightblue: '#4F9DF7',
+              brandcolorlightred: '#FF4C4C',
+            },
+            fontFamily: {
+              sans: ['InterVariable', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script> -->
+
+    <!-- Alpine.js for interactivity (e.g., menu toggle) -->
+    <script defer src="/assets/js/alpinejs-3-14-9-min.js"></script>
+
+    <!-- Custom Background Style for Zigzag Lines -->
+    <style>
+      .bg-zigzag-lines {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bg-zigzag-lines::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 920 1430' x='0px' y='0px'%3E %3Cpath style='fill: rgba(255, 255, 255, 1)' d='M889.72,1137.55l-2.91-0.75l-364.39,282.94l-0.7-0.9l-0.51,0.11l-94.77-451.5l-32.51-15.75l-16.73-8.11l0,0.68 l-1.46,0l0-1.39l-1.89-0.92l-112.41-54.47l-0.29,1.03l-1.41-0.37l0.37-1.31l-34.14-16.54l-98.56-47.76l-0.59,0.81l-1.16-0.88 l0.42-0.57L11.43,766.33l-0.25,0.2l-0.9-1.15l102.87-79.98l0.08-0.1l0.02,0.02l116.68-90.72l-0.18-0.34l1.3-0.66l0.05,0.09 l100.5-78.14l-0.07-0.32l0.65-0.14l42.3-32.89l-0.15-54.54l-0.59,0.29l-0.64-1.31l1.23-0.6l-0.01-4.54l-0.33-122.47l-0.99,0.18 l-0.28-1.43l1.27-0.23l-0.4-147.49l-0.87-0.16l0.28-1.43l0.58,0.1l-0.35-127.48l-0.13-0.06l0.64-1.31L489.97,76.8l0.73,0.19 l-0.04,0.14l132.63,65.11l0.33-0.45l1.16,0.88l-0.16,0.22l114.21,56.07l0.45-0.35l0.72,0.93l47.89,23.51l2.76-1.36l0.56,4.61 l-3.32-1.63L571.52,330.88L375.95,482.93l0.66,239.95l51.12,243.57l222.53,107.83l236.23,60.93l2.27-1.77 M375.8,425.34l17.25-8.47 l36.13-127.75l-53.73,9.66L375.8,425.34z M551,241.05l38.19-52.2l-123.83-22.27l-34.13,120.68l98.99-17.81L551,241.05z M532.3,269.09l151.34-27.22l37.63-29.25l-130.48-23.47L532.3,269.09z M303.38,733.9l-2.36-4.48l-44.18-83.78L182.5,747.25 l40.78,36.46l52.69,47.11L303.38,733.9z M277.18,831.91l56.95,50.93L375.69,920l-0.13-49.23l-71.19-135L277.18,831.91z M303.96,731.86l41.93-148.25l-9.74-46.39L257.8,644.33L303.96,731.86z M304.94,733.73l9.55,18.12l61.05,115.78l-0.39-144.6 l-16.9-80.53l-11.71-55.81L304.94,733.73z M375.21,211.79l0.23,85.51l54.17-9.74l34.29-121.23l-88.87-15.98L375.21,211.79z M430.78,288.83l-17.88,63.21L394.81,416l44.01-21.6l90.15-123.23L430.78,288.83z M287.76,898.62l87.99,42.64l-0.05-19.29 l-91.37-81.71l-7.59-6.78l-14.88,52.59L287.76,898.62z M174.26,843.62l86.26,41.8l15-53.03l-93.89-83.95l-53.34,72.91L174.26,843.62 z M113.18,687.22L12.71,765.33l55.69,26.99l58.56,28.38l53.58-73.24l-34.83-31.14L113.18,687.22z M230.62,595.92l-116.27,90.4 l63.02,56.36l4.03,3.61l74.67-102.08l-7.47-14.17L230.62,595.92z M331.94,517.15l-100.15,77.86l25.25,47.88l78.71-107.59l-1.71-8.14 L331.94,517.15z M333.22,516.15l2.02,9.64l1.66,7.92l34.65-47.37L333.22,516.15z M337.31,535.63l9.43,44.95l26.67-94.3 L337.31,535.63z M347.39,583.66l27.74,132.16l-0.62-228.04L347.39,583.66z M374.7,21.83l0.35,127.02l89.27,16.06l24.61-87 L374.7,21.83z M490.25,78.56l-22.26,78.7l-2.24,7.91l124.39,22.37l10.23-13.99l22.04-30.12L490.25,78.56z M623.74,144.09 l-12.29,16.8l-19.71,26.95l131.07,23.58l14.73-11.45L623.74,144.09z M739,200.67l-13.3,10.34l-0.96,0.74l58.14,10.46L739,200.67z M723.19,212.96l-25.33,19.69l-11.14,8.66l97.03-17.45L723.19,212.96z M782.89,225.5l-98.64,17.74l-107.06,83.23L782.89,225.5z M631.68,282.26l49.48-38.47l-150.1,27l-89.41,122.22l129.1-63.37L631.68,282.26z M565.06,334.05l-125.28,61.5l-45.94,62.8 l-14.96,20.44L565.06,334.05z M425.31,412.87l11.65-15.93l-42.69,20.96l-13.66,48.3l-3.58,12.67L425.31,412.87z M392.51,418.76 l-16.71,8.2l0.01,4.72l0.12,45.68L392.51,418.76z M377.21,941.96l21.37,10.36l24.14,11.7l-45.56-40.74L377.21,941.96z M377.15,921.31l34.83,31.15l12.57,11.24l-47.53-90.14L377.15,921.31z M376.63,730.07l0.38,140.33l48.29,91.59L376.63,730.07z M806.29,1197.48l75.8-58.86l-28.56,11.47l-25.6,10.28l14.96,7.25l-0.64,1.31l-16.16-7.83l-124.76,50.1l40.56,36.27L806.29,1197.48z M522.43,1146.18l58.88,111.66l52.71-21.17l64.61-25.95l-75.11-67.17L522.43,1146.18z M621.92,1142.14l-115.78-103.53l-46.8-12.07 l62.33,118.2l7.06-0.18L621.92,1142.14z M700.14,1210.12l124.19-49.87l-42.89-20.78l-155.8,4.04L700.14,1210.12z M679.7,1295.77 l61.03-47.39l-40.9-36.57l-117.85,47.32l42.09,79.82L679.7,1295.77z M522.48,1417.85l1.83-1.42l98.6-76.56l-42.28-80.19 l-84.25,33.83L522.48,1417.85z M496.08,1292.06l83.87-33.68l-59.14-112.16l-55.04,1.43L496.08,1292.06z M465.46,1146.2l54.58-1.42 l-62.61-118.74l-18.03-4.65l0.36-1.41l16.74,4.32l-27.63-52.4L465.46,1146.2z M458.42,1024.79l45.35,11.7l-74.14-66.29 L458.42,1024.79z M431.46,969.87l75.38,67.41l136.26,35.15L431.46,969.87z M649.76,1075.65l-140.54-36.25l114.83,102.68l154.53-4.01 L649.76,1075.65z M656.92,1077.5l124.84,60.5l51.97-1.35l47.7-1.24L656.92,1077.5z M784.62,1139.38l41.54,20.13l56.45-22.67 L784.62,1139.38z'/%3E %3C/svg%3E");
+        background-repeat: no-repeat; /* Prevent repeat */
+        background-size: cover; /* Scale to fill */
+        background-position: center center; /* Center alignment */
+        opacity: 0.5; /* Subtle visibility */
+        pointer-events: none;
+        z-index: 0;
+        transform: scaleX(-1); /* Flip horizontally */
+      }
+
+      .bg-zigzag-lines > * {
+        position: relative;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-black font-sans antialiased">
+    <!-- Site Header -->
+    <header class="fixed top-0 z-50 w-full flex" x-data="{ open: false }">
+      <!-- Left Half: Mobile & Desktop Branding + Hamburger -->
+      <div
+        class="w-full md:w-1/2 bg-brandcolorblue text-white flex items-center justify-between px-4 py-2 lg:px-6 border-b border-white/20"
+      >
+        <!-- Hamburger Button -->
+        <button
+          @click="open = true"
+          class="-m-1.5 p-1.5 text-white hover:text-white"
+          aria-label="Open main menu"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+
+        <!-- Mobile Branding -->
+        <div class="flex md:hidden w-full justify-end">
+          <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
+            <span class="text-sm font-semibold">Trilp Software</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" class="h-6 w-6">
+              <rect x="2" y="2" width="66" height="66" fill="#ffffff" />
+              <rect x="5" y="5" width="60" height="20" fill="#002B5B" />
+              <rect x="5" y="25" width="60" height="20" fill="#ffffff" />
+              <rect x="5" y="45" width="60" height="20" fill="#D72638" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Half: Desktop Branding -->
+      <div class="hidden md:flex w-1/2 bg-white items-center justify-end px-4 py-2 lg:px-6">
+        <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" class="h-6 w-6">
+            <rect x="5" y="5" width="60" height="20" fill="#002B5B" />
+            <rect x="5" y="25" width="60" height="20" fill="#ffffff" />
+            <rect x="5" y="45" width="60" height="20" fill="#D72638" />
+          </svg>
+          <span class="text-sm font-semibold text-gray-800">Trilp Software</span>
+        </a>
+      </div>
+
+      <!-- Flyout Side Menu -->
+      <nav
+        x-show="open"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="-translate-x-full opacity-0"
+        x-transition:enter-end="translate-x-0 opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="translate-x-0 opacity-100"
+        x-transition:leave-end="-translate-x-full opacity-0"
+        @click.away="open = false"
+        class="fixed inset-y-0 left-0 z-50 w-72 bg-white shadow-xl px-4 py-6 overflow-y-auto"
+        role="dialog"
+        aria-modal="true"
+      >
+        <!-- Menu Header -->
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-base font-medium">Trilp Software</h2>
+          <button
+            @click="open = false"
+            class="text-gray-600 hover:text-black"
+            aria-label="Close menu"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Semantic Menu -->
+        <ul class="space-y-4 text-sm">
+          <!-- Home -->
+          <li>
+            <a
+              href="/"
+              class="group flex items-start gap-x-3 hover:bg-gray-50 p-3 rounded-lg transition"
+            >
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 group-hover:bg-white"
+              >
+                <!-- Heroicon: Home -->
+                <svg
+                  class="h-5 w-5 text-gray-600 group-hover:text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="font-medium text-gray-900 block">Home</span>
+                <p class="text-gray-600 text-xs">Trilp Software Home Page</p>
+              </div>
+            </a>
+          </li>
+          <!-- ARK -->
+          <li>
+            <a
+              href="/ark"
+              class="group flex items-start gap-x-3 p-3 rounded-lg transition bg-gray-100"
+            >
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
+                <!-- Heroicon: Cog -->
+                <svg
+                  class="h-5 w-5 text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="font-medium text-gray-900 block">ARK</span>
+                <p class="text-gray-600 text-xs">Applied Research Kernel</p>
+              </div>
+            </a>
+          </li>
+          <!-- GAIA -->
+          <li>
+            <a
+              href="/gaia"
+              class="group flex items-start gap-x-3 hover:bg-gray-50 p-3 rounded-lg transition"
+            >
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 group-hover:bg-white"
+              >
+                <!-- Heroicon: Academic Cap -->
+                <svg
+                  class="h-5 w-5 text-gray-600 group-hover:text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="font-medium text-gray-900 block">GAIA</span>
+                <p class="text-gray-600 text-xs">Global AI Academy</p>
+              </div>
+            </a>
+          </li>
+          <!-- Training & Workshops -->
+          <li>
+            <a
+              href="/ai-python-training-workshops"
+              class="group flex items-start gap-x-3 hover:bg-gray-50 p-3 rounded-lg transition"
+            >
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 group-hover:bg-white"
+              >
+                <!-- Heroicon: Presentation Chart Bar -->
+                <svg
+                  class="h-5 w-5 text-gray-600 group-hover:text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="font-medium text-gray-900 block">Workshops</span>
+                <p class="text-gray-600 text-xs">AI & Python Techstack Workshops</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main>
+      <section id="features" class="flex flex-col md:flex-row min-h-[94svh]">
+        <!-- Left Panel with zig-zag lines background -->
+        <div
+          class="bg-brandcolorblue bg-zigzag-lines text-white w-full md:w-1/2 flex justify-center items-center px-8 py-16"
+        >
+          <div class="md:text-right mx-auto space-y-2">
+            <h1 class="text-4xl font-extrabold tracking-tight">Applied</h1>
+            <h1 class="text-4xl font-extrabold tracking-tight">Research</h1>
+            <h1 class="text-4xl font-extrabold tracking-tight">Kernel</h1>
+          </div>
+        </div>
+
+        <!-- Right Panel for ARK projects-->
+        <div class="bg-white w-full md:w-1/2 px-8 py-16 flex items-center">
+          <div class="max-w-2xl mx-auto space-y-10">
+            <!-- Intro -->
+            <p class="text-gray-800 text-sm leading-relaxed">
+              Welcome to the Applied Research Kernel — the Skunk Works of Trilp Software.
+            </p>
+
+            <!-- Project: PTSSK -->
+            <div class="flex items-start gap-4">
+              <div class="bg-gray-100 p-3 rounded-md shadow-sm">
+                <!-- Heroicon: Code -->
+                <svg
+                  class="w-6 h-6 text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Python Tech Stack Starter Kit</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Prebuilt code scaffolds to kickstart scalable, production-ready RESTful API based
+                  applications. Built for speed, battle-tested for change.
+                </p>
+                <a
+                  href="https://github.com/trilpai"
+                  target="_blank"
+                  class="text-sm text-brandcolorlightblue font-medium hover:underline mt-2 inline-block"
+                  >View Project →</a
+                >
+              </div>
+            </div>
+
+            <!-- Project: JLP -->
+            <div class="flex items-start gap-4">
+              <div class="bg-gray-100 p-3 rounded-md shadow-sm">
+                <!-- Heroicon: table cells -->
+                <svg
+                  class="w-6 h-6 text-brandcolorlightblue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Journals & Ledgers Platform</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  A modular accounting engine that powers ERP, CRM, and more. Plugin architecture.
+                  No strings attached.
+                </p>
+                <a
+                  href="https://github.com/trilpai"
+                  target="_blank"
+                  class="text-sm text-brandcolorlightblue font-medium hover:underline mt-2 inline-block"
+                  >View Project →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="w-full">
+      <div class="flex flex-col md:flex-row w-full">
+        <!-- Left Half -->
+        <div
+          class="w-full md:w-1/2 bg-brandcolorblue text-white px-4 py-4 text-center text-sm border-t border-white/20"
+        >
+          &copy; 2025 Trilp Software. All rights reserved.
+        </div>
+
+        <!-- Right Half -->
+        <div
+          class="w-full md:w-1/2 bg-white text-gray-800 px-4 py-4 flex justify-center items-center gap-x-4 text-sm"
+        >
+          <a href="#" aria-label="Facebook" rel="noopener noreferrer" class="hover:text-gray-800">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" rel="noopener noreferrer" class="hover:text-gray-800">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="X/Twitter" rel="noopener noreferrer" class="hover:text-gray-800">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/trilpai"
+            aria-label="GitHub"
+            rel="noopener noreferrer"
+            class="hover:text-gray-800"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube" rel="noopener noreferrer" class="hover:text-gray-800">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
