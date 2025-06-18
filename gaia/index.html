@@ -220,24 +220,45 @@
       <div
         class="w-full md:w-1/2 bg-brandcolorred text-white flex items-center justify-between px-4 py-2 lg:px-6 border-b border-white/20"
       >
-        <!-- Hamburger Button -->
-        <button
-          @click="open = true"
-          class="-m-1.5 p-1.5 text-white hover:text-white"
-          aria-label="Open main menu"
-        >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </button>
+        <!-- Left: Hamburger + ARK link -->
+        <div class="flex items-center space-x-4">
+          <!-- Hamburger Button -->
+          <button
+            @click="open = true"
+            class="-m-1.5 p-1.5 text-white hover:text-white"
+            aria-label="Open main menu"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
 
-        <!-- Mobile Branding -->
-        <div class="flex md:hidden w-full justify-end">
+          <!-- ARK Quick Link -->
+          <div class="flex items-center space-x-0.5 text-sm font-semibold">
+            <svg
+              class="h-4 w-4 text-white/80"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+              />
+            </svg>
+            <a href="/ark" class="hover:underline">ARK</a>
+          </div>
+        </div>
+
+        <!-- Right: Mobile Branding -->
+        <div class="flex md:hidden justify-end items-center">
           <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
             <span class="text-sm font-semibold">Trilp AI</span>
             <img
@@ -575,6 +596,7 @@
         >
           <a
             href="https://github.com/trilpai"
+            target="_blank"
             aria-label="GitHub"
             rel="noopener noreferrer"
             class="hover:text-gray-800"
@@ -587,7 +609,13 @@
               />
             </svg>
           </a>
-          <a href="#" aria-label="YouTube" rel="noopener noreferrer" class="hover:text-gray-800">
+          <a
+            href="#"
+            target="_blank"
+            aria-label="YouTube"
+            rel="noopener noreferrer"
+            class="hover:text-gray-800"
+          >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
                 fill-rule="evenodd"
@@ -596,7 +624,13 @@
               />
             </svg>
           </a>
-          <a href="#" aria-label="Instagram" rel="noopener noreferrer" class="hover:text-gray-800">
+          <a
+            href="#"
+            target="_blank"
+            aria-label="Instagram"
+            rel="noopener noreferrer"
+            class="hover:text-gray-800"
+          >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
                 fill-rule="evenodd"
@@ -605,7 +639,13 @@
               />
             </svg>
           </a>
-          <a href="#" aria-label="Facebook" rel="noopener noreferrer" class="hover:text-gray-800">
+          <a
+            href="#"
+            target="_blank"
+            aria-label="Facebook"
+            rel="noopener noreferrer"
+            class="hover:text-gray-800"
+          >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
                 fill-rule="evenodd"
@@ -614,7 +654,13 @@
               />
             </svg>
           </a>
-          <a href="#" aria-label="X/Twitter" rel="noopener noreferrer" class="hover:text-gray-800">
+          <a
+            href="#"
+            target="_blank"
+            aria-label="X/Twitter"
+            rel="noopener noreferrer"
+            class="hover:text-gray-800"
+          >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"
