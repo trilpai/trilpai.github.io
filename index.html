@@ -35,9 +35,9 @@
       sizes="180x180"
       href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png"
     />
-    <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
     <meta name="apple-mobile-web-app-title" content="Trilp AI" />
-    <meta name="theme-color" content="#002B5B" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Trilp AI" />
@@ -215,24 +215,48 @@
       <div
         class="w-full md:w-1/2 bg-brandcolorblue text-white flex items-center justify-between px-4 py-2 lg:px-6 border-b border-white/20"
       >
-        <!-- Hamburger Button -->
-        <button
-          @click="open = true"
-          class="-m-1.5 p-1.5 text-white hover:text-white"
-          aria-label="Open main menu"
-        >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </button>
+        <!-- Left: Hamburger + GAIA and ARK link -->
+        <div class="flex items-center space-x-4">
+          <!-- Hamburger Button -->
+          <button
+            @click="open = true"
+            class="-m-1.5 p-1.5 text-white hover:text-white"
+            aria-label="Open main menu"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
 
-        <!-- Mobile Branding -->
-        <div class="flex md:hidden w-full justify-end">
+          <!-- GAIA and ARK Quick Link -->
+          <div class="flex items-center space-x-0.5 text-sm font-semibold">
+            &nbsp;
+            <svg
+              class="h-4 w-4 text-white/80"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+              />
+            </svg>
+            <a href="/gaia" class="hover:underline">GAIA</a>
+            &nbsp;
+            <a href="/ark" class="hover:underline">ARK</a>
+          </div>
+        </div>
+
+        <!-- Right: Mobile Branding -->
+        <div class="flex md:hidden justify-end items-center">
           <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
             <span class="text-sm font-semibold">Trilp AI</span>
             <img
@@ -298,6 +322,7 @@
               class="group flex items-start gap-x-3 p-3 rounded-lg transition bg-gray-100"
             >
               <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
+                <!-- Heroicon: Home -->
                 <svg
                   class="h-5 w-5 text-brandcolorlightblue"
                   fill="none"
