@@ -246,7 +246,7 @@
         <!-- Left: Hamburger + GAIA link -->
         <div class="flex items-center space-x-4">
           <!-- Hamburger Button -->
-          <!-- <button
+          <button
             @click="open = true"
             class="-m-1.5 p-1.5 text-white hover:text-white"
             aria-label="Open main menu"
@@ -259,28 +259,33 @@
                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
               />
             </svg>
-          </button> -->
-
-          <!-- GAIA Quick Link -->
-          <div class="flex items-center space-x-0.5 text-sm font-semibold">
-            &nbsp;
-            <svg
-              class="h-4 w-4 text-white/80"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-              />
-            </svg>
-            <a href="/" class="hover:underline">HOME</a>
-            &nbsp;
-            <a href="/gaia" class="hover:underline">GAIA</a>
-          </div>
+          </button>
+          <!-- HOME and GAIA Quick Links -->
+          <nav aria-label="Quick links" class="ml-4">
+            <ul class="flex items-center space-x-2 text-sm font-semibold text-white">
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-white/80"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </li>
+              <li>
+                <a href="/" class="hover:underline">HOME</a>
+              </li>
+              <li>
+                <a href="/gaia" class="hover:underline">GAIA</a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <!-- Right: Mobile Branding -->
