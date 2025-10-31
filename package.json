@@ -1,19 +1,27 @@
 {
   "name": "trilpai.github.io",
   "version": "1.0.0",
-  "description": "Static site for Trilp Software",
-  "scripts": {
-    "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify"
-  },
-  "keywords": [
-    "Trilp Software"
-  ],
-  "author": "Pradyumna Das Roy",
+  "description": "Official website for Trilp AI — a calm, independent AI & Software Learning Studio based in Pune, India.",
+  "author": "Pradyumna Das Roy <info@trilp.in>",
   "license": "MIT",
+  "homepage": "https://www.trilp.in",
+  "keywords": [
+    "Trilp AI",
+    "AI Learning",
+    "Machine Learning",
+    "Software Engineering",
+    "Learning Studio",
+    "Pune",
+    "Educational Site"
+  ],
+  "scripts": {
+    "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
+    "watch": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch"
+  },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.8",
+    "@tailwindcss/cli": "^4.1.16",
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.16"
   }
 }

@@ -1,706 +1,449 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Primary Meta Tags -->
-    <title>Trilp AI</title>
-    <meta
-      name="description"
-      content="Trilp AI offers AI/ML training, workshops, tools, projects, and internships to build AI-powered business solutions and AI-enabled enterprise software."
-    />
-    <meta
-      name="keywords"
-      content="AI ML training, data science training, python training, AI ML workshops, data science workshops, python workshops, Global AI Academy, Trilp AI"
-    />
-    <meta name="author" content="Pradyumna Das Roy" />
-    <meta name="google-site-verification" content="3ge6Mmew6AqOESFPgBBIdseaxEHTLy8pWUkZLp17930" />
-    <link rel="canonical" href="https://www.trilp.in" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Favicon and Icons -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://www.trilp.in/assets/img/favicons/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="https://www.trilp.in/assets/img/favicons/favicon.svg"
-    />
-    <link rel="shortcut icon" href="https://www.trilp.in/assets/img/favicons/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="Trilp AI" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
+  <!-- Primary Meta -->
+  <title>Trilp AI — AI & Software Learning Studio (Pune, India)</title>
+  <meta name="description" content="Trilp AI is a calm, focused learning studio in Pune, India—offering concise AI/ML books and recall-friendly quizzes for software engineers and students. Learn AI at a human pace." />
+  <meta name="keywords" content="AI training Pune, ML training Pune, AI for software developers, learn machine learning India, Python for AI, ML quizzes, short AI books, Trilp AI" />
+  <link rel="canonical" href="https://www.trilp.in/" />
+  <meta name="application-name" content="Trilp AI" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Trilp AI" />
-    <meta
-      property="og:description"
-      content="Trilp AI offers AI/ML training, workshops, tools, projects, and internships to build AI-powered business solutions and AI-enabled enterprise software."
-    />
-    <meta property="og:image" content="https://www.trilp.in/assets/img/trilp-ai-1200x628.png" />
-    <meta property="og:url" content="https://www.trilp.in" />
-    <meta property="og:type" content="website" />
+  <!-- Local SEO -->
+  <meta name="geo.region" content="IN-MH" />
+  <meta name="geo.placename" content="Pune" />
+  <meta name="geo.position" content="18.51471623183104;73.93113109619145" />
+  <meta name="ICBM" content="18.51471623183104, 73.93113109619145" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Trilp AI" />
-    <meta
-      name="twitter:description"
-      content="Trilp AI offers AI/ML training, workshops, tools, projects, and internships to build AI-powered business solutions and AI-enabled enterprise software."
-    />
-    <meta name="twitter:image" content="https://www.trilp.in/assets/img/trilp-ai-1200x628.png" />
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Trilp AI" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Trilp AI — AI & Software Learning Studio (Pune, India)" />
+  <meta property="og:description" content="Concise AI/ML books and quizzes for developers. Pune-based learning studio focused on steady understanding over speed." />
+  <meta property="og:url" content="https://www.trilp.in/" />
+  <meta property="og:image" content="https://www.trilp.in/assets/img/trilp-ai-1200x628.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="628" />
+  <meta property="og:image:alt" content="Trilp AI — Empowering Minds. Engineering Futures." />
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
+  <!-- Twitter / X (previews used by LinkedIn/FB/WhatsApp too) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trilp AI — AI & Software Learning Studio (Pune, India)" />
+  <meta name="twitter:description" content="Concise AI/ML books and quizzes for developers. Learn AI at a human pace." />
+  <meta name="twitter:image" content="https://www.trilp.in/assets/img/trilp-ai-1200x628.png" />
+  <meta name="twitter:image:alt" content="Trilp AI — Empowering Minds. Engineering Futures." />
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" type="image/png" href="https://www.trilp.in/assets/img/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://www.trilp.in/assets/img/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="https://www.trilp.in/assets/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Trilp AI" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
+
+  <!-- Fonts & Compiled CSS -->
+  <link rel="stylesheet" href="https://www.trilp.in/assets/css/font/inter.css" />
+  <link rel="stylesheet" href="https://www.trilp.in/assets/css/style.css" />
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.trilp.in/#organization",
+    "name": "Trilp AI",
+    "url": "https://www.trilp.in/",
+    "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+    "image": "https://www.trilp.in/assets/img/trilp-ai-1200x628.png",
+    "slogan": "Empowering Minds. Engineering Futures.",
+    "foundingDate": "2023-11-01",
+    "founder": {
+      "@type": "Person",
+      "name": "Pradyumna Das Roy",
+      "sameAs": "https://www.linkedin.com/in/pradyroy/"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Trilp AI",
+      "url": "https://www.trilp.in",
+      "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+      "slogan": "Empowering Minds. Engineering Futures."
+    },
+    "email": "info@trilp.in",
+    "contactPoint": [
       {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Trilp AI",
-        "alternateName": "Trilp",
-        "url": "https://www.trilp.in",
-        "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
-        "image": "https://www.trilp.in/assets/img/trilp-ai-1200x628.png",
-        "description": "Trilp AI offers AI/ML training, workshops, tools, projects, and internships to build AI-powered business solutions and AI-enabled enterprise software.",
-        "keywords": [
-          "AI ML training",
-          "AI ML projects",
-          "data science training",
-          "python training",
-          "AI ML workshops",
-          "Global AI Academy",
-          "Applied Research Kernel",
-          "Trilp AI"
-        ],
-        "founder": {
-          "@type": "Person",
-          "name": "Pradyumna Das Roy",
-          "sameAs": "https://www.linkedin.com/in/pradyroy/"
-        },
-        "foundingDate": "2023-11-01",
-        "brand": {
-          "@type": "Brand",
-          "name": "Trilp AI",
-          "url": "https://www.trilp.in",
-          "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
-          "slogan": "Empowering Minds. Engineering Futures."
-        },
-        "location": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Magarpatta City",
-            "addressLocality": "Pune",
-            "addressRegion": "Maharashtra",
-            "postalCode": "411013",
-            "addressCountry": "India"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "18.51471623183104",
-            "longitude": "73.93113109619145"
-          }
-        },
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "email": "info@trilp.in",
-            "contactType": "sales",
-            "areaServed": ["IN", "US"],
-            "availableLanguage": ["English", "Hindi"]
-          },
-          {
-            "@type": "ContactPoint",
-            "email": "info@trilp.in",
-            "contactType": "technical support",
-            "areaServed": ["IN", "US"],
-            "availableLanguage": ["English", "Hindi"]
-          }
-        ],
-        "subOrganization": [
-          {
-            "@type": "EducationalOrganization",
-            "name": "GAIA - Global AI Academy by Trilp AI",
-            "alternateName": "GAIA by Trilp AI",
-            "url": "https://www.trilp.in/gaia",
-            "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png"
-          },
-          {
-            "@type": "ResearchOrganization",
-            "name": "ARK - Applied Research Kernel by Trilp AI",
-            "alternateName": "ARK by Trilp AI",
-            "url": "https://www.trilp.in/ark",
-            "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png"
-          }
-        ],
-        "areaServed": ["India", "USA"],
-        "sameAs": [
-          "https://github.com/trilpai",
-          "https://www.linkedin.com/company/trilpai",
-          "https://www.youtube.com/@trilpai",
-          "https://www.instagram.com/trilpai/"
-        ]
+        "@type": "ContactPoint",
+        "email": "info@trilp.in",
+        "contactType": "customer support",
+        "availableLanguage": ["English"]
       }
-    </script>
-
-    <!-- Inter Font for sleek sans-serif typography -->
-    <link rel="stylesheet" href="/assets/css/font/inter.css" />
-
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <!-- Tailwind CSS CDN for utility-first styling -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brandcolorblue: '#002B5B',
-              brandcolorred: '#D72638',
-              brandcolorlightblue: '#4F9DF7',
-              brandcolorlightred: '#FF4C4C',
-            },
-            fontFamily: {
-              sans: ['InterVariable', 'sans-serif'],
-            },
-          },
-        },
-      };
-    </script> -->
-
-    <!-- Alpine.js for interactivity (e.g., menu toggle) -->
-    <script defer src="/assets/js/alpinejs-3-14-9-min.js"></script>
-
-    <!-- Custom Background Style for Zigzag Lines -->
-    <style>
-      .bg-zigzag-lines {
-        position: relative;
-        overflow: hidden;
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Magarpatta City",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "postalCode": "411013",
+      "addressCountry": "IN"
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Trilp AI (Pune)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Magarpatta City",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411013",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.51471623183104,
+        "longitude": 73.93113109619145
       }
+    },
+    "sameAs": [
+      "https://github.com/trilpai",
+      "https://www.linkedin.com/company/trilpai",
+      "https://www.youtube.com/@trilpai",
+      "https://www.instagram.com/trilpai/",
+      "https://www.facebook.com/trilpai"
+    ]
+  }
+  </script>
 
-      .bg-zigzag-lines::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 920 1430' x='0px' y='0px'%3E %3Cpath style='fill: rgba(255, 255, 255, 1)' d='M889.72,1137.55l-2.91-0.75l-364.39,282.94l-0.7-0.9l-0.51,0.11l-94.77-451.5l-32.51-15.75l-16.73-8.11l0,0.68 l-1.46,0l0-1.39l-1.89-0.92l-112.41-54.47l-0.29,1.03l-1.41-0.37l0.37-1.31l-34.14-16.54l-98.56-47.76l-0.59,0.81l-1.16-0.88 l0.42-0.57L11.43,766.33l-0.25,0.2l-0.9-1.15l102.87-79.98l0.08-0.1l0.02,0.02l116.68-90.72l-0.18-0.34l1.3-0.66l0.05,0.09 l100.5-78.14l-0.07-0.32l0.65-0.14l42.3-32.89l-0.15-54.54l-0.59,0.29l-0.64-1.31l1.23-0.6l-0.01-4.54l-0.33-122.47l-0.99,0.18 l-0.28-1.43l1.27-0.23l-0.4-147.49l-0.87-0.16l0.28-1.43l0.58,0.1l-0.35-127.48l-0.13-0.06l0.64-1.31L489.97,76.8l0.73,0.19 l-0.04,0.14l132.63,65.11l0.33-0.45l1.16,0.88l-0.16,0.22l114.21,56.07l0.45-0.35l0.72,0.93l47.89,23.51l2.76-1.36l0.56,4.61 l-3.32-1.63L571.52,330.88L375.95,482.93l0.66,239.95l51.12,243.57l222.53,107.83l236.23,60.93l2.27-1.77 M375.8,425.34l17.25-8.47 l36.13-127.75l-53.73,9.66L375.8,425.34z M551,241.05l38.19-52.2l-123.83-22.27l-34.13,120.68l98.99-17.81L551,241.05z M532.3,269.09l151.34-27.22l37.63-29.25l-130.48-23.47L532.3,269.09z M303.38,733.9l-2.36-4.48l-44.18-83.78L182.5,747.25 l40.78,36.46l52.69,47.11L303.38,733.9z M277.18,831.91l56.95,50.93L375.69,920l-0.13-49.23l-71.19-135L277.18,831.91z M303.96,731.86l41.93-148.25l-9.74-46.39L257.8,644.33L303.96,731.86z M304.94,733.73l9.55,18.12l61.05,115.78l-0.39-144.6 l-16.9-80.53l-11.71-55.81L304.94,733.73z M375.21,211.79l0.23,85.51l54.17-9.74l34.29-121.23l-88.87-15.98L375.21,211.79z M430.78,288.83l-17.88,63.21L394.81,416l44.01-21.6l90.15-123.23L430.78,288.83z M287.76,898.62l87.99,42.64l-0.05-19.29 l-91.37-81.71l-7.59-6.78l-14.88,52.59L287.76,898.62z M174.26,843.62l86.26,41.8l15-53.03l-93.89-83.95l-53.34,72.91L174.26,843.62 z M113.18,687.22L12.71,765.33l55.69,26.99l58.56,28.38l53.58-73.24l-34.83-31.14L113.18,687.22z M230.62,595.92l-116.27,90.4 l63.02,56.36l4.03,3.61l74.67-102.08l-7.47-14.17L230.62,595.92z M331.94,517.15l-100.15,77.86l25.25,47.88l78.71-107.59l-1.71-8.14 L331.94,517.15z M333.22,516.15l2.02,9.64l1.66,7.92l34.65-47.37L333.22,516.15z M337.31,535.63l9.43,44.95l26.67-94.3 L337.31,535.63z M347.39,583.66l27.74,132.16l-0.62-228.04L347.39,583.66z M374.7,21.83l0.35,127.02l89.27,16.06l24.61-87 L374.7,21.83z M490.25,78.56l-22.26,78.7l-2.24,7.91l124.39,22.37l10.23-13.99l22.04-30.12L490.25,78.56z M623.74,144.09 l-12.29,16.8l-19.71,26.95l131.07,23.58l14.73-11.45L623.74,144.09z M739,200.67l-13.3,10.34l-0.96,0.74l58.14,10.46L739,200.67z M723.19,212.96l-25.33,19.69l-11.14,8.66l97.03-17.45L723.19,212.96z M782.89,225.5l-98.64,17.74l-107.06,83.23L782.89,225.5z M631.68,282.26l49.48-38.47l-150.1,27l-89.41,122.22l129.1-63.37L631.68,282.26z M565.06,334.05l-125.28,61.5l-45.94,62.8 l-14.96,20.44L565.06,334.05z M425.31,412.87l11.65-15.93l-42.69,20.96l-13.66,48.3l-3.58,12.67L425.31,412.87z M392.51,418.76 l-16.71,8.2l0.01,4.72l0.12,45.68L392.51,418.76z M377.21,941.96l21.37,10.36l24.14,11.7l-45.56-40.74L377.21,941.96z M377.15,921.31l34.83,31.15l12.57,11.24l-47.53-90.14L377.15,921.31z M376.63,730.07l0.38,140.33l48.29,91.59L376.63,730.07z M806.29,1197.48l75.8-58.86l-28.56,11.47l-25.6,10.28l14.96,7.25l-0.64,1.31l-16.16-7.83l-124.76,50.1l40.56,36.27L806.29,1197.48z M522.43,1146.18l58.88,111.66l52.71-21.17l64.61-25.95l-75.11-67.17L522.43,1146.18z M621.92,1142.14l-115.78-103.53l-46.8-12.07 l62.33,118.2l7.06-0.18L621.92,1142.14z M700.14,1210.12l124.19-49.87l-42.89-20.78l-155.8,4.04L700.14,1210.12z M679.7,1295.77 l61.03-47.39l-40.9-36.57l-117.85,47.32l42.09,79.82L679.7,1295.77z M522.48,1417.85l1.83-1.42l98.6-76.56l-42.28-80.19 l-84.25,33.83L522.48,1417.85z M496.08,1292.06l83.87-33.68l-59.14-112.16l-55.04,1.43L496.08,1292.06z M465.46,1146.2l54.58-1.42 l-62.61-118.74l-18.03-4.65l0.36-1.41l16.74,4.32l-27.63-52.4L465.46,1146.2z M458.42,1024.79l45.35,11.7l-74.14-66.29 L458.42,1024.79z M431.46,969.87l75.38,67.41l136.26,35.15L431.46,969.87z M649.76,1075.65l-140.54-36.25l114.83,102.68l154.53-4.01 L649.76,1075.65z M656.92,1077.5l124.84,60.5l51.97-1.35l47.7-1.24L656.92,1077.5z M784.62,1139.38l41.54,20.13l56.45-22.67 L784.62,1139.38z'/%3E %3C/svg%3E");
-        background-repeat: no-repeat; /* Prevent repeat */
-        background-size: cover; /* Scale to fill */
-        background-position: center center; /* Center alignment */
-        opacity: 0.5; /* Subtle visibility */
-        pointer-events: none;
-        z-index: 0;
-        transform: scaleX(-1); /* Flip horizontally */
-      }
+  <!-- Structured Data: WebSite (referencing Organization via @id) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.trilp.in/#website",
+    "url": "https://www.trilp.in/",
+    "name": "Trilp AI",
+    "inLanguage": "en-IN",
+    "description": "Concise AI/ML books and quizzes for developers—learn AI at a human pace. Pune-based learning studio.",
+    "publisher": {
+      "@id": "https://www.trilp.in/#organization"
+    },
+    "image": "https://www.trilp.in/assets/img/trilp-ai-1200x628.png",
+    "keywords": "AI learning studio, AI/ML books, ML quizzes, AI training Pune, Trilp AI"
+  }
+  </script>
 
-      .bg-zigzag-lines > * {
-        position: relative;
-        z-index: 10;
-      }
-    </style>
-  </head>
+  <!-- Robots/Sitemap (ensure these exist at site root) -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trilp.in/sitemap.xml" />
+</head>
 
-  <body class="bg-white text-black font-sans antialiased">
-    <!-- Site Header -->
-    <header class="fixed top-0 z-50 w-full flex" x-data="{ open: false }">
-      <!-- Left Half: Mobile & Desktop Branding + Hamburger -->
-      <div
-        class="w-full md:w-1/2 bg-brandcolorblue text-white flex items-center justify-between px-4 py-2 lg:px-6 border-b border-white/20"
-      >
-        <!-- Left: Hamburger + GAIA and ARK link -->
-        <div class="flex items-center space-x-4">
-          <!-- Hamburger Button -->
-          <button
-            @click="open = true"
-            class="-m-1.5 p-1.5 text-white hover:text-white"
-            aria-label="Open main menu"
-          >
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-          <!-- GAIA and ARK Quick Links -->
-          <nav aria-label="Quick links" class="ml-4">
-            <ul class="flex items-center space-x-2 text-sm font-semibold text-white">
-              <li class="flex items-center">
-                <svg
-                  class="h-4 w-4 text-white/80"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                  />
-                </svg>
-              </li>
-              <li>
-                <a href="/gaia" class="hover:underline">GAIA</a>
-              </li>
-              <li>
-                <a href="/ark" class="hover:underline">ARK</a>
-              </li>
-            </ul>
-          </nav>
+<body class="bg-paper text-ink font-sans antialiased page-fade">
+  <!-- (8) Thin top progress bar -->
+  <div id="progress" role="presentation" aria-hidden="true"></div>
+
+  <!-- ===== Header (fixed) ===== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3" style="height: var(--header-h);" aria-label="Primary">
+      <a href="#home" class="flex items-center gap-2" aria-label="Trilp AI — Home">
+        <img src="https://www.trilp.in/assets/img/trilp-ai-logo.png" alt="Trilp AI" class="h-6 w-auto header-logo" />
+        <span class="sr-only">Trilp AI</span>
+      </a>
+      <ul class="flex items-center gap-6 text-sm text-ink/80">
+        <li><a href="#home"    data-nav="home"    class="hover:text-ink">Home</a></li>
+        <li><a href="#books"   data-nav="books"   class="hover:text-ink">Books</a></li>
+        <li><a href="#quizzes" data-nav="quizzes" class="hover:text-ink">Quizzes</a></li>
+        <li><a href="#about"   data-nav="about"   class="hover:text-ink">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Footer (fixed) ===== -->
+  <footer class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/80 backdrop-blur" aria-label="Footer">
+    <div class="mx-auto max-w-6xl px-4 py-3 text-xs text-ink/60" style="min-height: var(--footer-h);">
+
+      <div class="footer-wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-center sm:text-left">
+
+        <!-- Row 1 (social links) -->
+        <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
+          <a href="https://www.linkedin.com/company/trilpai" class="footer-link" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.youtube.com/@trilpai" class="footer-link" aria-label="YouTube">YouTube</a>
+          <a href="https://www.instagram.com/trilpai/" class="footer-link" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/trilpai" class="footer-link" aria-label="Facebook">Facebook</a>
+          <a href="https://github.com/trilpai" class="footer-link" aria-label="GitHub">GitHub</a>
         </div>
 
-        <!-- Right: Mobile Branding -->
-        <div class="flex md:hidden justify-end items-center">
-          <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
-            <span class="text-sm font-semibold">Trilp AI</span>
-            <img
-              src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
-              alt="Trilp AI Logo"
-              class="h-6 w-6"
-            />
-          </a>
+        <!-- Row 2 (Tagline) -->
+        <p class="text-ink/70 font-medium tracking-wide order-none sm:order-none">
+          Empowering Minds. Engineering Futures.
+        </p>
+
+        <!-- Row 3 (Copyright) -->
+        <p class="mt-1 sm:mt-0 text-ink/60 text-center sm:text-right">
+          © <span class="tabular-nums">2025</span> Trilp AI
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Main (scrollable between fixed header/footer) ===== -->
+  <main class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]">
+
+    <!-- Section 1: Home / Philosophy (vertically centered) -->
+    <section id="home" class="relative min-h-[calc(100vh-var(--header-h)-var(--footer-h))] bg-paper" aria-label="Home">
+      <div class="mx-auto flex min-h-[calc(100vh-var(--header-h)-var(--footer-h))] max-w-5xl items-center px-4">
+        <div class="w-full">
+          <h1 class="text-3xl md:text-5xl font-medium tracking-tight text-ink hero-title">
+            Learn AI and Software Engineering at a human pace.
+          </h1>
+          <p class="mt-6 max-w-3xl text-base leading-7 text-ink/80 hero-copy">
+            Understanding has been valued more than urgency. Material has been kept compact,
+            written patiently, and refined gradually. Short books and small quizzes have been
+            arranged so that study remains approachable.
+          </p>
         </div>
       </div>
+      <a href="#books" class="absolute bottom-10 left-1/2 -translate-x-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30" aria-label="Scroll to Books">
+        <span class="text-2xl leading-none text-ink/60">↓</span>
+      </a>
+    </section>
 
-      <!-- Right Half: Desktop Branding -->
-      <div class="hidden md:flex w-1/2 bg-white items-center justify-end px-4 py-2 lg:px-6">
-        <a href="/" class="flex items-center space-x-2 no-underline hover:cursor-pointer">
-          <img
-            src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
-            alt="Trilp AI Logo"
-            class="h-6 w-6"
-          />
-          <span class="text-sm font-semibold text-gray-800">Trilp AI</span>
-        </a>
-      </div>
+    <!-- Section 2: Latest Books -->
+    <section id="books" class="bg-paper-soft py-20 md:py-28" aria-label="Books">
+      <div class="mx-auto max-w-6xl px-4">
+        <header class="mb-2 flex items-end justify-between">
+          <h2 class="text-2xl md:text-3xl font-medium text-ink">Books</h2>
+          <a href="/books/" class="text-sm text-brand-blue hover:underline" aria-label="Explore all books">Explore all books →</a>
+        </header>
 
-      <!-- Flyout Side Menu -->
-      <nav
-        x-show="open"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="-translate-x-full opacity-0"
-        x-transition:enter-end="translate-x-0 opacity-100"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="translate-x-0 opacity-100"
-        x-transition:leave-end="-translate-x-full opacity-0"
-        @click.away="open = false"
-        class="fixed inset-y-0 left-0 z-50 w-72 bg-white shadow-xl px-4 py-6 overflow-y-auto"
-        role="dialog"
-        aria-modal="true"
-      >
-        <!-- Menu Header -->
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-base font-medium">Trilp AI</h2>
-          <button
-            @click="open = false"
-            class="text-gray-600 hover:text-black"
-            aria-label="Close menu"
-          >
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+        <!-- Carousel with centered swipe hint -->
+        <div class="relative" data-carousel="books">
+          <p class="swipe-hint swipe-hint-abs swipe-hint-pill">← scroll →</p>
 
-        <!-- Semantic Menu -->
-        <ul class="space-y-4 text-sm">
-          <!-- Home -->
-          <li>
-            <a
-              href="/"
-              class="group flex items-start gap-x-3 p-3 rounded-lg transition bg-gray-100"
-            >
-              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
-                <!-- Heroicon: Home -->
-                <svg
-                  class="h-5 w-5 text-brandcolorlightblue"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                  />
-                </svg>
+          <!-- Carousel (native scroll-snap + edge fade) -->
+          <div class="flex gap-6 overflow-x-auto pb-2 pe-4 snap-x snap-mandatory carousel-fade" aria-label="Books carousel">
+            <!-- Sample cards -->
+            <article class="snap-start shrink-0 w-64" aria-label="Gradient Descent, Explained — 14 pages · Machine Learning">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-blue/90 to-brand-red/80"></div>
               </div>
-              <div>
-                <span class="font-medium text-gray-900 block">Home</span>
-                <p class="text-gray-600 text-xs">Trilp AI Home Page</p>
-              </div>
-            </a>
-          </li>
-          <!-- GAIA -->
-          <li>
-            <a
-              href="/gaia"
-              class="group flex items-start gap-x-3 hover:bg-gray-50 p-3 rounded-lg transition"
-            >
-              <div
-                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 group-hover:bg-white"
-              >
-                <!-- Heroicon: Global Academic Cap -->
-                <svg
-                  class="h-5 w-5 text-gray-600 group-hover:text-brandcolorlightblue"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  viewBox="0 0 406.768 406.768"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M385.636,18.384H21.13C9.46,18.384,0,27.842,0,39.515v4.145c0,11.671,9.46,21.131,21.13,21.131h39.573v62.137
-		c-17.064,26.466-26.97,57.976-26.97,91.808c0,93.695,75.954,169.648,169.65,169.648c93.696,0,169.65-75.953,169.65-169.648
-		c0-33.833-9.906-65.343-26.971-91.809V64.744l23.356-0.065l-0.02,22.865h-2.233c-1.554-0.135-2.633,0.983-2.812,2.533
-		l-2.896,25.091c-0.087,0.766,0.139,1.529,0.624,2.13c0.482,0.596,1.19,0.983,1.956,1.048l22.691-0.006
-		c0.774-0.087,1.479-0.457,1.955-1.056c0.491-0.601,0.708-1.373,0.624-2.141c-0.581-4.928-1.158-9.848-1.73-14.779l-1.198-10.314
-		c-0.186-1.539-1.563-2.657-3.111-2.521l-2.231,0.004l0.002-22.887l7.128-0.004c10.498,0,18.6-10.172,18.6-20.983v-4.145
-		C406.766,27.842,397.306,18.384,385.636,18.384z M97.161,146.419l41.662,11.601c-1.944,13.387-3.231,27.387-3.866,41.589h-59.68
-		C78.546,180.064,86.19,161.989,97.161,146.419z M75.279,242.594h59.674c1.634,36.424,7.487,71.573,17.97,98.229
-		C112.631,323.769,82.695,286.95,75.279,242.594z M205.592,341.465h-4.409c-8.257-11.563-20.542-44.769-23.203-98.871l50.793,0.001
-		C226.119,296.696,213.842,329.903,205.592,341.465z M177.989,199.609c0.529-10.822,1.448-20.799,2.64-29.941l19.919,5.55
-		c0.927,0.256,1.881,0.387,2.834,0.387s1.907-0.131,2.834-0.387l19.919-5.55c1.191,9.143,2.111,19.119,2.641,29.941H177.989z
-		 M253.843,340.815c10.486-26.647,16.338-61.797,17.965-98.22l59.681-0.002C324.066,286.95,294.133,323.772,253.843,340.815z
-		 M271.811,199.609c-0.634-14.201-1.922-28.2-3.867-41.589l41.661-11.601c10.972,15.57,18.616,33.645,21.887,53.189L271.811,199.609
-		L271.811,199.609z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <span class="font-medium text-gray-900 block">GAIA</span>
-                <p class="text-gray-600 text-xs">Global AI Academy</p>
-              </div>
-            </a>
-          </li>
-          <!-- ARK -->
-          <li>
-            <a
-              href="/ark"
-              class="group flex items-start gap-x-3 hover:bg-gray-50 p-3 rounded-lg transition"
-            >
-              <div
-                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 group-hover:bg-white"
-              >
-                <!-- Heroicon: Sail Boat -->
-                <svg
-                  class="h-5 w-5 text-gray-600 group-hover:text-brandcolorlightblue"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <!-- Right Sail (bigger and higher) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M13.25 2.75v11.25h6L13.25 2.75z"
-                  />
-                  <!-- Left Sail (bigger and slightly left) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M10.25 4.25v9.75H3.75l6.5-9.75z"
-                  />
-                  <!-- Hull (lower and wider) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M20 20H4l-2-3.75h20L20 20z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <span class="font-medium text-gray-900 block">ARK</span>
-                <p class="text-gray-600 text-xs">Applied Research Kernel</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+              <h3 class="mt-3 text-sm font-medium text-ink">Gradient Descent, Explained</h3>
+              <p class="text-xs text-ink/60">14 pages · Machine Learning</p>
+            </article>
 
-    <!-- Main Content Wrapper -->
-    <main>
-      <section id="features" class="flex flex-col md:flex-row min-h-[94svh]">
-        <!-- Left Panel with zig-zag lines background -->
-        <div
-          class="bg-brandcolorblue bg-zigzag-lines text-white w-full md:w-1/2 flex justify-center items-center px-8 py-16"
-        >
-          <!-- Paired grid: each “letter + word” stays together -->
-          <div class="grid grid-cols-5 gap-y-6 gap-x-6 w-full max-w-2xl mx-auto">
-            <!-- Pair 1 -->
-            <div class="flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-widest">T</span>
-              <span
-                class="mt-1 text-xs md:text-sm text-white/80 tracking-wide whitespace-normal break-words"
-              >
-                Trans&shy;form
-              </span>
-            </div>
+            <article class="snap-start shrink-0 w-64" aria-label="Cloud-Native Basics — 21 pages · Systems">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-blue/90 to-brand-lightblue/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Cloud-Native Basics</h3>
+              <p class="text-xs text-ink/60">21 pages · Systems</p>
+            </article>
 
-            <!-- Pair 2 -->
-            <div class="flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-widest">R</span>
-              <span
-                class="mt-1 text-xs md:text-sm text-white/80 tracking-wide whitespace-normal break-words"
-              >
-                Resear&shy;ch
-              </span>
-            </div>
+            <article class="snap-start shrink-0 w-64" aria-label="Vector Databases — 7 pages · AI Infra">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-red/90 to-brand-lightred/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Vector Databases</h3>
+              <p class="text-xs text-ink/60">7 pages · AI Infra</p>
+            </article>
 
-            <!-- Pair 3 -->
-            <div class="flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-widest">I</span>
-              <span class="mt-1 text-xs md:text-sm text-white/80 tracking-wide whitespace-nowrap">
-                Innovate
-              </span>
-            </div>
+            <article class="snap-start shrink-0 w-64" aria-label="Probabilities Revisited — 28 pages · DS Foundations">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-blue/90 to-brand-red/70"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Probabilities Revisited</h3>
+              <p class="text-xs text-ink/60">28 pages · DS Foundations</p>
+            </article>
 
-            <!-- Pair 4 -->
-            <div class="flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-widest">L</span>
-              <span class="mt-1 text-xs md:text-sm text-white/80 tracking-wide whitespace-nowrap">
-                Learn
-              </span>
-            </div>
-
-            <!-- Pair 5 -->
-            <div class="flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-widest">P</span>
-              <span class="mt-1 text-xs md:text-sm text-white/80 tracking-wide whitespace-nowrap">
-                Propel
-              </span>
-            </div>
+            <article class="snap-start shrink-0 w-64" aria-label="Prompt Design Notes — 14 pages · LLMs">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-blue/90 to-brand-lightred/70"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Prompt Design Notes</h3>
+              <p class="text-xs text-ink/60">14 pages · LLMs</p>
+            </article>
           </div>
         </div>
 
-        <!-- Right Panel with ARK, GAIA & WORKSHOPS -->
-        <div class="bg-white w-full md:w-1/2 px-8 py-16 flex items-center">
-          <div class="max-w-2xl mx-auto space-y-12">
-            <!-- Intro Text -->
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Empowering Minds. Engineering Futures.
-            </p>
+        <p class="mt-10 max-w-3xl text-sm text-ink/70">
+          Recall aids retention. Quizzes have been included to support it.
+        </p>
 
-            <!-- GAIA Section -->
-            <div class="flex items-start gap-4">
-              <div class="bg-gray-100 p-3 rounded-md shadow-sm">
-                <!-- Heroicon: Global Academic Cap -->
-                <svg
-                  class="w-6 h-6 text-brandcolorlightblue"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  viewBox="0 0 406.768 406.768"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M385.636,18.384H21.13C9.46,18.384,0,27.842,0,39.515v4.145c0,11.671,9.46,21.131,21.13,21.131h39.573v62.137
-		c-17.064,26.466-26.97,57.976-26.97,91.808c0,93.695,75.954,169.648,169.65,169.648c93.696,0,169.65-75.953,169.65-169.648
-		c0-33.833-9.906-65.343-26.971-91.809V64.744l23.356-0.065l-0.02,22.865h-2.233c-1.554-0.135-2.633,0.983-2.812,2.533
-		l-2.896,25.091c-0.087,0.766,0.139,1.529,0.624,2.13c0.482,0.596,1.19,0.983,1.956,1.048l22.691-0.006
-		c0.774-0.087,1.479-0.457,1.955-1.056c0.491-0.601,0.708-1.373,0.624-2.141c-0.581-4.928-1.158-9.848-1.73-14.779l-1.198-10.314
-		c-0.186-1.539-1.563-2.657-3.111-2.521l-2.231,0.004l0.002-22.887l7.128-0.004c10.498,0,18.6-10.172,18.6-20.983v-4.145
-		C406.766,27.842,397.306,18.384,385.636,18.384z M97.161,146.419l41.662,11.601c-1.944,13.387-3.231,27.387-3.866,41.589h-59.68
-		C78.546,180.064,86.19,161.989,97.161,146.419z M75.279,242.594h59.674c1.634,36.424,7.487,71.573,17.97,98.229
-		C112.631,323.769,82.695,286.95,75.279,242.594z M205.592,341.465h-4.409c-8.257-11.563-20.542-44.769-23.203-98.871l50.793,0.001
-		C226.119,296.696,213.842,329.903,205.592,341.465z M177.989,199.609c0.529-10.822,1.448-20.799,2.64-29.941l19.919,5.55
-		c0.927,0.256,1.881,0.387,2.834,0.387s1.907-0.131,2.834-0.387l19.919-5.55c1.191,9.143,2.111,19.119,2.641,29.941H177.989z
-		 M253.843,340.815c10.486-26.647,16.338-61.797,17.965-98.22l59.681-0.002C324.066,286.95,294.133,323.772,253.843,340.815z
-		 M271.811,199.609c-0.634-14.201-1.922-28.2-3.867-41.589l41.661-11.601c10.972,15.57,18.616,33.645,21.887,53.189L271.811,199.609
-		L271.811,199.609z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-gray-900">Global AI Academy</h3>
-                <p class="text-sm text-gray-600 mt-1">
-                  Equipping learners and professionals with AI/ML and Data science skills.
-                </p>
-                <a
-                  href="/gaia"
-                  class="inline-block mt-3 text-sm font-medium text-brandcolorlightblue hover:underline"
-                >
-                  GAIA →
-                </a>
-              </div>
-            </div>
-
-            <!-- ARK Section -->
-            <div class="flex items-start gap-4">
-              <div class="bg-gray-100 p-3 rounded-md shadow-sm">
-                <!-- Heroicon: Sail Boat -->
-                <svg
-                  class="w-6 h-6 text-brandcolorlightblue"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <!-- Right Sail (bigger and higher) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M13.25 2.75v11.25h6L13.25 2.75z"
-                  />
-                  <!-- Left Sail (bigger and slightly left) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M10.25 4.25v9.75H3.75l6.5-9.75z"
-                  />
-                  <!-- Hull (lower and wider) -->
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M20 20H4l-2-3.75h20L20 20z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-gray-900">Applied Research Kernel</h3>
-                <p class="text-sm text-gray-600 mt-1">
-                  Building AI powered software and business platforms.
-                </p>
-                <a
-                  href="/ark"
-                  class="inline-block mt-3 text-sm font-medium text-brandcolorlightblue hover:underline"
-                >
-                  ARK →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Site Footer -->
-    <footer class="w-full">
-      <div class="flex flex-col md:flex-row w-full">
-        <!-- Left Half -->
-        <div
-          class="w-full md:w-1/2 bg-brandcolorblue text-white px-4 py-4 text-center text-sm border-t border-white/20"
-        >
-          &copy; 2025 Trilp AI. All rights reserved.
-        </div>
-
-        <!-- Right Half -->
-        <div
-          class="w-full md:w-1/2 bg-white text-gray-800 px-4 py-4 flex justify-center items-center gap-x-4 text-sm"
-        >
-          <a
-            href="https://github.com/trilpai"
-            target="_blank"
-            aria-label="GitHub"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                clip-rule="evenodd"
-              />
-            </svg>
+        <div class="mt-10">
+          <a href="#quizzes" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30" aria-label="Scroll to Quizzes">
+            <span class="text-2xl leading-none text-ink/60">↓</span>
           </a>
-          <a
-            href="https://www.youtube.com/@trilpai"
-            target="_blank"
-            aria-label="YouTube"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/trilpai/"
-            target="_blank"
-            aria-label="Instagram"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/trilpai"
-            target="_blank"
-            aria-label="LinkedIn"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" stroke="currentColor" viewBox="0 0 448 512">
-              <path
-                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.facebook.com/trilpai"
-            target="_blank"
-            aria-label="Facebook"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-          <!-- <a
-            href="#"
-            target="_blank"
-            aria-label="X/Twitter"
-            rel="noopener noreferrer"
-            class="hover:text-gray-800"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"
-              />
-            </svg>
-          </a> -->
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- Section 3: Latest Quizzes -->
+    <section id="quizzes" class="bg-paper py-20 md:py-28" aria-label="Quizzes">
+      <div class="mx-auto max-w-6xl px-4">
+        <header class="mb-2 flex items-end justify-between">
+          <h2 class="text-2xl md:text-3xl font-medium text-ink">Quizzes</h2>
+          <a href="/quizzes/" class="text-sm text-brand-blue hover:underline" aria-label="Explore all quizzes">Explore all quizzes →</a>
+        </header>
+
+        <!-- Carousel with centered swipe hint -->
+        <div class="relative" data-carousel="quizzes">
+          <p class="swipe-hint swipe-hint-abs swipe-hint-pill">← scroll →</p>
+
+          <div class="flex gap-6 overflow-x-auto pb-2 pe-4 snap-x snap-mandatory carousel-fade" aria-label="Quizzes carousel">
+            <article class="snap-start shrink-0 w-64" aria-label="Gradient Descent — Recall · 12 questions · Core">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-lightblue/90 to-brand-blue/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Gradient Descent — Recall</h3>
+              <p class="text-xs text-ink/60">12 questions · Core</p>
+            </article>
+
+            <article class="snap-start shrink-0 w-64" aria-label="Cloud-Native Basics — Check · 10 questions · Intro">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-lightred/90 to-brand-red/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Cloud-Native Basics — Check</h3>
+              <p class="text-xs text-ink/60">10 questions · Intro</p>
+            </article>
+
+            <article class="snap-start shrink-0 w-64" aria-label="Vectors & Similarity · 14 questions · Core">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-red/80 to-brand-blue/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Vectors & Similarity</h3>
+              <p class="text-xs text-ink/60">14 questions · Core</p>
+            </article>
+
+            <article class="snap-start shrink-0 w-64" aria-label="Probability Essentials · 16 questions · Foundations">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-blue/80 to-brand-lightblue/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Probability Essentials</h3>
+              <p class="text-xs text-ink/60">16 questions · Foundations</p>
+            </article>
+
+            <article class="snap-start shrink-0 w-64" aria-label="Prompt Design — Quick Check · 10 questions · LLMs">
+              <div class="aspect-[3/4] rounded-xl2 bg-paper border border-line shadow-subtle overflow-hidden grid place-items-center">
+                <div class="h-full w-full bg-gradient-to-br from-brand-red/80 to-brand-lightred/80"></div>
+              </div>
+              <h3 class="mt-3 text-sm font-medium text-ink">Prompt Design — Quick Check</h3>
+              <p class="text-xs text-ink/60">10 questions · LLMs</p>
+            </article>
+          </div>
+        </div>
+
+        <p class="mt-10 max-w-3xl text-sm text-ink/70"> Context for Trilp AI has been provided in the section that follows. </p>
+        <div class="mt-10">
+          <a href="#about" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30" aria-label="Scroll to About">
+            <span class="text-2xl leading-none text-ink/60">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: About -->
+    <section id="about" class="bg-paper-soft py-24 md:py-32" aria-label="About Trilp AI">
+
+      <!-- Subtle divider line for grounding -->
+      <div class="mx-auto max-w-6xl px-4 mb-12">
+        <div class="border-t border-line/70"></div>
+      </div>
+
+      <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-[220px_1fr]">
+
+        <img src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
+            alt="Trilp AI logo"
+            class="h-24 w-24 md:h-28 md:w-28 opacity-95" />
+
+        <div>
+          <h2 class="text-2xl md:text-3xl font-medium text-ink/90 tracking-tight">
+            Trilp AI has been developed as a small independent learning studio.
+          </h2>
+
+          <p class="mt-5 text-base leading-7 text-ink/75">
+            Work from over two decades in software development has been condensed into compact teaching materials.
+            Books and quizzes have been prepared gradually, with an emphasis on steady understanding rather
+            than rapid completion. The intention has been to make learning approachable, patient, and sustainable over
+            long periods of practice.
+          </p>
+
+          <!-- Signature line (quiet, elegant, optional but recommended) -->
+          <p class="mt-6 text-sm text-ink/60">
+            Maintained with steadiness and intent.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Active menu highlight + animations -->
+  <script>
+    // Active nav highlight
+    const menuLinks = document.querySelectorAll('a[data-nav]');
+    const sections = Array.from(menuLinks).map(link => document.getElementById(link.dataset.nav));
+
+    function setActive(id) {
+      menuLinks.forEach(link => {
+        link.classList.remove('nav-highlight', 'font-medium');
+        if (link.dataset.nav === id) {
+          link.classList.add('nav-highlight', 'font-medium');
+        }
+      });
+    }
+
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+    }, { threshold: 0.55 });
+
+    sections.forEach(sec => sec && navObserver.observe(sec));
+
+    // Initial highlight: hash if valid; otherwise home
+    window.addEventListener('load', () => {
+      const hashId = location.hash?.replace('#','');
+      const target = hashId && document.getElementById(hashId) ? hashId : 'home';
+      setActive(target);
+    });
+
+    // (8) Scroll progress bar
+    const prog = document.getElementById('progress');
+    const h = document.documentElement;
+    addEventListener('scroll', () => {
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      prog.style.width = scrolled + '%';
+    }, { passive: true });
+
+    // (5) First cards slide-in on load (stagger)
+    function staggerCards(selector, count = 5, baseDelay = 80) {
+      const nodes = document.querySelectorAll(selector);
+      nodes.forEach((el, i) => {
+        if (i < count) {
+          el.style.animationDelay = (i * baseDelay) + 'ms';
+          el.classList.add('card-in');
+        }
+      });
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      staggerCards('#books article', 5, 80);
+      staggerCards('#quizzes article', 5, 80);
+    });
+
+    // Start the swipe-hint only when its carousel container is in view
+    const hintObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const hint = entry.target.querySelector('.swipe-hint');
+        if (!hint) return;
+        if (entry.isIntersecting) {
+          hint.classList.add('play');   // run 8s fade, centered
+        }
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('[data-carousel]').forEach(wrapper => hintObserver.observe(wrapper));
+  </script>
+</body>
 </html>

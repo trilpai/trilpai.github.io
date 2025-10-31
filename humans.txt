@@ -1,0 +1,31 @@
+/* TEAM */
+Developer & Maintainer: Pradyumna Das Roy
+Organization: Trilp AI — Independent Learning Studio
+Location: Pune, Maharashtra, India
+Contact: info@trilp.in
+Website: https://www.trilp.in
+
+/* PHILOSOPHY */
+Understanding over urgency.
+Depth over volume.
+Steady practice over rushed outcomes.
+Learning should feel calm, patient, and sustainable.
+
+/* ABOUT */
+Trilp AI develops concise books and recall-friendly quizzes to help software developers learn
+AI and Machine Learning at a human pace. Content evolves gradually with clarity and intent.
+
+/* TECHNOLOGY */
+Static HTML
+Tailwind CSS (locally compiled)
+Inter Font (Local .woff2)
+No frameworks. No tracking. No analytics. Minimal JavaScript.
+Hosted via GitHub Pages.
+
+/* CREDITS */
+Logo, brand, and writing by Trilp AI.
+All code licensed under the MIT License (see /LICENSE).
+Brand identity and visual marks are proprietary and not open for reuse.
+
+/* LAST UPDATED */
+2025-10-31
