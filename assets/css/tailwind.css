@@ -162,3 +162,104 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Stack the Thought — subtle grid + block feel
+   ========================================================================== */
+
+.st-grid {
+  /* subtle graph paper feel */
+  background-image:
+    linear-gradient(to right, rgba(11,18,32,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11,18,32,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  /* keep it subtle without dimming everything behind it */
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #st-hint { display: none; }
+}
+
+/* ==========================================================================
+   Signal vs Noise — subtle grid + calm board
+   ========================================================================== */
+
+.sn-grid {
+  background-image:
+    linear-gradient(to right, rgba(11,18,32,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11,18,32,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+}
+
+.sn-board {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .sn-board { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+}
+
+.sn-cell {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  height: 2.75rem;
+  font-size: 0.95rem;
+  color: rgba(11,18,32,0.85);
+  user-select: none;
+  cursor: pointer;
+  transition: transform .12s ease, border-color .12s ease, background-color .12s ease;
+}
+
+@media (min-width: 640px) {
+  .sn-cell { height: 3.0rem; font-size: 1rem; }
+}
+
+.sn-cell:active { transform: scale(0.98); }
+
+.sn-cell.is-hit {
+  border-color: rgba(79,157,247,0.55);              /* brand lightblue */
+  background: rgba(79,157,247,0.10);
+}
+
+.sn-cell.is-miss {
+  border-color: rgba(215,38,56,0.55);               /* brand red */
+  background: rgba(215,38,56,0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sn-cell { transition: none; }
+}
+
+
+
+/* ==========================================================================
+   Tailwind utility keep-alives (so CLI generates these classes)
+   --------------------------------------------------------------------------
+   We use these in JS-driven UI elements (Focus Drift + Stack), but sometimes
+   they can be missed by scanners depending on edits. This guarantees generation.
+   ========================================================================== */
+
+@layer utilities {
+  ._tw-keepalive {
+    @apply
+      -translate-x-1/2
+      -translate-y-1/2
+      touch-manipulation
+      tabular-nums
+      hidden
+      flex
+      backdrop-blur
+      select-none;
+  }
+}
+
