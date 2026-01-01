@@ -14,7 +14,7 @@ AI accelerates engineering — it does not replace thinking.
 /* FRAMEWORK */
 3 Octaves — A maturity model for software engineering.
 
-Octave 1: Signal Formation  
+Octave 1: Signal Definition  
 Understanding problems clearly before building.
 
 Octave 2: Signal Construction  
