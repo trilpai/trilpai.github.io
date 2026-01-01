@@ -1,26 +1,26 @@
 /* TEAM */
 Developer & Maintainer: Pradyumna Das Roy
-Organization: Trilp AI — Independent Learning Studio
+Organization: Trilp AI — AI-Accelerated Software Engineering Studio
 Location: Pune, Maharashtra, India
 Contact: info@trilp.in
 Website: https://www.trilp.in
 
 /* PHILOSOPHY */
-Understanding over urgency.
-Depth over volume.
-Steady practice over rushed outcomes.
-Learning should feel calm, patient, and sustainable.
+Clarity over chaos.
+Systems over shortcuts.
+Quality over urgency.
+AI should accelerate engineering — not replace thinking.
 
 /* ABOUT */
-Trilp AI develops concise books and recall-friendly quizzes to help software developers learn
-AI and Machine Learning at a human pace. Content evolves gradually with clarity and intent.
+Trilp AI is a futuristic software development studio focused on building production-grade systems
+using AI-accelerated engineering pipelines — specs, architecture, code, tests, CI/CD, and observability.
 
 /* TECHNOLOGY */
 Static HTML
 Tailwind CSS (locally compiled)
 Inter Font (Local .woff2)
-No frameworks. No tracking. No analytics. Minimal JavaScript.
-Hosted via GitHub Pages.
+Minimal JavaScript
+Hosted via GitHub Pages
 
 /* CREDITS */
 Logo, brand, and writing by Trilp AI.
@@ -28,4 +28,4 @@ All code licensed under the MIT License (see /LICENSE).
 Brand identity and visual marks are proprietary and not open for reuse.
 
 /* LAST UPDATED */
-2025-10-31
+2026-01-01

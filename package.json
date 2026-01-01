@@ -1,18 +1,22 @@
 {
   "name": "trilpai.github.io",
   "version": "1.0.0",
-  "description": "Official website for Trilp AI — a calm, independent AI & Software Learning Studio based in Pune, India.",
+  "description": "Official website for Trilp AI — AI-Accelerated Software Engineering Studio based in Pune, India.",
   "author": "Pradyumna Das Roy <info@trilp.in>",
   "license": "MIT",
   "homepage": "https://www.trilp.in",
   "keywords": [
     "Trilp AI",
-    "AI Learning",
-    "Machine Learning",
-    "Software Engineering",
-    "Learning Studio",
-    "Pune",
-    "Educational Site"
+    "AI-accelerated engineering pipelines",
+    "software architecture",
+    "backend APIs",
+    "microservices",
+    "cloud-native delivery",
+    "testing strategies",
+    "CI/CD automation",
+    "observability and monitoring",
+    "LLM application features",
+    "AI copilots and workflow automation"
   ],
   "scripts": {
     "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",

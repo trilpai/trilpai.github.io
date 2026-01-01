@@ -1,13 +1,13 @@
 // Trilp AI — Focus Drift (pointer-events unified; reliable restart)
 (() => {
-  const container = document.getElementById("focus-drift");
+  const container = document.getElementById('focus-drift');
   if (!container) return;
 
-  const dot = document.getElementById("fd-dot");
-  const zone = document.getElementById("fd-zone");
-  const overlay = document.getElementById("fd-overlay");
-  const scoreEl = document.getElementById("fd-score");
-  const restartBtn = document.getElementById("fd-restart");
+  const dot = document.getElementById('fd-dot');
+  const zone = document.getElementById('fd-zone');
+  const overlay = document.getElementById('fd-overlay');
+  const scoreEl = document.getElementById('fd-score');
+  const restartBtn = document.getElementById('fd-restart');
 
   let cx, cy, vx, vy;
   let zoneInset = 32;
@@ -33,8 +33,8 @@
     startTime = performance.now();
     running = true;
 
-    overlay?.classList.add("hidden");
-    overlay?.classList.remove("flex");
+    overlay?.classList.add('hidden');
+    overlay?.classList.remove('flex');
 
     updateZone();
     loop();
@@ -42,7 +42,7 @@
 
   function updateZone() {
     if (!zone) return;
-    zone.style.inset = zoneInset + "px";
+    zone.style.inset = zoneInset + 'px';
   }
 
   function loop() {
@@ -55,18 +55,13 @@
     vx += (Math.random() - 0.5) * 0.02;
     vy += (Math.random() - 0.5) * 0.02;
 
-    dot.style.left = cx + "px";
-    dot.style.top = cy + "px";
+    dot.style.left = cx + 'px';
+    dot.style.top = cy + 'px';
 
     const z = zone.getBoundingClientRect();
     const d = dot.getBoundingClientRect();
 
-    if (
-      d.left < z.left ||
-      d.right > z.right ||
-      d.top < z.top ||
-      d.bottom > z.bottom
-    ) {
+    if (d.left < z.left || d.right > z.right || d.top < z.top || d.bottom > z.bottom) {
       gameOver();
       return;
     }
@@ -87,8 +82,8 @@
     const seconds = ((performance.now() - startTime) / 1000).toFixed(1);
     if (scoreEl) scoreEl.textContent = `You lasted ${seconds}s`;
 
-    overlay?.classList.remove("hidden");
-    overlay?.classList.add("flex");
+    overlay?.classList.remove('hidden');
+    overlay?.classList.add('flex');
   }
 
   function nudgeFromClientXY(clientX, clientY) {
@@ -107,8 +102,8 @@
 
   // Unified input: pointerdown for mouse + touch + pen (prevents ghost clicks)
   container.addEventListener(
-    "pointerdown",
-    (e) => {
+    'pointerdown',
+    e => {
       // prevent double-tap zoom / selection oddities
       e.preventDefault?.();
       nudgeFromClientXY(e.clientX, e.clientY);
@@ -117,7 +112,7 @@
   );
 
   // Reliable restart (same approach as Stack)
-  restartBtn?.addEventListener("pointerup", (e) => {
+  restartBtn?.addEventListener('pointerup', e => {
     e.preventDefault?.();
     e.stopPropagation?.();
     reset();
@@ -128,28 +123,28 @@
 
 // Trilp AI — Stack the Thought
 (() => {
-  const root = document.getElementById("stack-thought");
+  const root = document.getElementById('stack-thought');
   if (!root) return;
 
-  const stage = document.getElementById("st-stage");
-  const overlay = document.getElementById("st-overlay");
-  const finalEl = document.getElementById("st-final");
-  const restartBtn = document.getElementById("st-restart");
+  const stage = document.getElementById('st-stage');
+  const overlay = document.getElementById('st-overlay');
+  const finalEl = document.getElementById('st-final');
+  const restartBtn = document.getElementById('st-restart');
 
-  const scoreEl = document.getElementById("st-score");
-  const bestEl = document.getElementById("st-best");
-  const scoreElM = document.getElementById("st-score-m");
-  const bestElM = document.getElementById("st-best-m");
+  const scoreEl = document.getElementById('st-score');
+  const bestEl = document.getElementById('st-best');
+  const scoreElM = document.getElementById('st-score-m');
+  const bestElM = document.getElementById('st-best-m');
 
-  const STORAGE_KEY = "trilpai_stack_best";
+  const STORAGE_KEY = 'trilpai_stack_best';
 
   // --- Ensure moving block exists (robust if HTML changes) ---
-  let moving = document.getElementById("st-block");
+  let moving = document.getElementById('st-block');
   if (!moving) {
-    moving = document.createElement("div");
-    moving.id = "st-block";
+    moving = document.createElement('div');
+    moving.id = 'st-block';
     moving.className =
-      "absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]";
+      'absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]';
     stage.appendChild(moving);
   }
 
@@ -157,22 +152,24 @@
   let rafId = null;
   let running = false;
 
-  let dir = 1;              // 1 -> right, -1 -> left
-  let speed = 1.25;         // px per frame baseline
-  let level = 0;            // number of successful drops
+  let dir = 1; // 1 -> right, -1 -> left
+  let speed = 1.25; // px per frame baseline
+  let level = 0; // number of successful drops
   let best = Number(localStorage.getItem(STORAGE_KEY) || 0);
 
   let current = {
-    width: 0,               // px
-    x: 0,                   // left px (within root)
-    y: 0                    // top px
+    width: 0, // px
+    x: 0, // left px (within root)
+    y: 0, // top px
   };
 
-  let last = null;          // last stacked block {x,width,y}
-  const stack = [];         // DOM nodes + geometry
+  let last = null; // last stacked block {x,width,y}
+  const stack = []; // DOM nodes + geometry
 
   // Helpers
-  function setText(el, v) { if (el) el.textContent = String(v); }
+  function setText(el, v) {
+    if (el) el.textContent = String(v);
+  }
 
   function setScore(v) {
     setText(scoreEl, v);
@@ -184,20 +181,24 @@
     setText(bestElM, v);
   }
 
-  function px(n) { return `${Math.round(n)}px`; }
+  function px(n) {
+    return `${Math.round(n)}px`;
+  }
 
-  function rootRect() { return root.getBoundingClientRect(); }
+  function rootRect() {
+    return root.getBoundingClientRect();
+  }
 
   function resetUI() {
     if (!overlay) return;
-    overlay.classList.add("hidden");
-    overlay.classList.remove("flex");
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
   }
 
   function showOverlay() {
     if (!overlay) return;
-    overlay.classList.remove("hidden");
-    overlay.classList.add("flex");
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
   }
 
   function clearStack() {
@@ -210,7 +211,7 @@
     moving.style.width = px(current.width);
     moving.style.left = px(current.x);
     moving.style.top = px(current.y);
-    moving.style.transform = "none"; // we position via px
+    moving.style.transform = 'none'; // we position via px
   }
 
   function newMovingBlock() {
@@ -219,16 +220,16 @@
     const usable = r.width - pad * 2;
 
     // Start width: 70% of container, but if last exists, inherit last width
-    const w = last ? last.width : usable * 0.70;
+    const w = last ? last.width : usable * 0.7;
 
     // Alternate direction looks nice
-    const startFromLeft = (level % 2 === 0);
-    const x = startFromLeft ? pad : (pad + usable - w);
+    const startFromLeft = level % 2 === 0;
+    const x = startFromLeft ? pad : pad + usable - w;
 
     // Vertical position: stack from bottom
     const blockH = 16;
     const gap = 6;
-    const y = r.height - 18 - (level * (blockH + gap)) - blockH;
+    const y = r.height - 18 - level * (blockH + gap) - blockH;
 
     current.width = w;
     current.x = x;
@@ -243,9 +244,8 @@
   }
 
   function makeStackBlock(x, y, width) {
-    const el = document.createElement("div");
-    el.className =
-      "absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]";
+    const el = document.createElement('div');
+    el.className = 'absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]';
     el.style.left = px(x);
     el.style.top = px(y);
     el.style.width = px(width);
@@ -362,12 +362,12 @@
     drop();
   }
 
-  root.addEventListener("pointerdown", onPointerDown, { passive: false });
+  root.addEventListener('pointerdown', onPointerDown, { passive: false });
 
   // Try again must work on mobile:
   // - use pointerup
   // - stopPropagation so the underlying board doesn't also receive the event
-  restartBtn?.addEventListener("pointerup", (e) => {
+  restartBtn?.addEventListener('pointerup', e => {
     e.preventDefault?.();
     e.stopPropagation?.();
     start();
@@ -379,54 +379,62 @@
 
 // Trilp AI — Signal vs Noise
 (() => {
-  const root = document.getElementById("signal-noise");
+  const root = document.getElementById('signal-noise');
   if (!root) return;
 
-  const gridEl = document.getElementById("sn-grid");
-  const ruleEl = document.getElementById("sn-rule");
-  const timeEl = document.getElementById("sn-time");
+  const gridEl = document.getElementById('sn-grid');
+  const ruleEl = document.getElementById('sn-rule');
+  const timeEl = document.getElementById('sn-time');
 
-  const overlay = document.getElementById("sn-overlay");
-  const finalEl = document.getElementById("sn-final");
-  const restartBtn = document.getElementById("sn-restart");
+  const overlay = document.getElementById('sn-overlay');
+  const finalEl = document.getElementById('sn-final');
+  const restartBtn = document.getElementById('sn-restart');
 
-  const scoreEl = document.getElementById("sn-score");
-  const bestEl = document.getElementById("sn-best");
+  const scoreEl = document.getElementById('sn-score');
+  const bestEl = document.getElementById('sn-best');
 
   if (!gridEl || !ruleEl || !timeEl || !overlay || !finalEl || !restartBtn || !scoreEl || !bestEl) {
-    console.error("[SignalNoise] Missing required DOM elements.");
+    console.error('[SignalNoise] Missing required DOM elements.');
     return;
   }
 
-  const STORAGE_KEY = "trilpai_signal_best";
+  const STORAGE_KEY = 'trilpai_signal_best';
   let best = Number(localStorage.getItem(STORAGE_KEY) || 0);
 
   let score = 0;
   let running = false;
 
   // round config
-  let roundMs = 9000;          // total time per round
-  let revealMs = 1200;         // rule visible strongly at start
+  let roundMs = 9000; // total time per round
+  let revealMs = 1200; // rule visible strongly at start
   let tickId = null;
   let endAt = 0;
 
   let rule = null;
-  let signalSet = new Set();   // indices that are "signal"
+  let signalSet = new Set(); // indices that are "signal"
   let remainingSignals = 0;
 
-  function setText(el, v) { el.textContent = String(v); }
-  function setScore(v) { score = v; setText(scoreEl, v); }
-  function setBest(v) { best = v; setText(bestEl, v); }
+  function setText(el, v) {
+    el.textContent = String(v);
+  }
+  function setScore(v) {
+    score = v;
+    setText(scoreEl, v);
+  }
+  function setBest(v) {
+    best = v;
+    setText(bestEl, v);
+  }
 
   function showOverlay(msg) {
     finalEl.textContent = msg;
-    overlay.classList.remove("hidden");
-    overlay.classList.add("flex");
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
   }
 
   function hideOverlay() {
-    overlay.classList.add("hidden");
-    overlay.classList.remove("flex");
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
   }
 
   function randInt(a, b) {
@@ -439,15 +447,41 @@
   // 2) Even numbers
   // 3) Contains a vowel (letters)
   // 4) Buzzword vs real word (tiny curated set)
-  const WORDS_REAL = ["clarity","signal","focus","proof","stack","model","craft","method","logic","truth","reason","design"];
-  const WORDS_BUZZ = ["synergy","disrupt","hyper","growth","vibes","viral","scale","hustle","guru","magic","crypto","ai-ai"];
+  const WORDS_REAL = [
+    'clarity',
+    'signal',
+    'focus',
+    'proof',
+    'stack',
+    'model',
+    'craft',
+    'method',
+    'logic',
+    'truth',
+    'reason',
+    'design',
+  ];
+  const WORDS_BUZZ = [
+    'synergy',
+    'disrupt',
+    'hyper',
+    'growth',
+    'vibes',
+    'viral',
+    'scale',
+    'hustle',
+    'guru',
+    'magic',
+    'crypto',
+    'ai-ai',
+  ];
 
   function pickRule() {
     const r = randInt(1, 4);
-    if (r === 1) return { id: "prime", label: "Tap PRIME numbers", kind: "number" };
-    if (r === 2) return { id: "even",  label: "Tap EVEN numbers",  kind: "number" };
-    if (r === 3) return { id: "vowel", label: "Tap words WITH a vowel", kind: "word" };
-    return           { id: "real",  label: "Tap REAL words (not buzz)", kind: "word" };
+    if (r === 1) return { id: 'prime', label: 'Tap PRIME numbers', kind: 'number' };
+    if (r === 2) return { id: 'even', label: 'Tap EVEN numbers', kind: 'number' };
+    if (r === 3) return { id: 'vowel', label: 'Tap words WITH a vowel', kind: 'word' };
+    return { id: 'real', label: 'Tap REAL words (not buzz)', kind: 'word' };
   }
 
   function isPrime(n) {
@@ -464,21 +498,21 @@
     const rows = w >= 640 ? 6 : 6;
     const total = cols * rows;
 
-    gridEl.innerHTML = "";
+    gridEl.innerHTML = '';
     signalSet = new Set();
 
     const cells = [];
 
-    if (rule.kind === "number") {
+    if (rule.kind === 'number') {
       // numbers between 10..99
       for (let i = 0; i < total; i++) {
         const n = randInt(10, 99);
-        cells.push({ text: String(n), isSignal: (rule.id === "prime" ? isPrime(n) : n % 2 === 0) });
+        cells.push({ text: String(n), isSignal: rule.id === 'prime' ? isPrime(n) : n % 2 === 0 });
       }
     } else {
       // words
       for (let i = 0; i < total; i++) {
-        if (rule.id === "real") {
+        if (rule.id === 'real') {
           // mostly noise buzz, some real
           const useReal = Math.random() < 0.32;
           const word = useReal
@@ -490,7 +524,7 @@
           const useVowel = Math.random() < 0.55;
           const word = useVowel
             ? WORDS_REAL[randInt(0, WORDS_REAL.length - 1)]
-            : ["rhythm","myth","crypt","brrr","tsktsk","nth"][randInt(0, 5)];
+            : ['rhythm', 'myth', 'crypt', 'brrr', 'tsktsk', 'nth'][randInt(0, 5)];
           const hasVowel = /[aeiou]/i.test(word);
           cells.push({ text: word, isSignal: hasVowel });
         }
@@ -508,19 +542,19 @@
 
     // render
     cells.forEach((c, idx) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "sn-cell";
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sn-cell';
       btn.textContent = c.text;
       btn.dataset.idx = String(idx);
-      btn.dataset.signal = c.isSignal ? "1" : "0";
+      btn.dataset.signal = c.isSignal ? '1' : '0';
       gridEl.appendChild(btn);
 
       if (c.isSignal) signalSet.add(idx);
     });
   }
 
-  function endRound(reason = "Time.") {
+  function endRound(reason = 'Time.') {
     running = false;
     clearInterval(tickId);
     tickId = null;
@@ -540,7 +574,7 @@
     const sLeft = (msLeft / 1000).toFixed(1);
     timeEl.textContent = sLeft;
 
-    if (msLeft <= 0) endRound("Time");
+    if (msLeft <= 0) endRound('Time');
   }
 
   function startRound() {
@@ -552,8 +586,8 @@
 
     makeCells();
 
-    const BASE_TIME = 15000;      // 15 seconds for early rounds
-    const MIN_TIME  = 6500;      // never go below ~6.5s
+    const BASE_TIME = 15000; // 15 seconds for early rounds
+    const MIN_TIME = 6500; // never go below ~6.5s
 
     const difficulty = Math.min(1.6, 1 + score * 0.03);
     roundMs = Math.max(MIN_TIME, BASE_TIME / difficulty);
@@ -564,8 +598,8 @@
     tickId = setInterval(tick, 100);
 
     // rule “reveal” feel (slightly stronger for first ~revealMs)
-    root.classList.add("sn-reveal");
-    setTimeout(() => root.classList.remove("sn-reveal"), revealMs);
+    root.classList.add('sn-reveal');
+    setTimeout(() => root.classList.remove('sn-reveal'), revealMs);
   }
 
   function restart() {
@@ -575,36 +609,40 @@
   }
 
   // --- interactions ---
-  gridEl.addEventListener("pointerdown", (e) => {
-    if (!running) return;
+  gridEl.addEventListener(
+    'pointerdown',
+    e => {
+      if (!running) return;
 
-    const btn = e.target?.closest?.(".sn-cell");
-    if (!btn) return;
+      const btn = e.target?.closest?.('.sn-cell');
+      if (!btn) return;
 
-    e.preventDefault?.();
+      e.preventDefault?.();
 
-    const idx = Number(btn.dataset.idx);
-    const isSignal = btn.dataset.signal === "1";
+      const idx = Number(btn.dataset.idx);
+      const isSignal = btn.dataset.signal === '1';
 
-    // prevent double tapping same cell for score
-    if (btn.dataset.used === "1") return;
-    btn.dataset.used = "1";
+      // prevent double tapping same cell for score
+      if (btn.dataset.used === '1') return;
+      btn.dataset.used = '1';
 
-    if (isSignal) {
-      btn.classList.add("is-hit");
-      setScore(score + 1);
-      remainingSignals -= 1;
+      if (isSignal) {
+        btn.classList.add('is-hit');
+        setScore(score + 1);
+        remainingSignals -= 1;
 
-      // round clear -> next round immediately (calm)
-      if (remainingSignals <= 0) startRound();
-    } else {
-      btn.classList.add("is-miss");
-      // penalty: -1 but not below 0
-      setScore(Math.max(0, score - 1));
-    }
-  }, { passive: false });
+        // round clear -> next round immediately (calm)
+        if (remainingSignals <= 0) startRound();
+      } else {
+        btn.classList.add('is-miss');
+        // penalty: -1 but not below 0
+        setScore(Math.max(0, score - 1));
+      }
+    },
+    { passive: false }
+  );
 
-  restartBtn.addEventListener("pointerup", (e) => {
+  restartBtn.addEventListener('pointerup', e => {
     e.preventDefault?.();
     e.stopPropagation?.();
     restart();
@@ -614,4 +652,3 @@
   setBest(best);
   restart();
 })();
-

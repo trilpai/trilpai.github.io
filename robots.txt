@@ -2,11 +2,5 @@ User-agent: *
 Allow: /
 Crawl-delay: 2
 
-# Respect canonical domain
-Host: https://www.trilp.in
-
-# Sitemap for search engines
 Sitemap: https://www.trilp.in/sitemap.xml
-
-# Encourage rich previews (Google Images / WhatsApp / LinkedIn)
-# no restrictions required beyond allowing images
+Host: www.trilp.in

@@ -1,539 +1,654 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="color-scheme" content="light only" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light only" />
 
-  <!-- Primary Meta -->
-  <title>Trilp AI — AI & Software Learning Studio (Pune, India)</title>
-  <meta name="description" content="Trilp AI is a calm, focused learning studio in Pune, India—offering concise AI/ML books and recall-friendly quizzes for software engineers and students. Learn AI at a human pace." />
-  <meta name="keywords" content="AI training Pune, ML training Pune, AI for software developers, learn machine learning India, Python for AI, ML quizzes, short AI books, Trilp AI" />
-  <link rel="canonical" href="https://www.trilp.in/" />
-  <meta name="application-name" content="Trilp AI" />
+    <!-- Primary Meta -->
+    <title>Trilp AI — AI-Accelerated Software Engineering Studio (Pune, India)</title>
+    <meta
+      name="description"
+      content="Trilp AI is a futuristic software engineering studio from Pune, India—building production-grade systems with AI-accelerated engineering pipelines: clear specs, strong architecture, fast delivery, and reliable operations."
+    />
+    <meta
+      name="keywords"
+      content="Trilp AI, AI accelerated software development, AI engineering pipeline, software engineering studio India, product engineering, backend APIs, cloud architecture, microservices, testing automation, CI/CD, observability, LLM features, AI copilots, Pune software studio"
+    />
+    <link rel="canonical" href="https://www.trilp.in/" />
+    <meta name="application-name" content="Trilp AI" />
 
-  <!-- Local SEO -->
-  <meta name="geo.region" content="IN-MH" />
-  <meta name="geo.placename" content="Pune" />
-  <meta name="geo.position" content="18.51471623183104;73.93113109619145" />
-  <meta name="ICBM" content="18.51471623183104, 73.93113109619145" />
+    <!-- Local SEO -->
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Pune" />
+    <meta name="geo.position" content="18.51471623183104;73.93113109619145" />
+    <meta name="ICBM" content="18.51471623183104, 73.93113109619145" />
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Trilp AI" />
-  <meta property="og:locale" content="en_IN" />
-  <meta property="og:title" content="Trilp AI — AI & Software Learning Studio (Pune, India)" />
-  <meta property="og:description" content="Concise AI/ML books and quizzes for developers. Pune-based learning studio focused on steady understanding over speed." />
-  <meta property="og:url" content="https://www.trilp.in/" />
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Trilp AI" />
+    <meta property="og:locale" content="en_IN" />
+    <meta
+      property="og:title"
+      content="Trilp AI — AI-Accelerated Software Engineering Studio (Pune, India)"
+    />
+    <meta
+      property="og:description"
+      content="Production-grade software, built faster with AI-accelerated engineering pipelines—specs, architecture, code, tests, CI/CD, and observability."
+    />
+    <meta property="og:url" content="https://www.trilp.in/" />
 
-  <!-- Primary share image -->
-  <meta property="og:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Trilp AI — Learn AI and Software Engineering at a human pace." />
+    <!-- Primary share image -->
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Trilp AI — AI-Accelerated Software Engineering Studio" />
 
-  <!-- Optional alternates (some clients pick the first; others may choose a later one) -->
-  <meta property="og:image" content="https://www.trilp.in/assets/img/og/whatsapp_trilp.png" />
-  <meta property="og:image" content="https://www.trilp.in/assets/img/og/square_trilp.png" />
+    <!-- Optional alternates (some clients pick the first; others may choose a later one) -->
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/whatsapp_trilp.png" />
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/square_trilp.png" />
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trilp AI — AI & Software Learning Studio (Pune, India)" />
-  <meta name="twitter:description" content="Concise AI/ML books and quizzes for developers. Learn AI at a human pace." />
-  <meta name="twitter:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
-  <meta name="twitter:image:alt" content="Trilp AI — Learn AI and Software Engineering at a human pace." />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Trilp AI — AI-Accelerated Software Engineering Studio (Pune, India)"
+    />
+    <meta
+      name="twitter:description"
+      content="Production-grade software, built faster with AI-accelerated engineering pipelines—specs, architecture, code, tests, CI/CD, and observability."
+    />
+    <meta name="twitter:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Trilp AI — AI-Accelerated Software Engineering Studio"
+    />
 
-  <!-- Favicons / PWA -->
-  <link rel="icon" type="image/png" href="https://www.trilp.in/assets/img/favicons/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="https://www.trilp.in/assets/img/favicons/favicon.svg" />
-  <link rel="shortcut icon" href="https://www.trilp.in/assets/img/favicons/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Trilp AI" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
+    <!-- Favicons / PWA -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.trilp.in/assets/img/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://www.trilp.in/assets/img/favicons/favicon.svg"
+    />
+    <link rel="shortcut icon" href="https://www.trilp.in/assets/img/favicons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Trilp AI" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P3V67L6YK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P3V67L6YK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-3P3V67L6YK');
+    </script>
 
-    gtag('config', 'G-3P3V67L6YK');
-  </script>
+    <!-- Fonts & Compiled CSS (local) -->
+    <link rel="stylesheet" href="https://www.trilp.in/assets/css/font/inter.css" />
+    <link rel="stylesheet" href="https://www.trilp.in/assets/css/style.css" />
 
-  <!-- Fonts & Compiled CSS (local) -->
-  <link rel="stylesheet" href="https://www.trilp.in/assets/css/font/inter.css" />
-  <link rel="stylesheet" href="https://www.trilp.in/assets/css/style.css" />
-
-  <!-- Structured Data: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.trilp.in/#organization",
-    "name": "Trilp AI",
-    "url": "https://www.trilp.in/",
-    "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
-    "image": "https://www.trilp.in/assets/img/og/og_trilp.png",
-    "slogan": "Empowering Minds. Engineering Futures.",
-    "foundingDate": "2023-11-01",
-    "founder": {
-      "@type": "Person",
-      "name": "Pradyumna Das Roy",
-      "sameAs": "https://www.linkedin.com/in/pradyroy/"
-    },
-    "brand": {
-      "@type": "Brand",
-      "name": "Trilp AI",
-      "url": "https://www.trilp.in",
-      "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
-      "slogan": "Empowering Minds. Engineering Futures."
-    },
-    "email": "info@trilp.in",
-    "contactPoint": [
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
       {
-        "@type": "ContactPoint",
+        "@context": "https://schema.org",
+        "@type": "SoftwareCompany",
+        "@id": "https://www.trilp.in/#organization",
+        "name": "Trilp AI",
+        "url": "https://www.trilp.in/",
+        "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+        "image": "https://www.trilp.in/assets/img/og/og_trilp.png",
+        "slogan": "Empowering Minds. Engineering Futures.",
+        "foundingDate": "2022-12-01",
+        "founder": {
+          "@type": "Person",
+          "name": "Pradyumna Das Roy",
+          "sameAs": "https://www.linkedin.com/in/pradyroy/"
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "Trilp AI",
+          "url": "https://www.trilp.in/",
+          "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+          "slogan": "Empowering Minds. Engineering Futures."
+        },
         "email": "info@trilp.in",
-        "contactType": "customer support",
-        "availableLanguage": ["English"]
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "info@trilp.in",
+            "contactType": "general inquiries",
+            "availableLanguage": ["English"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Magarpatta City",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "postalCode": "411013",
+          "addressCountry": "IN"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Trilp AI (Pune)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Magarpatta City",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "postalCode": "411013",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 18.51471623183104,
+            "longitude": 73.93113109619145
+          }
+        },
+        "knowsAbout": [
+          "AI-accelerated engineering pipelines",
+          "software architecture",
+          "backend APIs",
+          "microservices",
+          "cloud-native delivery",
+          "testing strategies",
+          "CI/CD automation",
+          "observability and monitoring",
+          "LLM application features",
+          "AI copilots and workflow automation"
+        ],
+        "sameAs": [
+          "https://github.com/trilpai",
+          "https://www.linkedin.com/company/trilpai",
+          "https://www.youtube.com/@trilpai",
+          "https://www.instagram.com/trilpai/",
+          "https://www.facebook.com/trilpai"
+        ]
       }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Magarpatta City",
-      "addressLocality": "Pune",
-      "addressRegion": "Maharashtra",
-      "postalCode": "411013",
-      "addressCountry": "IN"
-    },
-    "location": {
-      "@type": "Place",
-      "name": "Trilp AI (Pune)",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Magarpatta City",
-        "addressLocality": "Pune",
-        "addressRegion": "Maharashtra",
-        "postalCode": "411013",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 18.51471623183104,
-        "longitude": 73.93113109619145
+    </script>
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.trilp.in/#website",
+        "url": "https://www.trilp.in/",
+        "name": "Trilp AI",
+        "inLanguage": "en-IN",
+        "description": "Trilp AI is a software engineering studio focused on AI-accelerated delivery—clear specs, strong architecture, fast implementation, and reliable operations.",
+        "publisher": { "@id": "https://www.trilp.in/#organization" },
+        "image": "https://www.trilp.in/assets/img/og/og_trilp.png"
       }
-    },
-    "sameAs": [
-      "https://github.com/trilpai",
-      "https://www.linkedin.com/company/trilpai",
-      "https://www.youtube.com/@trilpai",
-      "https://www.instagram.com/trilpai/",
-      "https://www.facebook.com/trilpai"
-    ]
-  }
-  </script>
+    </script>
 
-  <!-- Structured Data: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://www.trilp.in/#website",
-    "url": "https://www.trilp.in/",
-    "name": "Trilp AI",
-    "inLanguage": "en-IN",
-    "description": "Concise AI/ML books and quizzes for developers—learn AI at a human pace. Pune-based learning studio.",
-    "publisher": { "@id": "https://www.trilp.in/#organization" },
-    "image": "https://www.trilp.in/assets/img/og/og_trilp.png",
-    "keywords": "AI learning studio, AI/ML books, ML quizzes, AI training Pune, Trilp AI"
-  }
-  </script>
+    <!-- Structured Data: WebPage (Home) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.trilp.in/#webpage",
+        "url": "https://www.trilp.in/",
+        "name": "Trilp AI — AI-Accelerated Software Engineering Studio",
+        "isPartOf": { "@id": "https://www.trilp.in/#website" },
+        "about": { "@id": "https://www.trilp.in/#organization" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://www.trilp.in/assets/img/og/og_trilp.png"
+        },
+        "inLanguage": "en-IN"
+      }
+    </script>
 
-  <!-- Robots / Sitemap -->
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trilp.in/sitemap.xml" />
-</head>
+    <!-- Robots / Sitemap -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="https://www.trilp.in/sitemap.xml"
+    />
+  </head>
 
-<body class="bg-paper text-ink font-sans antialiased page-fade">
-  <!-- (8) Thin top progress bar -->
-  <div id="progress" role="presentation" aria-hidden="true"></div>
+  <body class="bg-paper text-ink font-sans antialiased page-fade">
+    <!-- (8) Thin top progress bar -->
+    <div id="progress" role="presentation" aria-hidden="true"></div>
 
-  <!-- ===== Header (fixed) ===== -->
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3" style="height: var(--header-h);" aria-label="Primary">
-      <a href="/" class="flex items-center gap-2" aria-label="Trilp AI — Home">
-        <img src="https://www.trilp.in/assets/img/trilp-ai-logo.png" alt="Trilp AI" class="h-6 w-auto header-logo" />
-        <span class="sr-only">Trilp AI</span>
-      </a>
-      <ul class="flex items-center gap-6 text-sm text-ink/80">
-        <li><a href="#home"    data-nav="home"    class="hover:text-ink">Home</a></li>
-        <li><a href="#stack" data-nav="stack" class="hover:text-ink">Stack</a></li>
-        <li><a href="#signal" data-nav="signal" class="hover:text-ink">Signal</a></li>
-        <li><a href="#about"   data-nav="about"   class="hover:text-ink">About</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- ===== Header (fixed) ===== -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        style="height: var(--header-h)"
+        aria-label="Primary"
+      >
+        <a href="/" class="flex items-center gap-2" aria-label="Trilp AI — Home">
+          <img
+            src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
+            alt="Trilp AI"
+            class="h-6 w-auto header-logo"
+          />
+          <span class="sr-only">Trilp AI</span>
+        </a>
+        <ul class="flex items-center gap-6 text-sm text-ink/80">
+          <li><a href="#home" data-nav="home" class="hover:text-ink">Home</a></li>
+          <li><a href="#stack" data-nav="stack" class="hover:text-ink">Stack</a></li>
+          <li><a href="#signal" data-nav="signal" class="hover:text-ink">Signal</a></li>
+          <li><a href="#about" data-nav="about" class="hover:text-ink">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- ===== Footer (fixed) ===== -->
-  <footer class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/80 backdrop-blur" aria-label="Footer">
-    <div class="mx-auto max-w-6xl px-4 py-3 text-xs text-ink/60" style="min-height: var(--footer-h);">
+    <!-- ===== Footer (fixed) ===== -->
+    <footer
+      class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/80 backdrop-blur"
+      aria-label="Footer"
+    >
+      <div
+        class="mx-auto max-w-6xl px-4 py-3 text-xs text-ink/60"
+        style="min-height: var(--footer-h)"
+      >
+        <div
+          class="footer-wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-center sm:text-left"
+        >
+          <!-- Row 1 (social links) -->
+          <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
+            <a
+              href="https://www.linkedin.com/company/trilpai"
+              class="footer-link"
+              aria-label="LinkedIn"
+              >LinkedIn</a
+            >
+            <a href="https://www.youtube.com/@trilpai" class="footer-link" aria-label="YouTube"
+              >YouTube</a
+            >
+            <a href="https://www.instagram.com/trilpai/" class="footer-link" aria-label="Instagram"
+              >Instagram</a
+            >
+            <a href="https://www.facebook.com/trilpai" class="footer-link" aria-label="Facebook"
+              >Facebook</a
+            >
+            <a href="https://github.com/trilpai" class="footer-link" aria-label="GitHub">GitHub</a>
+          </div>
 
-      <div class="footer-wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-center sm:text-left">
+          <!-- Row 2 (Tagline) -->
+          <p class="text-ink/70 font-medium tracking-wide order-none sm:order-none">
+            Empowering Minds. Engineering Futures.
+          </p>
 
-        <!-- Row 1 (social links) -->
-        <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
-          <a href="https://www.linkedin.com/company/trilpai" class="footer-link" aria-label="LinkedIn">LinkedIn</a>
-          <a href="https://www.youtube.com/@trilpai" class="footer-link" aria-label="YouTube">YouTube</a>
-          <a href="https://www.instagram.com/trilpai/" class="footer-link" aria-label="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/trilpai" class="footer-link" aria-label="Facebook">Facebook</a>
-          <a href="https://github.com/trilpai" class="footer-link" aria-label="GitHub">GitHub</a>
+          <!-- Row 3 (Copyright) -->
+          <p class="mt-1 sm:mt-0 text-ink/60 text-center sm:text-right">
+            © <span class="tabular-nums">2025</span> Trilp AI
+          </p>
         </div>
-
-        <!-- Row 2 (Tagline) -->
-        <p class="text-ink/70 font-medium tracking-wide order-none sm:order-none">
-          Empowering Minds. Engineering Futures.
-        </p>
-
-        <!-- Row 3 (Copyright) -->
-        <p class="mt-1 sm:mt-0 text-ink/60 text-center sm:text-right">
-          © <span class="tabular-nums">2025</span> Trilp AI
-        </p>
-
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- ===== Main (scrollable between fixed header/footer) ===== -->
-  <main class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]">
-
-    <!-- Section 1: Home / Focus Drift -->
-    <section id="home" class="relative min-h-[calc(100vh-var(--header-h)-var(--footer-h))] bg-paper" aria-label="Home">
-        <div class="mx-auto flex min-h-[calc(100vh-var(--header-h)-var(--footer-h))] max-w-5xl items-center px-4">
-            <div class="w-full">
-
-            <h1 class="text-2xl md:text-3xl font-medium tracking-tight text-ink mb-6">
-                Focus Drift
-            </h1>
+    <!-- ===== Main (scrollable between fixed header/footer) ===== -->
+    <main class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]">
+      <!-- Section 1: Home / Focus Drift -->
+      <section
+        id="home"
+        class="relative min-h-[calc(100vh-var(--header-h)-var(--footer-h))] bg-paper"
+        aria-label="Home"
+      >
+        <div
+          class="mx-auto flex min-h-[calc(100vh-var(--header-h)-var(--footer-h))] max-w-5xl items-center px-4"
+        >
+          <div class="w-full">
+            <h1 class="text-2xl md:text-3xl font-medium tracking-tight text-ink mb-6">Focus</h1>
 
             <p class="mb-6 max-w-xl text-sm text-ink/70">
-                Keep the dot inside the focus zone. Tap or click to gently steer it.
+              Keep the dot inside the focus zone. Tap or click to gently steer it.
             </p>
 
             <!-- Focus Drift Game -->
             <div
-                id="focus-drift"
-                class="relative mx-auto w-full max-w-xl aspect-square rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
-                aria-label="Focus Drift game"
+              id="focus-drift"
+              class="relative mx-auto w-full max-w-xl aspect-square rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
+              aria-label="Focus Drift game"
             >
-                <!-- Focus Zone -->
-                <div id="fd-zone" class="absolute inset-8 rounded-md border border-brand-blue/30"></div>
+              <!-- Focus Zone -->
+              <div
+                id="fd-zone"
+                class="absolute inset-8 rounded-md border border-brand-blue/30"
+              ></div>
 
-                <!-- Drifting Dot -->
-                <div
+              <!-- Drifting Dot -->
+              <div
                 id="fd-dot"
-                class="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full
-                        bg-brand-lightblue
-                        shadow-[0_0_0_4px_rgba(79,157,247,0.15)]"
-                style="left: 50%; top: 50%;"
-                ></div>
+                class="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-lightblue shadow-[0_0_0_4px_rgba(79,157,247,0.15)]"
+                style="left: 50%; top: 50%"
+              ></div>
 
-                <!-- Game Over Overlay -->
-                <div
+              <!-- Game Over Overlay -->
+              <div
                 id="fd-overlay"
                 class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
                 aria-live="polite"
-                >
+              >
                 <div>
-                    <p class="text-sm text-ink/70 mb-2">Focus lost</p>
-                    <p id="fd-score" class="text-lg font-medium mb-4"></p>
-                    <button
+                  <p class="text-sm text-ink/70 mb-2">Focus lost</p>
+                  <p id="fd-score" class="text-lg font-medium mb-4"></p>
+                  <button
                     id="fd-restart"
                     class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30"
                     type="button"
-                    >
+                  >
                     Try again
-                    </button>
+                  </button>
                 </div>
-                </div>
+              </div>
             </div>
-
-            </div>
+          </div>
         </div>
 
         <!-- keep your arrow as-is -->
-        <a href="#stack" class="absolute bottom-10 left-1/2 -translate-x-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30" aria-label="Scroll to Books">
-            <span class="text-2xl leading-none text-ink/60">↓</span>
+        <a
+          href="#stack"
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30"
+          aria-label="Scroll to Stack"
+        >
+          <span class="text-2xl leading-none text-ink/60">↓</span>
         </a>
-    </section>
+      </section>
 
-    <!-- Section 2: Stack -->
-    <section id="stack" class="bg-paper-soft py-20 md:py-28" aria-label="Stack">
-    <div class="mx-auto max-w-6xl px-4">
+      <!-- Section 2: Stack -->
+      <section id="stack" class="bg-paper-soft py-20 md:py-28" aria-label="Stack">
+        <div class="mx-auto max-w-6xl px-4">
+          <!-- Title + Score row -->
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-medium text-ink">Stack</h2>
 
-        <!-- Title + Score row -->
-        <div class="flex items-start justify-between gap-4">
-        <div>
-            <h2 class="text-2xl md:text-3xl font-medium text-ink">Stack</h2>
-
-            <p class="mt-2 max-w-xl text-sm text-ink/70">
-            Stack the Thought — align each block. Misalignment trims it.
-            <span class="block mt-2 text-ink/60">Tap / click to drop.</span>
-            </p>
-        </div>
-
-        <!-- Score pills -->
-        <div class="flex items-center gap-3">
-            <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-            Score: <span id="st-score" class="font-medium text-ink tabular-nums">0</span>
+              <p class="mt-2 max-w-xl text-sm text-ink/70">
+                Stack the Thought — align each block. Misalignment trims it.
+                <span class="block mt-2 text-ink/60">Tap / click to drop.</span>
+              </p>
             </div>
-            <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-            Best: <span id="st-best" class="font-medium text-ink tabular-nums">0</span>
+
+            <!-- Score pills -->
+            <div class="flex items-center gap-3">
+              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
+                Score: <span id="st-score" class="font-medium text-ink tabular-nums">0</span>
+              </div>
+              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
+                Best: <span id="st-best" class="font-medium text-ink tabular-nums">0</span>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
 
-        <!-- Game -->
-        <div class="mt-10">
-        <div
-            id="stack-thought"
-            class="relative mx-auto w-full max-w-xl
-                h-[60vh] sm:h-[62vh] md:h-[65vh]
-                rounded-xl2 border border-ink/15 bg-paper
-                overflow-hidden select-none touch-manipulation"
-            aria-label="Stack game"
-        >
-            <!-- subtle grid backdrop -->
-            <div class="pointer-events-none absolute inset-0 opacity-[0.22] st-grid"></div>
-
-            <!-- Stack platform area (JS positions blocks inside this) -->
-            <div id="st-stage" class="absolute inset-0"></div>
-
-            <!-- Game Over Overlay -->
+          <!-- Game -->
+          <div class="mt-10">
             <div
-            id="st-overlay"
-            class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
-            aria-live="polite"
+              id="stack-thought"
+              class="relative mx-auto w-full max-w-xl h-[60vh] sm:h-[62vh] md:h-[65vh] rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
+              aria-label="Stack game"
             >
-            <div class="px-6">
-                <p class="text-sm text-ink/70 mb-2">That one slipped.</p>
-                <p id="st-final" class="text-lg font-medium mb-4"></p>
+              <!-- subtle grid backdrop -->
+              <div class="pointer-events-none absolute inset-0 opacity-[0.22] st-grid"></div>
 
-                <button
-                id="st-restart"
-                class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30"
-                type="button"
+              <!-- Stack platform area (JS positions blocks inside this) -->
+              <div id="st-stage" class="absolute inset-0"></div>
+
+              <!-- Game Over Overlay -->
+              <div
+                id="st-overlay"
+                class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
+                aria-live="polite"
+              >
+                <div class="px-6">
+                  <p class="text-sm text-ink/70 mb-2">That one slipped.</p>
+                  <p id="st-final" class="text-lg font-medium mb-4"></p>
+
+                  <button
+                    id="st-restart"
+                    class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30"
+                    type="button"
+                  >
+                    Try again
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Down arrow to next section -->
+            <div class="mt-10">
+              <a
+                href="#signal"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30"
+                aria-label="Scroll to Signal"
+              >
+                <span class="text-2xl leading-none text-ink/60">↓</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Signal -->
+      <section id="signal" class="bg-paper py-20 md:py-28" aria-label="Signal vs Noise">
+        <div class="mx-auto max-w-6xl px-4">
+          <!-- Title + Score row -->
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-medium text-ink">Signal</h2>
+
+              <p class="mt-2 max-w-xl text-sm text-ink/70">
+                Signal vs Noise — find what matches the rule.
+                <span class="block mt-2 text-ink/60"
+                  >Tap only the Signal. One wrong tap costs you.</span
                 >
-                Try again
-                </button>
-            </div>
-            </div>
-        </div>
-
-        <!-- Down arrow to next section -->
-        <div class="mt-10">
-            <a
-            href="#signal"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30"
-            aria-label="Scroll to Signal"
-            >
-            <span class="text-2xl leading-none text-ink/60">↓</span>
-            </a>
-        </div>
-        </div>
-
-    </div>
-    </section>
-
-    <!-- Section 3: Signal -->
-    <section id="signal" class="bg-paper py-20 md:py-28" aria-label="Signal vs Noise">
-    <div class="mx-auto max-w-6xl px-4">
-
-        <!-- Title + Score row -->
-        <div class="flex items-start justify-between gap-4">
-        <div>
-            <h2 class="text-2xl md:text-3xl font-medium text-ink">Signal</h2>
-
-            <p class="mt-2 max-w-xl text-sm text-ink/70">
-            Signal vs Noise — find what matches the rule.
-            <span class="block mt-2 text-ink/60">Tap only the Signal. One wrong tap costs you.</span>
-            </p>
-        </div>
-
-        <!-- Score pills -->
-        <div class="flex items-center gap-3">
-            <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-            Score: <span id="sn-score" class="font-medium text-ink tabular-nums">0</span>
-            </div>
-            <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-            Best: <span id="sn-best" class="font-medium text-ink tabular-nums">0</span>
-            </div>
-        </div>
-        </div>
-
-        <!-- Game -->
-        <div class="mt-10">
-        <div
-            id="signal-noise"
-            class="relative mx-auto w-full max-w-xl
-                h-[58vh] sm:h-[60vh] md:h-[62vh]
-                rounded-xl2 border border-ink/15 bg-paper
-                overflow-hidden select-none touch-manipulation"
-            aria-label="Signal vs Noise game"
-        >
-            <!-- Subtle grid backdrop -->
-            <div class="pointer-events-none absolute inset-0 sn-grid"></div>
-
-            <!-- Rule band (briefly shown each round) -->
-            <div class="absolute left-0 right-0 top-0 z-10 px-4 py-3 border-b border-line bg-paper/70 backdrop-blur">
-            <div class="flex items-center justify-between gap-3">
-                <p class="text-xs sm:text-sm text-ink/70">
-                Rule: <span id="sn-rule" class="font-medium text-ink">—</span>
-                </p>
-                <p class="text-xs sm:text-sm text-ink/60">
-                Time: <span id="sn-time" class="tabular-nums">—</span>
-                </p>
-            </div>
+              </p>
             </div>
 
-            <!-- Grid -->
-            <div class="absolute inset-0 pt-14 px-4 pb-4">
-            <div id="sn-grid" class="sn-board"></div>
+            <!-- Score pills -->
+            <div class="flex items-center gap-3">
+              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
+                Score: <span id="sn-score" class="font-medium text-ink tabular-nums">0</span>
+              </div>
+              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
+                Best: <span id="sn-best" class="font-medium text-ink tabular-nums">0</span>
+              </div>
             </div>
+          </div>
 
-            <!-- Overlay -->
+          <!-- Game -->
+          <div class="mt-10">
             <div
-            id="sn-overlay"
-            class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
-            aria-live="polite"
+              id="signal-noise"
+              class="relative mx-auto w-full max-w-xl h-[58vh] sm:h-[60vh] md:h-[62vh] rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
+              aria-label="Signal vs Noise game"
             >
-            <div class="px-6">
-                <p class="text-sm text-ink/70 mb-2">Round over.</p>
-                <p id="sn-final" class="text-lg font-medium mb-4"></p>
+              <!-- Subtle grid backdrop -->
+              <div class="pointer-events-none absolute inset-0 sn-grid"></div>
 
-                <button
-                id="sn-restart"
-                class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30"
-                type="button"
-                >
-                Try again
-                </button>
+              <!-- Rule band (briefly shown each round) -->
+              <div
+                class="absolute left-0 right-0 top-0 z-10 px-4 py-3 border-b border-line bg-paper/70 backdrop-blur"
+              >
+                <div class="flex items-center justify-between gap-3">
+                  <p class="text-xs sm:text-sm text-ink/70">
+                    Rule: <span id="sn-rule" class="font-medium text-ink">—</span>
+                  </p>
+                  <p class="text-xs sm:text-sm text-ink/60">
+                    Time: <span id="sn-time" class="tabular-nums">—</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid -->
+              <div class="absolute inset-0 pt-14 px-4 pb-4">
+                <div id="sn-grid" class="sn-board"></div>
+              </div>
+
+              <!-- Overlay -->
+              <div
+                id="sn-overlay"
+                class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
+                aria-live="polite"
+              >
+                <div class="px-6">
+                  <p class="text-sm text-ink/70 mb-2">Round over.</p>
+                  <p id="sn-final" class="text-lg font-medium mb-4"></p>
+
+                  <button
+                    id="sn-restart"
+                    class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30"
+                    type="button"
+                  >
+                    Try again
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <!-- Down arrow to next section -->
+            <div class="mt-10">
+              <a
+                href="#about"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30"
+                aria-label="Scroll to About"
+              >
+                <span class="text-2xl leading-none text-ink/60">↓</span>
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: About -->
+      <section id="about" class="bg-paper-soft py-24 md:py-32" aria-label="About Trilp AI">
+        <!-- Subtle divider line for grounding -->
+        <div class="mx-auto max-w-6xl px-4 mb-12">
+          <div class="border-t border-line/70"></div>
         </div>
 
-        <!-- Down arrow to next section -->
-        <div class="mt-10">
-            <a
-            href="#about"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30"
-            aria-label="Scroll to About"
-            >
-            <span class="text-2xl leading-none text-ink/60">↓</span>
-            </a>
-        </div>
-        </div>
-
-    </div>
-    </section>
-
-    <!-- Section 4: About -->
-    <section id="about" class="bg-paper-soft py-24 md:py-32" aria-label="About Trilp AI">
-
-      <!-- Subtle divider line for grounding -->
-      <div class="mx-auto max-w-6xl px-4 mb-12">
-        <div class="border-t border-line/70"></div>
-      </div>
-
-      <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-[220px_1fr]">
-
-        <img src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-[220px_1fr]"
+        >
+          <img
+            src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
             alt="Trilp AI logo"
-            class="h-24 w-24 md:h-28 md:w-28 opacity-95" />
+            class="h-24 w-24 md:h-28 md:w-28 opacity-95"
+          />
 
-        <div>
-          <h2 class="text-2xl md:text-3xl font-medium text-ink/90 tracking-tight">
-            Trilp AI was established as a solo software consulting studio between 2023 and 2025.
-          </h2>
+          <div>
+            <h2 class="text-2xl md:text-3xl font-medium text-ink/90 tracking-tight">
+              Trilp AI was established as a solo software consulting studio between late 2022 and
+              2025.
+            </h2>
 
-          <p class="mt-5 text-base leading-7 text-ink/75">
-            During this period, it operated as an independent practice delivering end-to-end, production-grade software systems—covering architecture, backend APIs, cloud infrastructure, and modern web front-ends.
-          </p>
+            <p class="mt-5 text-base leading-7 text-ink/75">
+              During this period, it operated as an independent practice delivering end-to-end,
+              production-grade software systems—covering architecture, backend APIs, cloud
+              infrastructure, and modern web front-ends.
+            </p>
 
-          <p class="mt-5 text-base leading-7 text-ink/75">
-            The work spanned multiple domains, including Industry 4.0 and IoT, healthcare and medical councils, financial valuation, waste management, ed-tech, logistics, and SaaS platforms serving the North American utility and energy sector. Engagements were carried out remotely with organizations across India, the United States, and Europe.
-          </p>
+            <p class="mt-5 text-base leading-7 text-ink/75">
+              The work spanned multiple domains, including Industry 4.0 and IoT, healthcare and
+              medical councils, financial valuation, waste management, ed-tech, logistics, and SaaS
+              platforms serving the North American utility and energy sector. Engagements were
+              carried out remotely with organizations across India, the United States, and Europe.
+            </p>
 
-          <p class="mt-5 text-base leading-7 text-ink/75">
-            In late 2025, active consulting under the Trilp AI name was discontinued following a transition to permanent full-time employment. While ideas around structured learning and written material were explored, they were never executed. This site remains online as a personal record of that independent consulting phase.
-          </p>
+            <p class="mt-5 text-base leading-7 text-ink/75">
+              In late 2025, active consulting under the Trilp AI name was discontinued following a
+              transition to permanent full-time employment. While ideas around structured learning
+              and written material were explored, they were never executed. This site remains online
+              as a personal record of that independent consulting phase.
+            </p>
 
-          <!-- Signature line (quiet, elegant, optional but recommended) -->
-          <p class="mt-6 text-sm text-ink/60">
-            Preserved as a record of independent work — now concluded.
-          </p>
+            <!-- Signature line (quiet, elegant, optional but recommended) -->
+            <p class="mt-6 text-sm text-ink/60">
+              Preserved as a record of independent work — now concluded.
+            </p>
+          </div>
         </div>
+      </section>
+    </main>
 
-      </div>
-    </section>
-  </main>
+    <!-- Active menu highlight + progress + section-in -->
+    <script>
+      // Active nav highlight (unchanged logic)
+      const menuLinks = document.querySelectorAll('a[data-nav]');
+      const sections = Array.from(menuLinks)
+        .map(link => document.getElementById(link.dataset.nav))
+        .filter(Boolean);
 
- <!-- Active menu highlight + progress + section-in -->
-<script>
-  // Active nav highlight (unchanged logic)
-  const menuLinks = document.querySelectorAll('a[data-nav]');
-  const sections = Array.from(menuLinks)
-    .map(link => document.getElementById(link.dataset.nav))
-    .filter(Boolean);
-
-  function setActive(id) {
-    menuLinks.forEach(link => {
-      link.classList.remove('nav-highlight', 'font-medium');
-      if (link.dataset.nav === id) {
-        link.classList.add('nav-highlight', 'font-medium');
+      function setActive(id) {
+        menuLinks.forEach(link => {
+          link.classList.remove('nav-highlight', 'font-medium');
+          if (link.dataset.nav === id) {
+            link.classList.add('nav-highlight', 'font-medium');
+          }
+        });
       }
-    });
-  }
 
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) setActive(e.target.id);
-    });
-  }, { threshold: 0.55 });
+      const navObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) setActive(e.target.id);
+          });
+        },
+        { threshold: 0.55 }
+      );
 
-  sections.forEach(sec => navObserver.observe(sec));
+      sections.forEach(sec => navObserver.observe(sec));
 
-  // Initial highlight: hash if valid; otherwise home
-  window.addEventListener('load', () => {
-    const hashId = location.hash?.replace('#', '');
-    const target = hashId && document.getElementById(hashId) ? hashId : 'home';
-    setActive(target);
-  });
+      // Initial highlight: hash if valid; otherwise home
+      window.addEventListener('load', () => {
+        const hashId = location.hash?.replace('#', '');
+        const target = hashId && document.getElementById(hashId) ? hashId : 'home';
+        setActive(target);
+      });
 
-  // (8) Scroll progress bar (unchanged)
-  const prog = document.getElementById('progress');
-  const h = document.documentElement;
+      // (8) Scroll progress bar (unchanged)
+      const prog = document.getElementById('progress');
+      const h = document.documentElement;
 
-  addEventListener('scroll', () => {
-    const denom = (h.scrollHeight - h.clientHeight) || 1;
-    const scrolled = (h.scrollTop / denom) * 100;
-    prog.style.width = scrolled + '%';
-  }, { passive: true });
+      addEventListener(
+        'scroll',
+        () => {
+          const denom = h.scrollHeight - h.clientHeight || 1;
+          const scrolled = (h.scrollTop / denom) * 100;
+          prog.style.width = scrolled + '%';
+        },
+        { passive: true }
+      );
 
-  // Optional: section fade-in on first view (subtle)
-  // Add class "section-in" once when a section becomes visible.
-  const sectionInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('section-in');
-      sectionInObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.2 });
+      // Optional: section fade-in on first view (subtle)
+      // Add class "section-in" once when a section becomes visible.
+      const sectionInObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('section-in');
+            sectionInObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.2 }
+      );
 
-  // Observe only your main sections (home, stack, about, etc.)
-  document.querySelectorAll('main > section[id]').forEach(sec => sectionInObserver.observe(sec));
-</script>
-  <script src="/assets/js/trilpai.js" defer></script>
-</body>
+      // Observe only your main sections (home, stack, about, etc.)
+      document
+        .querySelectorAll('main > section[id]')
+        .forEach(sec => sectionInObserver.observe(sec));
+    </script>
+    <script src="https://www.trilp.in/assets/js/trilpai.js" defer></script>
+  </body>
 </html>
