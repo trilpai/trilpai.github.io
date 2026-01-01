@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light only" />
+
+    <!-- Primary Meta -->
+    <title>3 Octaves — A Maturity Model for Software Engineering</title>
+    <meta
+      name="description"
+      content="3 Octaves is a maturity model for software engineering—grounded in timeless principles and amplified by AI acceleration: clarity before code, discipline in construction, and ownership in production."
+    />
+    <meta
+      name="keywords"
+      content="3 Octaves, software engineering maturity model, engineering principles, AI accelerated engineering, architecture, testing, observability, DevOps, reliability, ADRs, software craftsmanship, Pune"
+    />
+    <link rel="canonical" href="https://www.trilp.in/3octaves/" />
+    <meta name="application-name" content="Trilp AI" />
+
+    <!-- Author -->
+    <meta name="author" content="Pradyumna Das Roy (Prady)" />
+    <meta name="email" content="info@trilp.in" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Pune" />
+    <meta name="geo.position" content="18.51471623183104;73.93113109619145" />
+    <meta name="ICBM" content="18.51471623183104, 73.93113109619145" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Trilp AI" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="3 Octaves — A Maturity Model for Software Engineering" />
+    <meta
+      property="og:description"
+      content="A maturity model for software engineering—clarity → construction → consequence, repeated with increasing scope and responsibility."
+    />
+    <meta property="og:url" content="https://www.trilp.in/3octaves/" />
+
+    <!-- Primary share image (reuse existing site assets) -->
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="3 Octaves — A Maturity Model for Software Engineering" />
+
+    <!-- Optional alternates -->
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/whatsapp_trilp.png" />
+    <meta property="og:image" content="https://www.trilp.in/assets/img/og/square_trilp.png" />
+
+    <!-- Open Graph article metadata (authorship) -->
+    <meta property="article:author" content="https://www.linkedin.com/in/pradyroy/" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="3 Octaves — A Maturity Model for Software Engineering" />
+    <meta
+      name="twitter:description"
+      content="A maturity model for software engineering—clarity → construction → consequence, repeated with increasing scope and responsibility."
+    />
+    <meta name="twitter:image" content="https://www.trilp.in/assets/img/og/og_trilp.png" />
+    <meta
+      name="twitter:image:alt"
+      content="3 Octaves — A Maturity Model for Software Engineering"
+    />
+
+    <!-- Favicons / PWA -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.trilp.in/assets/img/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://www.trilp.in/assets/img/favicons/favicon.svg"
+    />
+    <link rel="shortcut icon" href="https://www.trilp.in/assets/img/favicons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://www.trilp.in/assets/img/favicons/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Trilp AI" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="https://www.trilp.in/assets/img/favicons/site.webmanifest" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P3V67L6YK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-3P3V67L6YK');
+    </script>
+
+    <!-- Fonts & Compiled CSS (local) -->
+    <link rel="stylesheet" href="https://www.trilp.in/assets/css/font/inter.css" />
+    <link rel="stylesheet" href="https://www.trilp.in/assets/css/style.css" />
+
+    <!-- Structured Data: Organization (site-wide; OK to repeat) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareCompany",
+        "@id": "https://www.trilp.in/#organization",
+        "name": "Trilp AI",
+        "url": "https://www.trilp.in/",
+        "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+        "image": "https://www.trilp.in/assets/img/og/og_trilp.png",
+        "slogan": "Empowering Minds. Engineering Futures.",
+        "foundingDate": "2022-12-01",
+        "founder": {
+          "@type": "Person",
+          "name": "Pradyumna Das Roy",
+          "alternateName": "Prady",
+          "sameAs": "https://www.linkedin.com/in/pradyroy/"
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "Trilp AI",
+          "url": "https://www.trilp.in/",
+          "logo": "https://www.trilp.in/assets/img/trilp-ai-logo.png",
+          "slogan": "Empowering Minds. Engineering Futures."
+        },
+        "email": "info@trilp.in",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "info@trilp.in",
+            "contactType": "general inquiries",
+            "availableLanguage": ["English"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Magarpatta City",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "postalCode": "411013",
+          "addressCountry": "IN"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Trilp AI (Pune)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Magarpatta City",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "postalCode": "411013",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 18.51471623183104,
+            "longitude": 73.93113109619145
+          }
+        },
+        "knowsAbout": [
+          "AI-accelerated engineering pipelines",
+          "software architecture",
+          "backend APIs",
+          "microservices",
+          "cloud-native delivery",
+          "testing strategies",
+          "CI/CD automation",
+          "observability and monitoring",
+          "LLM application features",
+          "AI copilots and workflow automation"
+        ],
+        "sameAs": [
+          "https://github.com/trilpai",
+          "https://www.linkedin.com/company/trilpai",
+          "https://www.youtube.com/@trilpai",
+          "https://www.instagram.com/trilpai/",
+          "https://www.facebook.com/trilpai"
+        ]
+      }
+    </script>
+
+    <!-- Structured Data: WebSite (site-wide; OK to repeat) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.trilp.in/#website",
+        "url": "https://www.trilp.in/",
+        "name": "Trilp AI",
+        "inLanguage": "en-IN",
+        "description": "Trilp AI is a software engineering studio focused on AI-accelerated delivery—clear specs, strong architecture, fast implementation, and reliable operations.",
+        "publisher": { "@id": "https://www.trilp.in/#organization" },
+        "image": "https://www.trilp.in/assets/img/og/og_trilp.png"
+      }
+    </script>
+
+    <!-- Structured Data: WebPage (3 Octaves page) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.trilp.in/3octaves#webpage",
+        "url": "https://www.trilp.in/3octaves/",
+        "name": "3 Octaves — A Maturity Model for Software Engineering",
+        "isPartOf": { "@id": "https://www.trilp.in/#website" },
+        "about": { "@id": "https://www.trilp.in/#organization" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://www.trilp.in/assets/img/og/og_trilp.png"
+        },
+        "inLanguage": "en-IN",
+        "author": {
+          "@type": "Person",
+          "name": "Pradyumna Das Roy",
+          "alternateName": "Prady",
+          "email": "info@trilp.in",
+          "sameAs": "https://www.linkedin.com/in/pradyroy/"
+        }
+      }
+    </script>
+
+    <!-- Robots / Sitemap -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="https://www.trilp.in/sitemap.xml"
+    />
+  </head>
+
+  <body class="bg-paper text-ink font-sans antialiased page-fade">
+    <!-- Thin top progress bar -->
+    <div id="progress" role="presentation" aria-hidden="true"></div>
+
+    <!-- ===== Header (fixed) ===== -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/80 backdrop-blur">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        style="height: var(--header-h)"
+        aria-label="Primary"
+      >
+        <a href="/" class="flex items-center gap-2" aria-label="Home">
+          <img
+            src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
+            alt="Trilp AI"
+            class="h-6 w-auto header-logo"
+          />
+        </a>
+
+        <ul class="flex items-center gap-6 text-sm text-ink/80">
+          <li><a href="/" class="hover:text-ink">Home</a></li>
+          <li><a href="#init" data-nav="init" class="hover:text-ink">Init</a></li>
+          <li><a href="#octave1" data-nav="octave1" class="hover:text-ink">1</a></li>
+          <li><a href="#octave2" data-nav="octave2" class="hover:text-ink">2</a></li>
+          <li><a href="#octave3" data-nav="octave3" class="hover:text-ink">3</a></li>
+          <li><a href="#making" data-nav="making" class="hover:text-ink">Making</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ===== Footer (fixed) ===== -->
+    <footer
+      class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/80 backdrop-blur"
+      aria-label="Footer"
+    >
+      <div
+        class="mx-auto max-w-6xl px-4 py-3 text-xs text-ink/60"
+        style="min-height: var(--footer-h)"
+      >
+        <div
+          class="footer-wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-center sm:text-left"
+        >
+          <!-- Row 1 (social links) -->
+          <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
+            <a
+              href="https://www.linkedin.com/company/trilpai"
+              class="footer-link"
+              aria-label="LinkedIn"
+              >LinkedIn</a
+            >
+            <a href="https://www.youtube.com/@trilpai" class="footer-link" aria-label="YouTube"
+              >YouTube</a
+            >
+            <a href="https://www.instagram.com/trilpai/" class="footer-link" aria-label="Instagram"
+              >Instagram</a
+            >
+            <a href="https://www.facebook.com/trilpai" class="footer-link" aria-label="Facebook"
+              >Facebook</a
+            >
+            <a href="https://github.com/trilpai" class="footer-link" aria-label="GitHub">GitHub</a>
+          </div>
+
+          <!-- Row 2 (Tagline) -->
+          <p class="text-ink/70 font-medium tracking-wide order-none sm:order-none">
+            Empowering Minds. Engineering Futures.
+          </p>
+
+          <!-- Row 3 (Copyright) -->
+          <p class="mt-1 sm:mt-0 text-ink/60 text-center sm:text-right">
+            © <span class="tabular-nums">2025</span> Trilp AI
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== Main (scrollable between fixed header/footer) ===== -->
+    <main class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]">
+      <!-- Init -->
+      <section id="init" class="bg-paper py-24">
+        <div class="mx-auto max-w-5xl px-4">
+          <h1 class="text-3xl md:text-4xl font-medium tracking-tight">The 3 Octaves</h1>
+          <p class="mt-4 max-w-xl text-sm text-ink/70">
+            A maturity model for software engineering — grounded in timeless principles and
+            amplified by AI acceleration.
+          </p>
+        </div>
+      </section>
+
+      <!-- Octave 1 -->
+      <section id="octave1" class="bg-paper-soft py-24">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <h2 class="text-2xl font-medium">
+            Octave 1 — Signal Formation (Thinking Before Building)
+          </h2>
+
+          <p class="text-sm text-ink/70 max-w-2xl mb-6">
+            Octave 1 governs intent.<br />
+            It is about understanding problems clearly enough that automation becomes safe.
+          </p>
+
+          <!-- Principles 1–8 -->
+          <ol class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
+            <li id="octave1-01" class="mb-6">
+              <strong>1. Understanding Is the First Deliverable</strong>
+
+              <p class="mt-3">Code is not the start of work.<br />Clarity is.</p>
+
+              <p class="mt-3">
+                If a problem cannot be explained without jargon, diagrams, or hand-waving, it is not
+                ready to be built — by humans or AI.
+              </p>
+            </li>
+
+            <li id="octave1-02" class="mb-6">
+              <strong>2. Problem Framing Determines the Outcome</strong>
+
+              <p class="mt-3">Most failures come from solving the wrong problem well.</p>
+
+              <p class="mt-3">
+                We invest more effort in framing than in solutions, because a correctly framed
+                problem often approaches its own solution.
+              </p>
+            </li>
+
+            <li id="octave1-03" class="mb-6">
+              <strong>3. Requirements Are Engineering Artifacts</strong>
+
+              <p class="mt-3">Requirements are not paperwork, tickets, or formalities.</p>
+
+              <p class="mt-3">
+                They are compressed engineering decisions — and they must be precise enough that
+                someone else (human or AI) can act on them correctly.
+              </p>
+            </li>
+
+            <li id="octave1-04" class="mb-6">
+              <strong>4. Constraints Are Part of the Solution</strong>
+
+              <p class="mt-3">
+                Constraints are not obstacles to creativity.<br />
+                They are what make solutions real.
+              </p>
+
+              <p class="mt-3">
+                Time, cost, performance, security, scale, and operability are defined early — not
+                “handled later.”
+              </p>
+            </li>
+
+            <li id="octave1-05" class="mb-6">
+              <strong>5. Assumptions Must Be Made Explicit</strong>
+
+              <p class="mt-3">Unstated assumptions are hidden bugs.</p>
+
+              <p class="mt-3">
+                Every critical assumption — technical or business — is surfaced, written down, and
+                challenged before work proceeds.
+              </p>
+            </li>
+
+            <li id="octave1-06" class="mb-6">
+              <strong>6. AI Is Used Only After Intent Is Clear</strong>
+
+              <p class="mt-3">AI accelerates execution, not understanding.</p>
+
+              <p class="mt-3">
+                We do not ask AI to “figure it out.”<br />
+                We ask AI to help implement what has already been thought through.
+              </p>
+            </li>
+
+            <li id="octave1-07" class="mb-6">
+              <strong>7. Decisions Leave a Trail</strong>
+
+              <p class="mt-3">Important decisions are recorded while the context is fresh.</p>
+
+              <p class="mt-3">
+                Architecture Decision Records (or equivalents) exist so the future does not have to
+                guess the past.
+              </p>
+            </li>
+
+            <li id="octave1-08" class="mb-6">
+              <strong>8. Speed Is a Choice, Not a Default</strong>
+
+              <p class="mt-3">Moving fast is valuable only after direction is fixed.</p>
+
+              <p class="mt-3">
+                We slow down deliberately while thinking — so execution can move without hesitation.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Octave 2 -->
+      <section id="octave2" class="bg-paper py-24">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <h2 class="text-2xl font-medium">
+            Octave 2 — Signal Construction (Building With Discipline)
+          </h2>
+
+          <p class="text-sm text-ink/70 max-w-2xl mb-6">
+            Octave 2 governs execution.<br />
+            This is where AI accelerates output — and where engineering rigor must keep pace.
+          </p>
+
+          <!-- Principles 9–16 -->
+          <ol start="9" class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
+            <li id="octave2-09" class="mb-6">
+              <strong>9. Architecture Comes Before Implementation</strong>
+
+              <p class="mt-3">Code is a consequence, not a starting point.</p>
+
+              <p class="mt-3">
+                We establish system boundaries, data flows, failure modes, and interfaces before AI
+                generates code.
+              </p>
+            </li>
+
+            <li id="octave2-10" class="mb-6">
+              <strong>10. AI Output Is Treated Like Junior Code</strong>
+
+              <p class="mt-3">AI-generated code is not special.</p>
+
+              <p class="mt-3">
+                It is reviewed, tested, refactored, or rejected — exactly as if it came from a new
+                team member.
+              </p>
+            </li>
+
+            <li id="octave2-11" class="mb-6">
+              <strong>11. Tests Express Intent, Not Just Coverage</strong>
+
+              <p class="mt-3">Tests are not written to satisfy tools.</p>
+
+              <p class="mt-3">They exist to explain:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>what the system is supposed to do</li>
+                <li>what it must never do</li>
+                <li>what it guarantees under stress</li>
+              </ul>
+            </li>
+
+            <li id="octave2-12" class="mb-6">
+              <strong>12. Verification Is Continuous, Not a Phase</strong>
+
+              <p class="mt-3">Verification does not happen “after development.”</p>
+
+              <p class="mt-3">It is embedded into:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>design</li>
+                <li>implementation</li>
+                <li>code review</li>
+                <li>deployment</li>
+              </ul>
+            </li>
+
+            <li id="octave2-13" class="mb-6">
+              <strong>13. Small Systems Beat Clever Systems</strong>
+
+              <p class="mt-3">We prefer simple, understandable designs over impressive ones.</p>
+
+              <p class="mt-3">If a system requires constant explanation, it is already failing.</p>
+            </li>
+
+            <li id="octave2-14" class="mb-6">
+              <strong>14. Tooling Must Reduce Cognitive Load</strong>
+
+              <p class="mt-3">Tools exist to simplify thinking — not replace it.</p>
+
+              <p class="mt-3">
+                Any tool (AI or otherwise) that increases confusion is treated as technical debt.
+              </p>
+            </li>
+
+            <li id="octave2-15" class="mb-6">
+              <strong>15. Automation Follows Understanding</strong>
+
+              <p class="mt-3">We automate what we understand deeply.</p>
+
+              <p class="mt-3">Automation without comprehension creates speed without safety.</p>
+            </li>
+
+            <li id="octave2-16" class="mb-6">
+              <strong>16. Change Is Designed, Not Accidentally Introduced</strong>
+
+              <p class="mt-3">Every change has a blast radius.</p>
+
+              <p class="mt-3">We design changes so that:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>failures are contained</li>
+                <li>rollbacks are possible</li>
+                <li>recovery is predictable</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Octave 3 -->
+      <section id="octave3" class="bg-paper-soft py-24">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <h2 class="text-2xl font-medium">
+            Octave 3 — Signal Propagation (Operating, Owning, Sustaining)
+          </h2>
+
+          <p class="text-sm text-ink/70 max-w-2xl mb-6">
+            Octave 3 governs reality.<br />
+            This is where software proves whether it was engineered — or merely assembled.
+          </p>
+
+          <!-- Principles 17–24 -->
+          <ol start="17" class="space-y-10 text-sm text-ink/80 list-decimal list-inside">
+            <li id="octave3-17" class="mb-6">
+              <strong>17. Production Is the Only Source of Truth</strong>
+
+              <p class="mt-3">Designs, tests, and staging environments are hypotheses.</p>
+
+              <p class="mt-3">Production behavior is fact — and it always has the final word.</p>
+            </li>
+
+            <li id="octave3-18" class="mb-6">
+              <strong>18. Every System Must Be Observable</strong>
+
+              <p class="mt-3">If a system cannot explain itself, it cannot be trusted.</p>
+
+              <p class="mt-3">
+                Logs, metrics, traces, and alerts are not optional — they are part of the system’s
+                interface.
+              </p>
+            </li>
+
+            <li id="octave3-19" class="mb-6">
+              <strong>19. Ownership Does Not End at Deployment</strong>
+
+              <p class="mt-3">Shipping is a milestone, not a finish line.</p>
+
+              <p class="mt-3">Engineers remain accountable for:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>reliability</li>
+                <li>performance</li>
+                <li>security</li>
+                <li>operability</li>
+              </ul>
+            </li>
+
+            <li id="octave3-20" class="mb-6">
+              <strong>20. Failures Must Leave the System Better</strong>
+
+              <p class="mt-3">Incidents are tuition, not embarrassment.</p>
+
+              <p class="mt-3">Every failure produces:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>clearer understanding</li>
+                <li>safer defaults</li>
+                <li>stronger safeguards</li>
+              </ul>
+            </li>
+
+            <li id="octave3-21" class="mb-6">
+              <strong>21. Systems Must Outlive Their Creators</strong>
+
+              <p class="mt-3">Good systems survive:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>people leaving</li>
+                <li>tools changing</li>
+                <li>assumptions expiring</li>
+              </ul>
+
+              <p class="mt-3">
+                If a system only works because its author is present, it is unfinished.
+              </p>
+            </li>
+
+            <li id="octave3-22" class="mb-6">
+              <strong>22. Operational Simplicity Is a Feature</strong>
+
+              <p class="mt-3">The easiest system to operate usually wins.</p>
+
+              <p class="mt-3">
+                Complex operations are a tax paid every day — not just during outages.
+              </p>
+            </li>
+
+            <li id="octave3-23" class="mb-6">
+              <strong>23. Security Is a Design Constraint, Not a Patch</strong>
+
+              <p class="mt-3">Security added later is security already compromised.</p>
+
+              <p class="mt-3">
+                Threat modeling, access control, and data protection are considered from the start —
+                and revisited continuously.
+              </p>
+            </li>
+
+            <li id="octave3-24" class="mb-6">
+              <strong>24. Learning Must Flow Backward</strong>
+
+              <p class="mt-3">Operations inform design.</p>
+
+              <p class="mt-3">Production feedback reshapes:</p>
+
+              <ul class="mt-2 ml-6 list-disc space-y-1">
+                <li>requirements</li>
+                <li>architecture</li>
+                <li>automation</li>
+                <li>tooling</li>
+              </ul>
+
+              <p class="mt-6">Without this loop, teams repeat the same failures faster.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Why / Making -->
+      <section id="making" class="bg-paper py-24">
+        <div class="mx-auto max-w-5xl px-4 space-y-4 text-sm text-ink/70">
+          <h2 class="text-2xl font-medium text-ink mb-6">Why 3 Octaves?</h2>
+
+          <ol class="space-y-6 list-decimal list-inside text-ink/90">
+            <li class="mb-3">
+              <strong>Octave means eight</strong> — in computing, <strong>8 bits = 1 byte</strong>,
+              a complete, meaningful unit formed from simple parts (<em>2<sup>8</sup> states</em>).
+            </li>
+
+            <li class="mb-3">
+              In mathematics and music, an octave repeats the same structure at a
+              <strong>higher resolution and capability</strong>, not a different one.
+            </li>
+
+            <li class="mb-3">
+              <strong>A symphony emerges</strong> from simple patterns, repeated, layered across
+              octaves, and shaped into <strong>coherence</strong>.
+            </li>
+
+            <li class="mb-3">
+              <strong>3 Octaves</strong> applies this idea to engineering: the same principles,
+              applied with increasing <strong>scope</strong>, <strong>responsibility</strong>, and
+              <strong>consequence</strong>.
+            </li>
+
+            <li class="mb-3">
+              <strong>Octave 1</strong> forms the signal — understanding problems clearly before
+              acting.
+            </li>
+
+            <li class="mb-3">
+              <strong>Octave 2</strong> constructs the signal into systems, where discipline and
+              verification matter most.
+            </li>
+
+            <li class="mb-3">
+              <strong>Octave 3</strong> propagates the signal into production, where systems meet
+              time, scale, and reality.
+            </li>
+
+            <li class="mb-3">
+              The Three Octaves follow a simple progression:
+              <strong>clarity → construction → consequence</strong>, repeated with increasing power
+              (<em>O<sup>1</sup> → O<sup>2</sup> → O<sup>3</sup></em
+              >).
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Scripts (same logic as index.html) ===== -->
+    <script>
+      // ===== Active menu highlight (robust for long sections, mobile + desktop) =====
+      (() => {
+        const menuLinks = Array.from(document.querySelectorAll('a[data-nav]'));
+        const ids = menuLinks.map(a => a.dataset.nav).filter(Boolean);
+        const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+        function setActive(id) {
+          menuLinks.forEach(a => {
+            a.classList.remove('nav-highlight', 'font-medium');
+            if (a.dataset.nav === id) a.classList.add('nav-highlight', 'font-medium');
+          });
+        }
+
+        function getHeaderH() {
+          const root = document.documentElement;
+          const v = getComputedStyle(root).getPropertyValue('--header-h') || '56px';
+          const n = parseInt(v, 10);
+          return Number.isFinite(n) ? n : 56;
+        }
+
+        // Pick active section by checking which one contains a "probe line"
+        // just below the fixed header.
+        function computeActiveId() {
+          const headerH = getHeaderH();
+          const probeY = headerH + 24; // 24px under header feels right
+
+          let active = 'init';
+
+          for (const sec of sections) {
+            const r = sec.getBoundingClientRect();
+
+            // section contains the probe line
+            if (r.top <= probeY && r.bottom > probeY) {
+              active = sec.id;
+              break;
+            }
+          }
+
+          // If we're near the bottom of the page, force "making"
+          const doc = document.documentElement;
+          const bottomSlack = 8; // px
+          if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - bottomSlack) {
+            if (document.getElementById('making')) active = 'making';
+          }
+
+          return active;
+        }
+
+        let ticking = false;
+        function onScrollOrResize() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            ticking = false;
+            setActive(computeActiveId());
+          });
+        }
+
+        // Initial highlight
+        function initActive() {
+          const hashId = location.hash?.replace('#', '');
+          if (hashId && document.getElementById(hashId)) {
+            setActive(hashId);
+            // Ensure it stays correct after layout settles
+            requestAnimationFrame(() => setActive(computeActiveId()));
+          } else {
+            setActive('init');
+            requestAnimationFrame(() => setActive(computeActiveId()));
+          }
+        }
+
+        window.addEventListener('scroll', onScrollOrResize, { passive: true });
+        window.addEventListener('resize', onScrollOrResize, { passive: true });
+        window.addEventListener('hashchange', initActive);
+
+        window.addEventListener('load', () => {
+          initActive();
+          onScrollOrResize();
+        });
+      })();
+
+      // ===== Top scroll progress bar (unchanged) =====
+      (() => {
+        const prog = document.getElementById('progress');
+        if (!prog) return;
+
+        addEventListener(
+          'scroll',
+          () => {
+            const h = document.documentElement;
+            const denom = h.scrollHeight - h.clientHeight || 1;
+            prog.style.width = (h.scrollTop / denom) * 100 + '%';
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+  </body>
+</html>

@@ -1,31 +1,63 @@
 /* TEAM */
-Developer & Maintainer: Pradyumna Das Roy
+Developer & Maintainer: Pradyumna Das Roy (Prady)
 Organization: Trilp AI — AI-Accelerated Software Engineering Studio
 Location: Pune, Maharashtra, India
 Contact: info@trilp.in
 Website: https://www.trilp.in
 
 /* PHILOSOPHY */
-Clarity over chaos.
-Systems over shortcuts.
-Quality over urgency.
-AI should accelerate engineering — not replace thinking.
+Clarity before speed.
+Systems before shortcuts.
+Quality before urgency.
+AI accelerates engineering — it does not replace thinking.
+
+/* FRAMEWORK */
+3 Octaves — A maturity model for software engineering.
+
+Octave 1: Signal Formation  
+Understanding problems clearly before building.
+
+Octave 2: Signal Construction  
+Building systems with discipline, verification, and intent.
+
+Octave 3: Signal Propagation  
+Operating, owning, and sustaining systems in production.
+
+The same principles repeat at higher levels of responsibility:
+clarity → construction → consequence.
 
 /* ABOUT */
-Trilp AI is a futuristic software development studio focused on building production-grade systems
-using AI-accelerated engineering pipelines — specs, architecture, code, tests, CI/CD, and observability.
+Trilp AI is a software engineering studio focused on building
+production-grade systems using AI-accelerated engineering pipelines.
+
+Work emphasizes:
+– clear intent and specifications  
+– strong architecture and boundaries  
+– disciplined implementation  
+– verification by default  
+– reliable operations over time  
+
+AI is used to amplify execution, not outsource responsibility.
+
+/* PRINCIPLES */
+Understanding is the first deliverable.
+Constraints make solutions real.
+Automation follows comprehension.
+Production is the final authority.
+Systems must outlive their creators.
 
 /* TECHNOLOGY */
 Static HTML
 Tailwind CSS (locally compiled)
-Inter Font (Local .woff2)
-Minimal JavaScript
+Inter font (local .woff2)
+Minimal, intentional JavaScript
+No frameworks unless justified
 Hosted via GitHub Pages
 
 /* CREDITS */
-Logo, brand, and writing by Trilp AI.
-All code licensed under the MIT License (see /LICENSE).
-Brand identity and visual marks are proprietary and not open for reuse.
+Writing, engineering, and design by Trilp AI.
+Logo and brand assets are proprietary.
+Source code is licensed under the MIT License (see /LICENSE).
 
 /* LAST UPDATED */
 2026-01-01
