@@ -2,10 +2,6 @@
 
 /* ==========================================================================
    Trilp AI — Tailwind v4 Theme Tokens
-   --------------------------------------------------------------------------
-   This file is the SOURCE for your compiled CSS (assets/css/style.css).
-   Build with:
-     npm run build
    ========================================================================== */
 
 @theme {
@@ -15,13 +11,11 @@
   --color-brand-lightblue: #4f9df7;
   --color-brand-lightred: #ff4c4c;
 
-  /* Neutrals used throughout */
+  /* Neutrals */
   --color-ink: #0b1220;
   --color-ink-soft: #1b2230;
-
   --color-paper: #ffffff;
   --color-paper-soft: #f7f8fa;
-
   --color-line: #e8ebf0;
 
   /* Shadows */
@@ -30,38 +24,39 @@
   /* Radii */
   --radius-xl2: 1.25rem;
 
-  /* Fonts (Inter local, with sensible fallbacks) */
+  /* Fonts */
   --font-sans: 'InterVariable', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
 }
 
 /* ==========================================================================
-   Global Custom CSS (moved from <style> in index.html)
+   Global Custom CSS
    ========================================================================== */
 
-/* Smooth scroll + anchor offset behavior */
 html {
   scroll-behavior: smooth;
 }
+
 :root {
   --header-h: 56px;
   --footer-h: 56px;
 }
+
 section[id] {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
-/* Active nav solid highlight (text color unchanged) */
+/* Active nav highlight */
 .nav-highlight {
-  background-color: #facc15; /* Tailwind yellow-400 */
+  background-color: #facc15;
   padding: 0.15rem 0.35rem;
   border-radius: 0.25rem;
   color: inherit;
   transition: background-color 0.25s ease;
 }
 
-/* (1) Soft page fade-in */
+/* Soft page fade-in */
 .page-fade {
   animation: pageFade 0.8s ease-out both;
 }
@@ -74,9 +69,10 @@ section[id] {
   }
 }
 
-/* (2) Logo rise & settle */
+/* Logo rise & settle */
 .header-logo {
   animation: riseSettle 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s both;
+  will-change: transform, opacity;
 }
 @keyframes riseSettle {
   0% {
@@ -92,120 +88,19 @@ section[id] {
   }
 }
 
-/* (4) Hero text stagger */
-.hero-title {
-  animation: fadeUp 0.6s ease-out 0.15s both;
-}
-.hero-copy {
-  animation: fadeUp 0.6s ease-out 0.3s both;
-}
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* (5) Cards slide-in */
-.card-in {
-  animation: cardIn 0.5s ease-out both;
-}
-@keyframes cardIn {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-
-/* (8) Top scroll progress bar */
+/* Progress bar */
 #progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 2px;
-  background: #facc15; /* yellow-400 */
+  background: #facc15;
   width: 0%;
   z-index: 60;
+  will-change: width;
 }
 
-/* Swipe hint (paused until visible), fades over 8s) */
-.swipe-hint {
-  font-size: 11px;
-  color: rgba(11, 18, 32, 0.45); /* ink/50 */
-  user-select: none;
-  pointer-events: none; /* never blocks scroll/drag */
-  opacity: 1;
-  animation: swipeFade 8s ease-out forwards;
-  animation-play-state: paused; /* JS starts it on view */
-  white-space: nowrap;
-}
-.swipe-hint.play {
-  animation-play-state: running;
-}
-@keyframes swipeFade {
-  0%,
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Slightly higher contrast on desktop only */
-@media (min-width: 640px) {
-  .swipe-hint {
-    color: rgba(11, 18, 32, 0.6);
-  } /* ink/60 */
-}
-
-/* Center it over the carousel for 8s, then gone */
-.swipe-hint-abs {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-/* Soft readable pill */
-.swipe-hint-pill {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-}
-
-/* Edge gradient fade for carousels */
-.carousel-fade {
-  position: relative;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 40px,
-    black calc(100% - 40px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 40px,
-    black calc(100% - 40px),
-    transparent 100%
-  );
-}
-
-/* Footer (mobile: two rows) */
+/* Footer mobile height */
 @media (max-width: 640px) {
   :root {
     --footer-h: 92px;
@@ -215,7 +110,6 @@ section[id] {
   row-gap: 0.5rem;
 }
 
-/* Footer links: micro-bounce + yellow bg on hover */
 .footer-link {
   display: inline-block;
   padding: 0.15rem 0.35rem;
@@ -225,7 +119,7 @@ section[id] {
 }
 .footer-link:hover {
   transform: translateY(-1px);
-  background-color: #facc15; /* yellow-400 */
+  background-color: #facc15;
 }
 
 /* Reduced motion respect */
@@ -238,27 +132,61 @@ section[id] {
   }
 }
 
+/* Section fade-in (paired with JS adding .section-in) */
+main > section[id] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+main > section[id].section-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  transform: translateY(-140%);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Focus-visible styles */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-lightblue);
+  outline-offset: 2px;
+}
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Touch feedback for interactive surfaces */
+.game-surface:active {
+  transform: scale(0.995);
+}
+
 /* ==========================================================================
-   Stack the Thought — subtle grid + block feel
+   Stack the Thought — subtle grid
    ========================================================================== */
 
 .st-grid {
-  /* subtle graph paper feel */
   background-image: linear-gradient(to right, rgba(11, 18, 32, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(11, 18, 32, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
-  /* keep it subtle without dimming everything behind it */
   opacity: 1;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #st-hint {
-    display: none;
-  }
-}
-
 /* ==========================================================================
-   Signal vs Noise — subtle grid + calm board
+   Signal vs Noise — grid + board
    ========================================================================== */
 
 .sn-grid {
@@ -294,7 +222,9 @@ section[id] {
   color: rgba(11, 18, 32, 0.85);
   user-select: none;
   cursor: pointer;
-  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease,
+    opacity 0.12s ease;
+  will-change: transform;
 }
 
 @media (min-width: 640px) {
@@ -305,41 +235,22 @@ section[id] {
 }
 
 .sn-cell:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
+  opacity: 0.92;
 }
 
 .sn-cell.is-hit {
-  border-color: rgba(79, 157, 247, 0.55); /* brand lightblue */
+  border-color: rgba(79, 157, 247, 0.55);
   background: rgba(79, 157, 247, 0.1);
 }
 
 .sn-cell.is-miss {
-  border-color: rgba(215, 38, 56, 0.55); /* brand red */
+  border-color: rgba(215, 38, 56, 0.55);
   background: rgba(215, 38, 56, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sn-cell {
     transition: none;
-  }
-}
-
-/* ==========================================================================
-   Tailwind utility keep-alives (so CLI generates these classes)
-   --------------------------------------------------------------------------
-   We use these in JS-driven UI elements (Focus Drift + Stack), but sometimes
-   they can be missed by scanners depending on edits. This guarantees generation.
-   ========================================================================== */
-
-@layer utilities {
-  ._tw-keepalive {
-    @apply -translate-x-1/2
-      -translate-y-1/2
-      touch-manipulation
-      tabular-nums
-      hidden
-      flex
-      backdrop-blur
-      select-none;
   }
 }

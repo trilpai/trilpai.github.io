@@ -101,7 +101,7 @@
 
     <!-- Fonts & Compiled CSS (local) -->
     <link rel="stylesheet" href="https://www.trilp.in/assets/css/font/inter.css" />
-    <link rel="stylesheet" href="https://www.trilp.in/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
 
     <!-- Structured Data: Organization (site-wide; OK to repeat) -->
     <script type="application/ld+json">
@@ -235,6 +235,14 @@
   </head>
 
   <body class="bg-paper text-ink font-sans antialiased page-fade">
+    <!-- Skip link (keyboard accessibility) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white focus:shadow-subtle"
+    >
+      Skip to main content
+    </a>
+
     <!-- Thin top progress bar -->
     <div id="progress" role="presentation" aria-hidden="true"></div>
 
@@ -245,7 +253,11 @@
         style="height: var(--header-h)"
         aria-label="Primary"
       >
-        <a href="/" class="flex items-center gap-2" aria-label="Home">
+        <a
+          href="/"
+          class="flex items-center gap-2 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+          aria-label="Home"
+        >
           <img
             src="https://www.trilp.in/assets/img/trilp-ai-logo.png"
             alt="Trilp AI"
@@ -254,12 +266,53 @@
         </a>
 
         <ul class="flex items-center gap-6 text-sm text-ink/80">
-          <li><a href="/" class="hover:text-ink">Home</a></li>
-          <li><a href="#init" data-nav="init" class="hover:text-ink">Init</a></li>
-          <li><a href="#octave1" data-nav="octave1" class="hover:text-ink">1</a></li>
-          <li><a href="#octave2" data-nav="octave2" class="hover:text-ink">2</a></li>
-          <li><a href="#octave3" data-nav="octave3" class="hover:text-ink">3</a></li>
-          <li><a href="#making" data-nav="making" class="hover:text-ink">Making</a></li>
+          <li>
+            <a
+              href="/"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#init"
+              data-nav="init"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >Init</a
+            >
+          </li>
+          <li>
+            <a
+              href="#octave1"
+              data-nav="octave1"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >1</a
+            >
+          </li>
+          <li>
+            <a
+              href="#octave2"
+              data-nav="octave2"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >2</a
+            >
+          </li>
+          <li>
+            <a
+              href="#octave3"
+              data-nav="octave3"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >3</a
+            >
+          </li>
+          <li>
+            <a
+              href="#making"
+              data-nav="making"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >Making</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -280,20 +333,34 @@
           <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
             <a
               href="https://www.linkedin.com/company/trilpai"
-              class="footer-link"
+              class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               aria-label="LinkedIn"
               >LinkedIn</a
             >
-            <a href="https://www.youtube.com/@trilpai" class="footer-link" aria-label="YouTube"
+            <a
+              href="https://www.youtube.com/@trilpai"
+              class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              aria-label="YouTube"
               >YouTube</a
             >
-            <a href="https://www.instagram.com/trilpai/" class="footer-link" aria-label="Instagram"
+            <a
+              href="https://www.instagram.com/trilpai/"
+              class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              aria-label="Instagram"
               >Instagram</a
             >
-            <a href="https://www.facebook.com/trilpai" class="footer-link" aria-label="Facebook"
+            <a
+              href="https://www.facebook.com/trilpai"
+              class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              aria-label="Facebook"
               >Facebook</a
             >
-            <a href="https://github.com/trilpai" class="footer-link" aria-label="GitHub">GitHub</a>
+            <a
+              href="https://github.com/trilpai"
+              class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              aria-label="GitHub"
+              >GitHub</a
+            >
           </div>
 
           <!-- Row 2 (Tagline) -->
@@ -303,16 +370,20 @@
 
           <!-- Row 3 (Copyright) -->
           <p class="mt-1 sm:mt-0 text-ink/60 text-center sm:text-right">
-            © <span class="tabular-nums">2025</span> Trilp AI
+            © <span class="tabular-nums">2026</span> Trilp AI
           </p>
         </div>
       </div>
     </footer>
 
     <!-- ===== Main (scrollable between fixed header/footer) ===== -->
-    <main class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]">
+    <main
+      id="main-content"
+      class="relative z-0 pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)] min-h-[calc(100vh-var(--header-h)-var(--footer-h))] min-h-[calc(100dvh-var(--header-h)-var(--footer-h))]"
+      tabindex="-1"
+    >
       <!-- Init -->
-      <section id="init" class="bg-paper py-24">
+      <section id="init" class="bg-paper py-24" aria-label="Init">
         <div class="mx-auto max-w-5xl px-4">
           <h1 class="text-3xl md:text-4xl font-medium tracking-tight">The 3 Octaves</h1>
           <p class="mt-4 max-w-xl text-sm text-ink/70">
@@ -323,7 +394,7 @@
       </section>
 
       <!-- Octave 1 -->
-      <section id="octave1" class="bg-paper-soft py-24">
+      <section id="octave1" class="bg-paper-soft py-24" aria-label="Octave 1">
         <div class="mx-auto max-w-5xl px-4 space-y-10">
           <h2 class="text-2xl font-medium">
             Octave 1 — Signal Definition (Thinking Before Building)
@@ -337,7 +408,7 @@
           <!-- Principles 1–8 -->
           <ol class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
             <li id="octave1-01" class="mb-6">
-              <strong>1. Understanding Is the First Deliverable</strong>
+              <strong>Understanding Is the First Deliverable</strong>
 
               <p class="mt-3">Code is not the start of work.<br />Clarity is.</p>
 
@@ -348,7 +419,7 @@
             </li>
 
             <li id="octave1-02" class="mb-6">
-              <strong>2. Problem Framing Determines the Outcome</strong>
+              <strong>Problem Framing Determines the Outcome</strong>
 
               <p class="mt-3">Most failures come from solving the wrong problem well.</p>
 
@@ -359,7 +430,7 @@
             </li>
 
             <li id="octave1-03" class="mb-6">
-              <strong>3. Requirements Are Engineering Artifacts</strong>
+              <strong>Requirements Are Engineering Artifacts</strong>
 
               <p class="mt-3">Requirements are not paperwork, tickets, or formalities.</p>
 
@@ -370,7 +441,7 @@
             </li>
 
             <li id="octave1-04" class="mb-6">
-              <strong>4. Constraints Are Part of the Solution</strong>
+              <strong>Constraints Are Part of the Solution</strong>
 
               <p class="mt-3">
                 Constraints are not obstacles to creativity.<br />
@@ -384,7 +455,7 @@
             </li>
 
             <li id="octave1-05" class="mb-6">
-              <strong>5. Assumptions Must Be Made Explicit</strong>
+              <strong>Assumptions Must Be Made Explicit</strong>
 
               <p class="mt-3">Unstated assumptions are hidden bugs.</p>
 
@@ -395,7 +466,7 @@
             </li>
 
             <li id="octave1-06" class="mb-6">
-              <strong>6. AI Is Used Only After Intent Is Clear</strong>
+              <strong>AI Is Used Only After Intent Is Clear</strong>
 
               <p class="mt-3">AI accelerates execution, not understanding.</p>
 
@@ -406,7 +477,7 @@
             </li>
 
             <li id="octave1-07" class="mb-6">
-              <strong>7. Decisions Leave a Trail</strong>
+              <strong>Decisions Leave a Trail</strong>
 
               <p class="mt-3">Important decisions are recorded while the context is fresh.</p>
 
@@ -417,7 +488,7 @@
             </li>
 
             <li id="octave1-08" class="mb-6">
-              <strong>8. Speed Is a Choice, Not a Default</strong>
+              <strong>Speed Is a Choice, Not a Default</strong>
 
               <p class="mt-3">Moving fast is valuable only after direction is fixed.</p>
 
@@ -430,7 +501,7 @@
       </section>
 
       <!-- Octave 2 -->
-      <section id="octave2" class="bg-paper py-24">
+      <section id="octave2" class="bg-paper py-24" aria-label="Octave 2">
         <div class="mx-auto max-w-5xl px-4 space-y-10">
           <h2 class="text-2xl font-medium">
             Octave 2 — Signal Construction (Building With Discipline)
@@ -444,7 +515,7 @@
           <!-- Principles 9–16 -->
           <ol start="9" class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
             <li id="octave2-09" class="mb-6">
-              <strong>9. Architecture Comes Before Implementation</strong>
+              <strong>Architecture Comes Before Implementation</strong>
 
               <p class="mt-3">Code is a consequence, not a starting point.</p>
 
@@ -455,7 +526,7 @@
             </li>
 
             <li id="octave2-10" class="mb-6">
-              <strong>10. AI Output Is Treated Like Junior Code</strong>
+              <strong>AI Output Is Treated Like Junior Code</strong>
 
               <p class="mt-3">AI-generated code is not special.</p>
 
@@ -466,7 +537,7 @@
             </li>
 
             <li id="octave2-11" class="mb-6">
-              <strong>11. Tests Express Intent, Not Just Coverage</strong>
+              <strong>Tests Express Intent, Not Just Coverage</strong>
 
               <p class="mt-3">Tests are not written to satisfy tools.</p>
 
@@ -480,7 +551,7 @@
             </li>
 
             <li id="octave2-12" class="mb-6">
-              <strong>12. Verification Is Continuous, Not a Phase</strong>
+              <strong>Verification Is Continuous, Not a Phase</strong>
 
               <p class="mt-3">Verification does not happen “after development.”</p>
 
@@ -495,7 +566,7 @@
             </li>
 
             <li id="octave2-13" class="mb-6">
-              <strong>13. Small Systems Beat Clever Systems</strong>
+              <strong>Small Systems Beat Clever Systems</strong>
 
               <p class="mt-3">We prefer simple, understandable designs over impressive ones.</p>
 
@@ -503,7 +574,7 @@
             </li>
 
             <li id="octave2-14" class="mb-6">
-              <strong>14. Tooling Must Reduce Cognitive Load</strong>
+              <strong>Tooling Must Reduce Cognitive Load</strong>
 
               <p class="mt-3">Tools exist to simplify thinking — not replace it.</p>
 
@@ -513,7 +584,7 @@
             </li>
 
             <li id="octave2-15" class="mb-6">
-              <strong>15. Automation Follows Understanding</strong>
+              <strong>Automation Follows Understanding</strong>
 
               <p class="mt-3">We automate what we understand deeply.</p>
 
@@ -521,7 +592,7 @@
             </li>
 
             <li id="octave2-16" class="mb-6">
-              <strong>16. Change Is Designed, Not Accidentally Introduced</strong>
+              <strong>Change Is Designed, Not Accidentally Introduced</strong>
 
               <p class="mt-3">Every change has a blast radius.</p>
 
@@ -538,7 +609,7 @@
       </section>
 
       <!-- Octave 3 -->
-      <section id="octave3" class="bg-paper-soft py-24">
+      <section id="octave3" class="bg-paper-soft py-24" aria-label="Octave 3">
         <div class="mx-auto max-w-5xl px-4 space-y-10">
           <h2 class="text-2xl font-medium">
             Octave 3 — Signal Propagation (Operating, Owning, Sustaining)
@@ -552,7 +623,7 @@
           <!-- Principles 17–24 -->
           <ol start="17" class="space-y-10 text-sm text-ink/80 list-decimal list-inside">
             <li id="octave3-17" class="mb-6">
-              <strong>17. Production Is the Only Source of Truth</strong>
+              <strong>Production Is the Only Source of Truth</strong>
 
               <p class="mt-3">Designs, tests, and staging environments are hypotheses.</p>
 
@@ -560,7 +631,7 @@
             </li>
 
             <li id="octave3-18" class="mb-6">
-              <strong>18. Every System Must Be Observable</strong>
+              <strong>Every System Must Be Observable</strong>
 
               <p class="mt-3">If a system cannot explain itself, it cannot be trusted.</p>
 
@@ -571,7 +642,7 @@
             </li>
 
             <li id="octave3-19" class="mb-6">
-              <strong>19. Ownership Does Not End at Deployment</strong>
+              <strong>Ownership Does Not End at Deployment</strong>
 
               <p class="mt-3">Shipping is a milestone, not a finish line.</p>
 
@@ -586,7 +657,7 @@
             </li>
 
             <li id="octave3-20" class="mb-6">
-              <strong>20. Failures Must Leave the System Better</strong>
+              <strong>Failures Must Leave the System Better</strong>
 
               <p class="mt-3">Incidents are tuition, not embarrassment.</p>
 
@@ -600,7 +671,7 @@
             </li>
 
             <li id="octave3-21" class="mb-6">
-              <strong>21. Systems Must Outlive Their Creators</strong>
+              <strong>Systems Must Outlive Their Creators</strong>
 
               <p class="mt-3">Good systems survive:</p>
 
@@ -616,7 +687,7 @@
             </li>
 
             <li id="octave3-22" class="mb-6">
-              <strong>22. Operational Simplicity Is a Feature</strong>
+              <strong>Operational Simplicity Is a Feature</strong>
 
               <p class="mt-3">The easiest system to operate usually wins.</p>
 
@@ -626,7 +697,7 @@
             </li>
 
             <li id="octave3-23" class="mb-6">
-              <strong>23. Security Is a Design Constraint, Not a Patch</strong>
+              <strong>Security Is a Design Constraint, Not a Patch</strong>
 
               <p class="mt-3">Security added later is security already compromised.</p>
 
@@ -637,7 +708,7 @@
             </li>
 
             <li id="octave3-24" class="mb-6">
-              <strong>24. Learning Must Flow Backward</strong>
+              <strong>Learning Must Flow Backward</strong>
 
               <p class="mt-3">Operations inform design.</p>
 
@@ -657,7 +728,7 @@
       </section>
 
       <!-- Why / Making -->
-      <section id="making" class="bg-paper py-24">
+      <section id="making" class="bg-paper py-24" aria-label="Making">
         <div class="mx-auto max-w-5xl px-4 space-y-4 text-sm text-ink/70">
           <h2 class="text-2xl font-medium text-ink mb-6">Why 3 Octaves?</h2>
 
@@ -709,9 +780,40 @@
       </section>
     </main>
 
-    <!-- ===== Scripts (same logic as index.html) ===== -->
+    <!-- ===== Scripts ===== -->
+
+    <!-- Reveal sections (fix for CSS rule: main>section[id]{opacity:0}) -->
     <script>
-      // ===== Active menu highlight (robust for long sections, mobile + desktop) =====
+      (() => {
+        const sections = Array.from(document.querySelectorAll('main#main-content > section[id]'));
+        if (!sections.length) return;
+
+        const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+
+        // No observer or reduced motion: reveal immediately
+        if (reduce || !('IntersectionObserver' in window)) {
+          sections.forEach(s => s.classList.add('section-in'));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          entries => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('section-in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -10% 0px' }
+        );
+
+        sections.forEach(s => io.observe(s));
+      })();
+    </script>
+
+    <script>
+      // ===== Active menu highlight (probe-line, avoids flicker) =====
       (() => {
         const menuLinks = Array.from(document.querySelectorAll('a[data-nav]'));
         const ids = menuLinks.map(a => a.dataset.nav).filter(Boolean);
@@ -731,27 +833,20 @@
           return Number.isFinite(n) ? n : 56;
         }
 
-        // Pick active section by checking which one contains a "probe line"
-        // just below the fixed header.
         function computeActiveId() {
-          const headerH = getHeaderH();
-          const probeY = headerH + 24; // 24px under header feels right
-
+          const probeY = getHeaderH() + 24;
           let active = 'init';
 
           for (const sec of sections) {
             const r = sec.getBoundingClientRect();
-
-            // section contains the probe line
             if (r.top <= probeY && r.bottom > probeY) {
               active = sec.id;
               break;
             }
           }
 
-          // If we're near the bottom of the page, force "making"
           const doc = document.documentElement;
-          const bottomSlack = 8; // px
+          const bottomSlack = 8;
           if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - bottomSlack) {
             if (document.getElementById('making')) active = 'making';
           }
@@ -769,12 +864,10 @@
           });
         }
 
-        // Initial highlight
         function initActive() {
           const hashId = location.hash?.replace('#', '');
           if (hashId && document.getElementById(hashId)) {
             setActive(hashId);
-            // Ensure it stays correct after layout settles
             requestAnimationFrame(() => setActive(computeActiveId()));
           } else {
             setActive('init');
@@ -792,20 +885,35 @@
         });
       })();
 
-      // ===== Top scroll progress bar (unchanged) =====
+      // ===== Top scroll progress bar (rAF-throttled) =====
       (() => {
         const prog = document.getElementById('progress');
         if (!prog) return;
 
+        let ticking = false;
+        function update() {
+          ticking = false;
+          const h = document.documentElement;
+          const denom = h.scrollHeight - h.clientHeight || 1;
+          prog.style.width = (h.scrollTop / denom) * 100 + '%';
+        }
+
         addEventListener(
           'scroll',
           () => {
-            const h = document.documentElement;
-            const denom = h.scrollHeight - h.clientHeight || 1;
-            prog.style.width = (h.scrollTop / denom) * 100 + '%';
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
           },
           { passive: true }
         );
+
+        addEventListener('load', update);
+        addEventListener('resize', () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(update);
+        });
       })();
     </script>
   </body>
