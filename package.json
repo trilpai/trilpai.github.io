@@ -16,7 +16,8 @@
     "CI/CD automation",
     "observability and monitoring",
     "LLM application features",
-    "AI copilots and workflow automation"
+    "AI copilots and workflow automation",
+    "3 Octaves"
   ],
   "scripts": {
     "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
