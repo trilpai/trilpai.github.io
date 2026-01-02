@@ -18,6 +18,9 @@
   --color-paper-soft: #f7f8fa;
   --color-line: #e8ebf0;
 
+  /* Accent (used for nav/progress) */
+  --color-accent: #facc15;
+
   /* Shadows */
   --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 
@@ -34,10 +37,6 @@
    Global Custom CSS
    ========================================================================== */
 
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
   --header-h: 56px;
   --footer-h: 56px;
@@ -47,18 +46,19 @@ section[id] {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
-/* Active nav highlight */
+/* Active nav highlight (premium: subtle chip, not highlighter marker) */
 .nav-highlight {
-  background-color: #facc15;
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
+  background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, var(--color-line));
+  padding: 0.18rem 0.42rem;
+  border-radius: 0.5rem;
   color: inherit;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
 }
 
 /* Soft page fade-in */
 .page-fade {
-  animation: pageFade 0.8s ease-out both;
+  animation: pageFade 0.55s ease-out both;
 }
 @keyframes pageFade {
   from {
@@ -71,7 +71,7 @@ section[id] {
 
 /* Logo rise & settle */
 .header-logo {
-  animation: riseSettle 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s both;
+  animation: riseSettle 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.05s both;
   will-change: transform, opacity;
 }
 @keyframes riseSettle {
@@ -94,7 +94,7 @@ section[id] {
   top: 0;
   left: 0;
   height: 2px;
-  background: #facc15;
+  background: var(--color-accent);
   width: 0%;
   z-index: 60;
   will-change: width;
@@ -113,13 +113,16 @@ section[id] {
 .footer-link {
   display: inline-block;
   padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  transition: transform 0.18s cubic-bezier(0.22, 0.61, 0.36, 1), background-color 0.18s ease;
+  border-radius: 0.5rem;
+  transition: transform 0.18s cubic-bezier(0.22, 0.61, 0.36, 1), background-color 0.18s ease,
+    border-color 0.18s ease;
   color: inherit;
+  border: 1px solid transparent;
 }
 .footer-link:hover {
   transform: translateY(-1px);
-  background-color: #facc15;
+  background: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-line));
 }
 
 /* Reduced motion respect */
@@ -133,31 +136,14 @@ section[id] {
 }
 
 /* Section fade-in (paired with JS adding .section-in) */
-main > section[id] {
+main#main-content > section[id] {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
-main > section[id].section-in {
+main#main-content > section[id].section-in {
   opacity: 1;
   transform: none;
-}
-
-/* Skip link */
-.skip-link {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 0.5rem 0.75rem;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--color-line);
-  border-radius: 0.5rem;
-  transform: translateY(-140%);
-  transition: transform 0.2s ease;
-  z-index: 1000;
-}
-.skip-link:focus {
-  transform: translateY(0);
 }
 
 /* Focus-visible styles */
@@ -167,11 +153,6 @@ main > section[id].section-in {
 }
 *:focus:not(:focus-visible) {
   outline: none;
-}
-
-/* Touch feedback for interactive surfaces */
-.game-surface:active {
-  transform: scale(0.995);
 }
 
 /* ==========================================================================

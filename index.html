@@ -258,13 +258,24 @@
           <span class="sr-only">Trilp AI</span>
         </a>
 
+        <!-- Menu: Home 1 2 3 About 3octaves -->
         <ul class="flex items-center gap-6 text-sm text-ink/80">
+          <!-- Home is an absolute link and should NOT be highlighted -->
           <li>
             <a
-              href="#home"
-              data-nav="home"
+              href="/"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               >Home</a
+            >
+          </li>
+
+          <!-- 1 / 2 / 3 are in-page sections and should be highlighted -->
+          <li>
+            <a
+              href="#focus"
+              data-nav="focus"
+              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              >1</a
             >
           </li>
           <li>
@@ -272,7 +283,7 @@
               href="#stack"
               data-nav="stack"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >Stack</a
+              >2</a
             >
           </li>
           <li>
@@ -280,7 +291,7 @@
               href="#signal"
               data-nav="signal"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >Signal</a
+              >3</a
             >
           </li>
           <li>
@@ -291,10 +302,11 @@
               >About</a
             >
           </li>
+
+          <!-- 3octaves is an absolute link and should NOT be highlighted -->
           <li>
             <a
               href="/3octaves/"
-              data-nav="3octaves"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               >3octaves</a
             >
@@ -333,7 +345,7 @@
               href="https://www.instagram.com/trilpai/"
               class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               aria-label="Instagram"
-              >Instagram</a
+              >Insta</a
             >
             <a
               href="https://www.facebook.com/trilpai"
@@ -345,7 +357,7 @@
               href="https://github.com/trilpai"
               class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               aria-label="GitHub"
-              >GitHub</a
+              >Git</a
             >
           </div>
 
@@ -368,23 +380,32 @@
       class="pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)]"
       tabindex="-1"
     >
-      <!-- Section 1: Home / Focus Drift -->
-      <section
-        id="home"
-        class="relative min-h-[calc(100vh-var(--header-h)-var(--footer-h))] min-h-[calc(100dvh-var(--header-h)-var(--footer-h))] bg-paper"
-        aria-label="Home"
-      >
-        <div
-          class="mx-auto flex min-h-[calc(100vh-var(--header-h)-var(--footer-h))] min-h-[calc(100dvh-var(--header-h)-var(--footer-h))] max-w-5xl items-center px-4"
-        >
-          <div class="w-full">
+      <!-- Section 0: Home (Hero) — NOT full height -->
+      <section id="home" class="bg-paper" aria-label="Home">
+        <div class="mx-auto max-w-6xl px-4 pt-10 pb-4 md:pt-12 md:pb-6">
+          <div class="w-full max-w-5xl mx-auto mb-6 md:mb-8">
+            <h1 class="text-2xl md:text-3xl font-medium text-ink">
+              3 Octaves and AI-Accelerated Engineering
+            </h1>
+
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
+              Engineering progresses from clarity to construction to consequence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Focus — pulled up so the game is visible on first screen -->
+      <section id="focus" class="bg-paper-soft pt-6 pb-20 md:pt-8 md:pb-24" aria-label="Focus">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="w-full max-w-5xl mx-auto">
             <div>
               <h2 class="text-2xl md:text-3xl font-medium text-ink">Focus</h2>
-              <p class="mt-2 max-w-xl text-sm text-ink/70 mb-6">
-                Keep the dot inside the focus zone. Tap/click to steer.
-                <span class="block mt-2 text-ink/60"
-                  >Keyboard: Space/Enter nudges from center.</span
-                >
+              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-4">
+                Keep the dot inside the focus zone.
+                <span class="block mt-2 text-ink/60">
+                  Tap/click to steer. Keyboard: Space/Enter nudges from center.
+                </span>
               </p>
             </div>
 
@@ -431,25 +452,27 @@
                 </div>
               </div>
             </div>
+
+            <div class="mt-10">
+              <a
+                href="#stack"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
+                aria-label="Scroll to Stack"
+              >
+                <span class="text-2xl leading-none text-ink/60">↓</span>
+              </a>
+            </div>
           </div>
         </div>
-
-        <a
-          href="#stack"
-          class="absolute bottom-10 left-1/2 -translate-x-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
-          aria-label="Scroll to Stack"
-        >
-          <span class="text-2xl leading-none text-ink/60">↓</span>
-        </a>
       </section>
 
       <!-- Section 2: Stack -->
-      <section id="stack" class="bg-paper-soft py-20 md:py-28" aria-label="Stack">
+      <section id="stack" class="bg-paper py-20 md:py-28" aria-label="Stack">
         <div class="mx-auto max-w-6xl px-4">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h2 class="text-2xl md:text-3xl font-medium text-ink">Stack</h2>
-              <p class="mt-2 max-w-xl text-sm text-ink/70">
+              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
                 Stack the Thought — align each block. Misalignment trims it.
                 <span class="block mt-2 text-ink/60"
                   >Tap/click to drop. Keyboard: Space/Enter.</span
@@ -515,12 +538,12 @@
       </section>
 
       <!-- Section 3: Signal -->
-      <section id="signal" class="bg-paper py-20 md:py-28" aria-label="Signal vs Noise">
+      <section id="signal" class="bg-paper-soft py-20 md:py-28" aria-label="Signal vs Noise">
         <div class="mx-auto max-w-6xl px-4">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h2 class="text-2xl md:text-3xl font-medium text-ink">Signal</h2>
-              <p class="mt-2 max-w-xl text-sm text-ink/70">
+              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
                 Signal vs Noise — find what matches the rule.
                 <span class="block mt-2 text-ink/60"
                   >Tap only the Signal. Keyboard: Tab to a cell, then Space/Enter.</span
@@ -601,7 +624,7 @@
       </section>
 
       <!-- Section 4: About (UNCHANGED as requested) -->
-      <section id="about" class="bg-paper-soft py-24 md:py-32" aria-label="About Trilp AI">
+      <section id="about" class="bg-paper py-24 md:py-32" aria-label="About Trilp AI">
         <!-- Subtle divider line for grounding -->
         <div class="mx-auto max-w-6xl px-4 mb-12">
           <div class="border-t border-line/70"></div>
@@ -622,27 +645,27 @@
               2025.
             </h2>
 
-            <p class="mt-5 text-base leading-7 text-ink/75">
+            <p class="mt-5 max-w-xl text-sm leading-7 text-ink/70">
               During this period, it operated as an independent practice delivering end-to-end,
               production-grade software systems—covering architecture, backend APIs, cloud
               infrastructure, and modern web front-ends.
             </p>
 
-            <p class="mt-5 text-base leading-7 text-ink/75">
+            <p class="mt-5 max-w-xl text-sm leading-7 text-ink/70">
               The work spanned multiple domains, including Industry 4.0 and IoT, healthcare and
               medical councils, financial valuation, waste management, ed-tech, logistics, and SaaS
               platforms serving the North American utility and energy sector. Engagements were
               carried out remotely with organizations across India, the United States, and Europe.
             </p>
 
-            <p class="mt-5 text-base leading-7 text-ink/75">
+            <p class="mt-5 max-w-xl text-sm leading-7 text-ink/70">
               In late 2025, active consulting under the Trilp AI name was discontinued following a
               transition to permanent full-time employment. While ideas around structured learning
               and written material were explored, they were never executed. This site remains online
               as a personal record of that independent consulting phase.
             </p>
 
-            <p class="mt-6 text-sm text-ink/60">
+            <p class="mt-6 max-w-xl text-sm leading-7 italic tracking-wide text-ink/50">
               Preserved as a record of independent work — now concluded.
             </p>
           </div>
@@ -651,130 +674,7 @@
     </main>
 
     <!-- ===== Scripts ===== -->
-    <script>
-      // ===== Active menu highlight (probe-line, avoids flicker) =====
-      (() => {
-        const menuLinks = Array.from(document.querySelectorAll('a[data-nav]'));
-        const ids = menuLinks.map(a => a.dataset.nav).filter(Boolean);
-        const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-
-        function setActive(id) {
-          menuLinks.forEach(a => {
-            a.classList.remove('nav-highlight', 'font-medium');
-            if (a.dataset.nav === id) a.classList.add('nav-highlight', 'font-medium');
-          });
-        }
-
-        function getHeaderH() {
-          const root = document.documentElement;
-          const v = getComputedStyle(root).getPropertyValue('--header-h') || '56px';
-          const n = parseInt(v, 10);
-          return Number.isFinite(n) ? n : 56;
-        }
-
-        function computeActiveId() {
-          const probeY = getHeaderH() + 24;
-          let active = 'home';
-
-          for (const sec of sections) {
-            const r = sec.getBoundingClientRect();
-            if (r.top <= probeY && r.bottom > probeY) {
-              active = sec.id;
-              break;
-            }
-          }
-
-          // Near bottom: prefer About if visible
-          const doc = document.documentElement;
-          const bottomSlack = 8;
-          if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - bottomSlack) {
-            if (document.getElementById('about')) active = 'about';
-          }
-
-          return active;
-        }
-
-        let ticking = false;
-        function onScrollOrResize() {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            ticking = false;
-            setActive(computeActiveId());
-          });
-        }
-
-        function initActive() {
-          const hashId = location.hash?.replace('#', '');
-          if (hashId && document.getElementById(hashId)) {
-            setActive(hashId);
-            requestAnimationFrame(() => setActive(computeActiveId()));
-          } else {
-            setActive('home');
-            requestAnimationFrame(() => setActive(computeActiveId()));
-          }
-        }
-
-        window.addEventListener('scroll', onScrollOrResize, { passive: true });
-        window.addEventListener('resize', onScrollOrResize, { passive: true });
-        window.addEventListener('hashchange', initActive);
-
-        window.addEventListener('load', () => {
-          initActive();
-          onScrollOrResize();
-        });
-      })();
-
-      // ===== Top scroll progress bar (rAF-throttled) =====
-      (() => {
-        const prog = document.getElementById('progress');
-        if (!prog) return;
-
-        let ticking = false;
-        function update() {
-          ticking = false;
-          const h = document.documentElement;
-          const denom = h.scrollHeight - h.clientHeight || 1;
-          prog.style.width = (h.scrollTop / denom) * 100 + '%';
-        }
-
-        addEventListener(
-          'scroll',
-          () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(update);
-          },
-          { passive: true }
-        );
-
-        addEventListener('load', update);
-        addEventListener('resize', () => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(update);
-        });
-      })();
-
-      // ===== Optional: section fade-in on first view (subtle) =====
-      (() => {
-        const sectionInObserver = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add('section-in');
-              sectionInObserver.unobserve(entry.target);
-            });
-          },
-          { threshold: 0.2 }
-        );
-
-        document
-          .querySelectorAll('main > section[id]')
-          .forEach(sec => sectionInObserver.observe(sec));
-      })();
-    </script>
-
+    <script src="/assets/js/site.js" defer></script>
     <!-- Games + interaction logic -->
     <script src="/assets/js/trilpai.js" defer></script>
   </body>

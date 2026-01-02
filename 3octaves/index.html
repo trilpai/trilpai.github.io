@@ -348,7 +348,7 @@
               href="https://www.instagram.com/trilpai/"
               class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               aria-label="Instagram"
-              >Instagram</a
+              >Insta</a
             >
             <a
               href="https://www.facebook.com/trilpai"
@@ -360,7 +360,7 @@
               href="https://github.com/trilpai"
               class="footer-link focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
               aria-label="GitHub"
-              >GitHub</a
+              >Git</a
             >
           </div>
 
@@ -387,7 +387,7 @@
       <section id="init" class="bg-paper py-24" aria-label="Init">
         <div class="mx-auto max-w-5xl px-4">
           <h1 class="text-3xl md:text-4xl font-medium tracking-tight">The 3 Octaves</h1>
-          <p class="mt-4 max-w-xl text-sm text-ink/70">
+          <p class="mt-4 max-w-xl text-sm leading-7 text-ink/70">
             A maturity model for software engineering — grounded in timeless principles and
             amplified by AI acceleration.
           </p>
@@ -401,14 +401,14 @@
             <h2 class="text-2xl md:text-3xl font-medium text-ink">
               Octave 1 — Signal Definition (Thinking Before Building)
             </h2>
-            <p class="mt-2 max-w-xl text-sm text-ink/70 mb-6">
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
               Octave 1 governs intent.<br />
               It is about understanding problems clearly enough that automation becomes safe.
             </p>
           </div>
 
           <!-- Principles 1–8 -->
-          <ol class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
+          <ol class="space-y-6 text-sm leading-7 text-ink/80 list-decimal list-inside">
             <li id="octave1-01" class="mb-6">
               <strong>Understanding Is the First Deliverable</strong>
 
@@ -509,14 +509,14 @@
             <h2 class="text-2xl md:text-3xl font-medium text-ink">
               Octave 2 — Signal Construction (Building With Discipline)
             </h2>
-            <p class="mt-2 max-w-xl text-sm text-ink/70 mb-6">
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
               Octave 2 governs execution.<br />
               This is where AI accelerates output — and where engineering rigor must keep pace.
             </p>
           </div>
 
           <!-- Principles 9–16 -->
-          <ol start="9" class="space-y-6 text-sm text-ink/80 list-decimal list-inside">
+          <ol start="9" class="space-y-6 text-sm leading-7 text-ink/80 list-decimal list-inside">
             <li id="octave2-09" class="mb-6">
               <strong>Architecture Comes Before Implementation</strong>
 
@@ -618,14 +618,14 @@
             <h2 class="text-2xl md:text-3xl font-medium text-ink">
               Octave 3 — Signal Propagation (Operating, Owning, Sustaining)
             </h2>
-            <p class="mt-2 max-w-xl text-sm text-ink/70 mb-6">
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
               Octave 3 governs reality.<br />
               This is where software proves whether it was engineered — or merely assembled.
             </p>
           </div>
 
           <!-- Principles 17–24 -->
-          <ol start="17" class="space-y-10 text-sm text-ink/80 list-decimal list-inside">
+          <ol start="17" class="space-y-10 text-sm leading-7 text-ink/80 list-decimal list-inside">
             <li id="octave3-17" class="mb-6">
               <strong>Production Is the Only Source of Truth</strong>
 
@@ -736,7 +736,7 @@
         <div class="mx-auto max-w-5xl px-4 space-y-4 text-sm text-ink/70">
           <h2 class="text-2xl font-medium text-ink mb-3">Why 3 Octaves?</h2>
 
-          <ol class="space-y-6 list-decimal list-inside text-ink/90">
+          <ol class="space-y-6 list-decimal list-inside leading-7 text-ink/90">
             <li class="mb-3">
               <strong>Octave means eight</strong> — in computing, <strong>8 bits = 1 byte</strong>,
               a complete, meaningful unit formed from simple parts (<em>2<sup>8</sup> states</em>).
@@ -785,140 +785,6 @@
     </main>
 
     <!-- ===== Scripts ===== -->
-
-    <!-- Reveal sections (fix for CSS rule: main>section[id]{opacity:0}) -->
-    <script>
-      (() => {
-        const sections = Array.from(document.querySelectorAll('main#main-content > section[id]'));
-        if (!sections.length) return;
-
-        const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-
-        // No observer or reduced motion: reveal immediately
-        if (reduce || !('IntersectionObserver' in window)) {
-          sections.forEach(s => s.classList.add('section-in'));
-          return;
-        }
-
-        const io = new IntersectionObserver(
-          entries => {
-            for (const e of entries) {
-              if (e.isIntersecting) {
-                e.target.classList.add('section-in');
-                io.unobserve(e.target);
-              }
-            }
-          },
-          { threshold: 0.08, rootMargin: '0px 0px -10% 0px' }
-        );
-
-        sections.forEach(s => io.observe(s));
-      })();
-    </script>
-
-    <script>
-      // ===== Active menu highlight (probe-line, avoids flicker) =====
-      (() => {
-        const menuLinks = Array.from(document.querySelectorAll('a[data-nav]'));
-        const ids = menuLinks.map(a => a.dataset.nav).filter(Boolean);
-        const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-
-        function setActive(id) {
-          menuLinks.forEach(a => {
-            a.classList.remove('nav-highlight', 'font-medium');
-            if (a.dataset.nav === id) a.classList.add('nav-highlight', 'font-medium');
-          });
-        }
-
-        function getHeaderH() {
-          const root = document.documentElement;
-          const v = getComputedStyle(root).getPropertyValue('--header-h') || '56px';
-          const n = parseInt(v, 10);
-          return Number.isFinite(n) ? n : 56;
-        }
-
-        function computeActiveId() {
-          const probeY = getHeaderH() + 24;
-          let active = 'init';
-
-          for (const sec of sections) {
-            const r = sec.getBoundingClientRect();
-            if (r.top <= probeY && r.bottom > probeY) {
-              active = sec.id;
-              break;
-            }
-          }
-
-          const doc = document.documentElement;
-          const bottomSlack = 8;
-          if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - bottomSlack) {
-            if (document.getElementById('making')) active = 'making';
-          }
-
-          return active;
-        }
-
-        let ticking = false;
-        function onScrollOrResize() {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            ticking = false;
-            setActive(computeActiveId());
-          });
-        }
-
-        function initActive() {
-          const hashId = location.hash?.replace('#', '');
-          if (hashId && document.getElementById(hashId)) {
-            setActive(hashId);
-            requestAnimationFrame(() => setActive(computeActiveId()));
-          } else {
-            setActive('init');
-            requestAnimationFrame(() => setActive(computeActiveId()));
-          }
-        }
-
-        window.addEventListener('scroll', onScrollOrResize, { passive: true });
-        window.addEventListener('resize', onScrollOrResize, { passive: true });
-        window.addEventListener('hashchange', initActive);
-
-        window.addEventListener('load', () => {
-          initActive();
-          onScrollOrResize();
-        });
-      })();
-
-      // ===== Top scroll progress bar (rAF-throttled) =====
-      (() => {
-        const prog = document.getElementById('progress');
-        if (!prog) return;
-
-        let ticking = false;
-        function update() {
-          ticking = false;
-          const h = document.documentElement;
-          const denom = h.scrollHeight - h.clientHeight || 1;
-          prog.style.width = (h.scrollTop / denom) * 100 + '%';
-        }
-
-        addEventListener(
-          'scroll',
-          () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(update);
-          },
-          { passive: true }
-        );
-
-        addEventListener('load', update);
-        addEventListener('resize', () => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(update);
-        });
-      })();
-    </script>
+    <script src="/assets/js/site.js" defer></script>
   </body>
 </html>

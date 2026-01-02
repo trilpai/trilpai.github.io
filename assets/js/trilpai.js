@@ -71,6 +71,7 @@
     const overlay = document.getElementById('fd-overlay');
     const scoreEl = document.getElementById('fd-score');
     const restartBtn = document.getElementById('fd-restart');
+    const zoneEl = document.getElementById('fd-zone');
 
     const CONFIG = {
       DOT_R: 8,
@@ -93,6 +94,15 @@
     let running = false;
     let isVisible = true;
 
+    // Cache size (avoid layout reads in rAF)
+    const size = { w: 0, h: 0 };
+    const refreshSize = () => {
+      const r = container.getBoundingClientRect();
+      size.w = r.width;
+      size.h = r.height;
+    };
+    window.addEventListener('resize', refreshSize, { passive: true });
+
     function showOverlay(msg) {
       if (scoreEl) scoreEl.textContent = msg;
       overlay?.classList.remove('hidden');
@@ -107,17 +117,16 @@
     }
 
     function updateZoneEl() {
-      const zone = document.getElementById('fd-zone');
-      if (!zone) return;
-      zone.style.inset = zoneInset + 'px';
+      if (!zoneEl) return;
+      zoneEl.style.inset = zoneInset + 'px';
     }
 
     function reset() {
       cancelAnimationFrame(rafId);
+      refreshSize();
 
-      const rect = container.getBoundingClientRect();
-      cx = rect.width / 2;
-      cy = rect.height / 2;
+      cx = size.w / 2;
+      cy = size.h / 2;
 
       vx = (Math.random() - 0.5) * CONFIG.INITIAL_SPEED;
       vy = (Math.random() - 0.5) * CONFIG.INITIAL_SPEED;
@@ -167,7 +176,6 @@
       vx += (Math.random() - 0.5) * CONFIG.RANDOM_PUSH;
       vy += (Math.random() - 0.5) * CONFIG.RANDOM_PUSH;
 
-      // update DOM (single write each)
       if (dot) {
         dot.style.left = cx + 'px';
         dot.style.top = cy + 'px';
@@ -176,7 +184,7 @@
       // Difficulty ramp
       const elapsed = (performance.now() - startTime) / 1000;
       const speed = CONFIG.INITIAL_SPEED + elapsed * CONFIG.SPEED_GROWTH;
-      // normalize-ish: keep velocity from collapsing, but don’t explode
+
       const mag = Math.hypot(vx, vy) || 1;
       vx = (vx / mag) * Math.min(speed, 2.6);
       vy = (vy / mag) * Math.min(speed, 2.6);
@@ -187,11 +195,10 @@
       );
       updateZoneEl();
 
-      // Containment check (math, no per-frame DOM reads)
-      const rect = container.getBoundingClientRect();
+      // Containment check using cached size
       const min = zoneInset + CONFIG.DOT_R;
-      const maxX = rect.width - zoneInset - CONFIG.DOT_R;
-      const maxY = rect.height - zoneInset - CONFIG.DOT_R;
+      const maxX = size.w - zoneInset - CONFIG.DOT_R;
+      const maxY = size.h - zoneInset - CONFIG.DOT_R;
 
       if (cx < min || cx > maxX || cy < min || cy > maxY) {
         gameOver();
@@ -201,7 +208,6 @@
       rafId = requestAnimationFrame(loop);
     }
 
-    // Pointer input (needs non-passive because we call preventDefault)
     container.addEventListener(
       'pointerdown',
       e => {
@@ -212,7 +218,6 @@
       { passive: false }
     );
 
-    // Keyboard input
     container.addEventListener('keydown', e => {
       if (!running) return;
       if (e.key === ' ' || e.key === 'Enter') {
@@ -227,11 +232,11 @@
       reset();
     });
 
-    // Pause when off-screen
     GameUtils.createVisibilityObserver(
       container,
       () => {
         isVisible = true;
+        refreshSize();
         if (running) loop();
       },
       () => {
@@ -463,16 +468,16 @@
       if (isVisible) rafId = requestAnimationFrame(loop);
     }
 
-    function onPointerDown(e) {
-      if (!running) return;
-      // prevent double-tap zoom on mobile
-      e.preventDefault?.();
-      drop();
-    }
+    root.addEventListener(
+      'pointerdown',
+      e => {
+        if (!running) return;
+        e.preventDefault?.();
+        drop();
+      },
+      { passive: false }
+    );
 
-    root.addEventListener('pointerdown', onPointerDown, { passive: false });
-
-    // Keyboard
     root.addEventListener('keydown', e => {
       if (!running) return;
       if (e.key === ' ' || e.key === 'Enter') {
@@ -487,11 +492,11 @@
       start();
     });
 
-    // Pause when off-screen
     GameUtils.createVisibilityObserver(
       root,
       () => {
         isVisible = true;
+        refreshSize();
         if (running) loop();
       },
       () => {
@@ -544,6 +549,9 @@
     let roundStart = 0;
     let roundMs = CONFIG.BASE_TIME;
 
+    // pause bookkeeping
+    let pausedAt = 0;
+
     const WORDS_REAL = [
       'clarity',
       'signal',
@@ -573,57 +581,56 @@
       'ai-ai',
     ];
 
-    function setScore(v) {
+    const setScore = v => {
       score = v;
       scoreEl.textContent = String(v);
-    }
-    function setBest(v) {
+    };
+
+    const setBest = v => {
       best = v;
       bestEl.textContent = String(v);
-    }
+    };
 
-    function showOverlay(msg) {
+    const showOverlay = msg => {
       finalEl.textContent = msg;
       overlay.classList.remove('hidden');
       overlay.classList.add('flex');
       overlay.setAttribute('aria-live', 'assertive');
-    }
-    function hideOverlay() {
+    };
+
+    const hideOverlay = () => {
       overlay.classList.add('hidden');
       overlay.classList.remove('flex');
       overlay.setAttribute('aria-live', 'polite');
-    }
+    };
 
-    function randInt(a, b) {
-      return Math.floor(a + Math.random() * (b - a + 1));
-    }
+    const randInt = (a, b) => Math.floor(a + Math.random() * (b - a + 1));
 
-    function pickRule() {
+    const pickRule = () => {
       const r = randInt(1, 4);
       if (r === 1) return { id: 'prime', label: 'Tap PRIME numbers', kind: 'number' };
       if (r === 2) return { id: 'even', label: 'Tap EVEN numbers', kind: 'number' };
       if (r === 3) return { id: 'vowel', label: 'Tap words WITH a vowel', kind: 'word' };
       return { id: 'real', label: 'Tap REAL words (not buzz)', kind: 'word' };
-    }
+    };
 
-    function isPrime(n) {
+    const isPrime = n => {
       if (n < 2) return false;
       if (n % 2 === 0) return n === 2;
       for (let i = 3; i * i <= n; i += 2) if (n % i === 0) return false;
       return true;
-    }
+    };
 
-    function forceSignals(cells, minSignals = 5) {
+    const forceSignals = (cells, minSignals = 5) => {
       const indices = [];
       for (let i = 0; i < cells.length; i++) if (!cells[i].isSignal) indices.push(i);
-      // randomly flip some to signal
       while (cells.filter(c => c.isSignal).length < minSignals && indices.length) {
         const j = indices.splice(randInt(0, indices.length - 1), 1)[0];
         cells[j].isSignal = true;
       }
-    }
+    };
 
-    function makeCells() {
+    const makeCells = () => {
       const w = root.getBoundingClientRect().width;
       const cols = w >= 640 ? 7 : 6;
       const rows = 6;
@@ -658,7 +665,6 @@
       }
 
       if (cells.filter(c => c.isSignal).length < 5) forceSignals(cells, 5);
-
       remainingSignals = cells.filter(c => c.isSignal).length;
 
       for (let idx = 0; idx < cells.length; idx++) {
@@ -667,13 +673,13 @@
         btn.type = 'button';
         btn.className = 'sn-cell';
         btn.textContent = c.text;
-        btn.dataset.idx = String(idx);
         btn.dataset.signal = c.isSignal ? '1' : '0';
+        btn.dataset.used = '0';
         gridEl.appendChild(btn);
       }
-    }
+    };
 
-    function endRound() {
+    const endRound = () => {
       running = false;
       cancelAnimationFrame(rafId);
       showOverlay(`Score: ${score}`);
@@ -682,9 +688,9 @@
         setBest(score);
         GameUtils.debouncedSave(STORAGE_KEY, best, 0);
       }
-    }
+    };
 
-    function tick(ts) {
+    const tick = ts => {
       if (!running || !isVisible) return;
 
       const elapsed = ts - roundStart;
@@ -696,9 +702,9 @@
         return;
       }
       rafId = requestAnimationFrame(tick);
-    }
+    };
 
-    function startRound() {
+    const startRound = () => {
       hideOverlay();
       running = true;
 
@@ -711,51 +717,53 @@
       roundMs = Math.max(CONFIG.MIN_TIME, CONFIG.BASE_TIME / difficulty);
 
       roundStart = performance.now();
-      tick(roundStart);
+      rafId = requestAnimationFrame(tick);
 
       root.classList.add('sn-reveal');
       setTimeout(() => root.classList.remove('sn-reveal'), CONFIG.REVEAL_MS);
-    }
+    };
 
-    function restart() {
+    const restart = () => {
       setScore(0);
       setBest(best);
       startRound();
-    }
+    };
 
-    // interactions
+    const handleCell = btn => {
+      if (!running) return;
+      if (btn.dataset.used === '1') return;
+      btn.dataset.used = '1';
+
+      const isSignal = btn.dataset.signal === '1';
+      if (isSignal) {
+        btn.classList.add('is-hit');
+        setScore(score + 1);
+        remainingSignals -= 1;
+        if (remainingSignals <= 0) startRound();
+      } else {
+        btn.classList.add('is-miss');
+        setScore(Math.max(0, score - 1));
+      }
+    };
+
+    // pointer/click
     gridEl.addEventListener(
       'pointerdown',
       e => {
-        if (!running) return;
         const btn = e.target?.closest?.('.sn-cell');
         if (!btn) return;
-
-        // no preventDefault necessary here; keep scroll smooth
-        const isSignal = btn.dataset.signal === '1';
-        if (btn.dataset.used === '1') return;
-        btn.dataset.used = '1';
-
-        if (isSignal) {
-          btn.classList.add('is-hit');
-          setScore(score + 1);
-          remainingSignals -= 1;
-          if (remainingSignals <= 0) startRound();
-        } else {
-          btn.classList.add('is-miss');
-          setScore(Math.max(0, score - 1));
-        }
+        handleCell(btn);
       },
       { passive: true }
     );
 
-    // Keyboard support: Space/Enter activates focused cell
+    // Keyboard: Space/Enter triggers the focused button
     gridEl.addEventListener('keydown', e => {
       const btn = e.target?.closest?.('.sn-cell');
       if (!btn) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
-        btn.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+        handleCell(btn);
       }
     });
 
@@ -765,15 +773,21 @@
       restart();
     });
 
-    // Pause when off-screen
+    // Pause when off-screen (preserve timing)
     GameUtils.createVisibilityObserver(
       root,
       () => {
         isVisible = true;
+        if (running && pausedAt) {
+          const now = performance.now();
+          roundStart += now - pausedAt;
+          pausedAt = 0;
+        }
         if (running) rafId = requestAnimationFrame(tick);
       },
       () => {
         isVisible = false;
+        if (running) pausedAt = performance.now();
         cancelAnimationFrame(rafId);
       }
     );
