@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
@@ -276,10 +276,10 @@
           </li>
           <li>
             <a
-              href="#init"
-              data-nav="init"
+              href="#preamble"
+              data-nav="preamble"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >Init</a
+              >Preamble</a
             >
           </li>
           <li>
@@ -308,10 +308,10 @@
           </li>
           <li>
             <a
-              href="#making"
-              data-nav="making"
+              href="#coda"
+              data-nav="coda"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >Making</a
+              >Coda</a
             >
           </li>
         </ul>
@@ -383,403 +383,633 @@
       class="relative z-0 pt-[calc(var(--header-h)+8px)] pb-[calc(var(--footer-h)+8px)] min-h-[calc(100vh-var(--header-h)-var(--footer-h))] min-h-[calc(100dvh-var(--header-h)-var(--footer-h))]"
       tabindex="-1"
     >
-      <!-- Init -->
-      <section id="init" class="bg-paper py-24" aria-label="Init">
+      <!-- Title -->
+      <section id="title" class="bg-paper py-24" aria-label="Title">
         <div class="mx-auto max-w-5xl px-4">
-          <h1 class="text-3xl md:text-4xl font-medium tracking-tight">The 3 Octaves</h1>
-          <p class="mt-4 max-w-xl text-sm leading-7 text-ink/70">
-            A maturity model for software engineering — grounded in timeless principles and
-            amplified by AI acceleration.
+          <h1 class="text-3xl md:text-4xl font-medium tracking-tight">3 OCTAVES</h1>
+          <p class="mt-4 max-w-xl text-sm leading-7 text-ink/70 italic">
+            On directing complex systems toward intended outcomes
           </p>
         </div>
       </section>
 
-      <!-- Octave 1 -->
-      <section id="octave1" class="bg-paper-soft py-24" aria-label="Octave 1">
-        <div class="mx-auto max-w-5xl px-4 space-y-10">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-medium text-ink">
-              Octave 1 — Signal Definition (Thinking Before Building)
-            </h2>
-            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
-              Octave 1 governs intent.<br />
-              It is about understanding problems clearly enough that automation becomes safe.
-            </p>
-          </div>
+      <!-- Preamble -->
+      <section id="preamble" class="bg-paper-soft py-24" aria-label="Preamble">
+        <div class="mx-auto max-w-5xl px-4 space-y-6">
+          <h2 class="text-2xl md:text-3xl font-medium text-ink">Preamble</h2>
 
-          <!-- Principles 1–8 -->
-          <ol class="space-y-6 text-sm leading-7 text-ink/80 list-decimal list-inside">
-            <li id="octave1-01" class="mb-6">
-              <strong>Understanding Is the First Deliverable</strong>
+          <p class="text-sm leading-7 text-ink/80">
+            Every system carries a signal — the intent of those who shaped it.
+          </p>
 
-              <p class="mt-1">Code is not the start of work.<br />Clarity is.</p>
+          <p class="text-sm leading-7 text-ink/80">
+            This signal begins as understanding, passes through construction, and ends in collision
+            with reality. At each stage, it can be amplified or lost.
+          </p>
 
-              <p class="mt-3">
-                If a problem cannot be explained without jargon, diagrams, or hand-waving, it is not
-                ready to be built — by humans or AI.
-              </p>
-            </li>
+          <p class="text-sm leading-7 text-ink/80">
+            The history of engineering failure is the history of signal degradation: intent that was
+            never clear, clarity that was not preserved, or preservation that was never tested
+            against the world.
+          </p>
 
-            <li id="octave1-02" class="mb-6">
-              <strong>Problem Framing Determines the Outcome</strong>
-
-              <p class="mt-1">Most failures come from solving the wrong problem well.</p>
-
-              <p class="mt-3">
-                We invest more effort in framing than in solutions, because a correctly framed
-                problem often approaches its own solution.
-              </p>
-            </li>
-
-            <li id="octave1-03" class="mb-6">
-              <strong>Requirements Are Engineering Artifacts</strong>
-
-              <p class="mt-1">Requirements are not paperwork, tickets, or formalities.</p>
-
-              <p class="mt-3">
-                They are compressed engineering decisions — and they must be precise enough that
-                someone else (human or AI) can act on them correctly.
-              </p>
-            </li>
-
-            <li id="octave1-04" class="mb-6">
-              <strong>Constraints Are Part of the Solution</strong>
-
-              <p class="mt-1">
-                Constraints are not obstacles to creativity.<br />
-                They are what make solutions real.
-              </p>
-
-              <p class="mt-3">
-                Time, cost, performance, security, scale, and operability are defined early — not
-                “handled later.”
-              </p>
-            </li>
-
-            <li id="octave1-05" class="mb-6">
-              <strong>Assumptions Must Be Made Explicit</strong>
-
-              <p class="mt-1">Unstated assumptions are hidden bugs.</p>
-
-              <p class="mt-3">
-                Every critical assumption — technical or business — is surfaced, written down, and
-                challenged before work proceeds.
-              </p>
-            </li>
-
-            <li id="octave1-06" class="mb-6">
-              <strong>AI Is Used Only After Intent Is Clear</strong>
-
-              <p class="mt-1">AI accelerates execution, not understanding.</p>
-
-              <p class="mt-3">
-                We do not ask AI to “figure it out.”<br />
-                We ask AI to help implement what has already been thought through.
-              </p>
-            </li>
-
-            <li id="octave1-07" class="mb-6">
-              <strong>Decisions Leave a Trail</strong>
-
-              <p class="mt-1">Important decisions are recorded while the context is fresh.</p>
-
-              <p class="mt-3">
-                Architecture Decision Records (or equivalents) exist so the future does not have to
-                guess the past.
-              </p>
-            </li>
-
-            <li id="octave1-08" class="mb-6">
-              <strong>Speed Is a Choice, Not a Default</strong>
-
-              <p class="mt-1">Moving fast is valuable only after direction is fixed.</p>
-
-              <p class="mt-3">
-                We slow down deliberately while thinking — so execution can move without hesitation.
-              </p>
-            </li>
-          </ol>
+          <p class="text-sm leading-7 text-ink/80">
+            The builder changes. The physics of intent—and the relentless pull of
+            <strong>entropy</strong>—does not.
+          </p>
         </div>
       </section>
 
-      <!-- Octave 2 -->
-      <section id="octave2" class="bg-paper py-24" aria-label="Octave 2">
-        <div class="mx-auto max-w-5xl px-4 space-y-10">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-medium text-ink">
-              Octave 2 — Signal Construction (Building With Discipline)
-            </h2>
-            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
-              Octave 2 governs execution.<br />
-              This is where AI accelerates output — and where engineering rigor must keep pace.
-            </p>
-          </div>
+      <!-- Why Octaves? -->
+      <section id="why-octaves" class="bg-paper py-24" aria-label="Why Octaves?">
+        <div class="mx-auto max-w-5xl px-4 space-y-6">
+          <h2 class="text-2xl md:text-3xl font-medium text-ink">Why Octaves?</h2>
 
-          <!-- Principles 9–16 -->
-          <ol start="9" class="space-y-6 text-sm leading-7 text-ink/80 list-decimal list-inside">
-            <li id="octave2-09" class="mb-6">
-              <strong>Architecture Comes Before Implementation</strong>
+          <p class="text-sm leading-7 text-ink/80">
+            In music, an octave spans eight notes — the same pattern expressed at a higher
+            frequency. The note doubles in pitch but remains recognizably itself. C becomes C, only
+            higher.
+          </p>
 
-              <p class="mt-1">Code is a consequence, not a starting point.</p>
+          <p class="text-sm leading-7 text-ink/80">
+            Engineering works the same way. The same principle that governs how we define a system
+            also governs how we build it and how we operate it — just at different frequencies, with
+            different consequences.
+          </p>
 
-              <p class="mt-3">
-                We establish system boundaries, data flows, failure modes, and interfaces before AI
-                generates code.
-              </p>
+          <p class="text-sm leading-7 text-ink/80">
+            The 3 Octaves describe eight principles, each expressed at three frequencies:
+          </p>
+
+          <ul class="text-sm leading-7 text-ink/80 list-disc list-inside ml-4 space-y-1">
+            <li>
+              <strong>Octave 1</strong> governs definition — the discipline of understanding before
+              acting
             </li>
-
-            <li id="octave2-10" class="mb-6">
-              <strong>AI Output Is Treated Like Junior Code</strong>
-
-              <p class="mt-1">AI-generated code is not special.</p>
-
-              <p class="mt-3">
-                It is reviewed, tested, refactored, or rejected — exactly as if it came from a new
-                team member.
-              </p>
+            <li>
+              <strong>Octave 2</strong> governs construction — the discipline of building what was
+              meant
             </li>
-
-            <li id="octave2-11" class="mb-6">
-              <strong>Tests Express Intent, Not Just Coverage</strong>
-
-              <p class="mt-1">Tests are not written to satisfy tools.</p>
-
-              <p class="mt-3">They exist to explain:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>what the system is supposed to do</li>
-                <li>what it must never do</li>
-                <li>what it guarantees under stress</li>
-              </ul>
+            <li>
+              <strong>Octave 3</strong> governs consequence — the discipline of owning what runs
             </li>
+          </ul>
 
-            <li id="octave2-12" class="mb-6">
-              <strong>Verification Is Continuous, Not a Phase</strong>
-
-              <p class="mt-1">Verification does not happen “after development.”</p>
-
-              <p class="mt-3">It is embedded into:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>design</li>
-                <li>implementation</li>
-                <li>code review</li>
-                <li>deployment</li>
-              </ul>
-            </li>
-
-            <li id="octave2-13" class="mb-6">
-              <strong>Small Systems Beat Clever Systems</strong>
-
-              <p class="mt-1">We prefer simple, understandable designs over impressive ones.</p>
-
-              <p class="mt-3">If a system requires constant explanation, it is already failing.</p>
-            </li>
-
-            <li id="octave2-14" class="mb-6">
-              <strong>Tooling Must Reduce Cognitive Load</strong>
-
-              <p class="mt-1">Tools exist to simplify thinking — not replace it.</p>
-
-              <p class="mt-3">
-                Any tool (AI or otherwise) that increases confusion is treated as technical debt.
-              </p>
-            </li>
-
-            <li id="octave2-15" class="mb-6">
-              <strong>Automation Follows Understanding</strong>
-
-              <p class="mt-1">We automate what we understand deeply.</p>
-
-              <p class="mt-3">Automation without comprehension creates speed without safety.</p>
-            </li>
-
-            <li id="octave2-16" class="mb-6">
-              <strong>Change Is Designed, Not Accidentally Introduced</strong>
-
-              <p class="mt-1">Every change has a blast radius.</p>
-
-              <p class="mt-3">We design changes so that:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>failures are contained</li>
-                <li>rollbacks are possible</li>
-                <li>recovery is predictable</li>
-              </ul>
-            </li>
-          </ol>
+          <p class="text-sm leading-7 text-ink/80">
+            They are not phases to complete and leave behind. They are frequencies that must sound
+            together, or the signal collapses into noise.
+          </p>
         </div>
       </section>
 
-      <!-- Octave 3 -->
-      <section id="octave3" class="bg-paper-soft py-24" aria-label="Octave 3">
-        <div class="mx-auto max-w-5xl px-4 space-y-10">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-medium text-ink">
-              Octave 3 — Signal Propagation (Operating, Owning, Sustaining)
-            </h2>
-            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-6">
-              Octave 3 governs reality.<br />
-              This is where software proves whether it was engineered — or merely assembled.
-            </p>
+      <!-- The Eight Principles -->
+      <section id="principles" class="bg-paper-soft py-24" aria-label="The Eight Principles">
+        <div class="mx-auto max-w-5xl px-4 space-y-6">
+          <h2 class="text-2xl md:text-3xl font-medium text-ink">The Eight Principles</h2>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm leading-7 text-ink/80 border-collapse">
+              <thead>
+                <tr class="border-b border-line">
+                  <th class="text-left py-3 pr-4 font-medium text-ink">#</th>
+                  <th class="text-left py-3 pr-4 font-medium text-ink">Principle</th>
+                  <th class="text-left py-3 font-medium text-ink">Essence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">1</td>
+                  <td class="py-3 pr-4"><strong>Clarity</strong></td>
+                  <td class="py-3">Can it be understood?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">2</td>
+                  <td class="py-3 pr-4"><strong>Boundaries</strong></td>
+                  <td class="py-3">Where does responsibility begin and end?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">3</td>
+                  <td class="py-3 pr-4"><strong>Simplicity</strong></td>
+                  <td class="py-3">What is the minimum that works?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">4</td>
+                  <td class="py-3 pr-4"><strong>Verification</strong></td>
+                  <td class="py-3">How do we know it's true?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">5</td>
+                  <td class="py-3 pr-4"><strong>Evolution</strong></td>
+                  <td class="py-3">How does it adapt safely?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">6</td>
+                  <td class="py-3 pr-4"><strong>Resilience</strong></td>
+                  <td class="py-3">What happens when things fail?</td>
+                </tr>
+                <tr class="border-b border-line/50">
+                  <td class="py-3 pr-4">7</td>
+                  <td class="py-3 pr-4"><strong>Ownership</strong></td>
+                  <td class="py-3">Who is accountable?</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4">8</td>
+                  <td class="py-3 pr-4"><strong>Continuity</strong></td>
+                  <td class="py-3">How does it survive time?</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-          <!-- Principles 17–24 -->
-          <ol start="17" class="space-y-10 text-sm leading-7 text-ink/80 list-decimal list-inside">
-            <li id="octave3-17" class="mb-6">
-              <strong>Production Is the Only Source of Truth</strong>
-
-              <p class="mt-1">Designs, tests, and staging environments are hypotheses.</p>
-
-              <p class="mt-3">Production behavior is fact — and it always has the final word.</p>
-            </li>
-
-            <li id="octave3-18" class="mb-6">
-              <strong>Every System Must Be Observable</strong>
-
-              <p class="mt-1">If a system cannot explain itself, it cannot be trusted.</p>
-
-              <p class="mt-3">
-                Logs, metrics, traces, and alerts are not optional — they are part of the system’s
-                interface.
-              </p>
-            </li>
-
-            <li id="octave3-19" class="mb-6">
-              <strong>Ownership Does Not End at Deployment</strong>
-
-              <p class="mt-1">Shipping is a milestone, not a finish line.</p>
-
-              <p class="mt-3">Engineers remain accountable for:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>reliability</li>
-                <li>performance</li>
-                <li>security</li>
-                <li>operability</li>
-              </ul>
-            </li>
-
-            <li id="octave3-20" class="mb-6">
-              <strong>Failures Must Leave the System Better</strong>
-
-              <p class="mt-1">Incidents are tuition, not embarrassment.</p>
-
-              <p class="mt-3">Every failure produces:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>clearer understanding</li>
-                <li>safer defaults</li>
-                <li>stronger safeguards</li>
-              </ul>
-            </li>
-
-            <li id="octave3-21" class="mb-6">
-              <strong>Systems Must Outlive Their Creators</strong>
-
-              <p class="mt-1">Good systems survive:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>people leaving</li>
-                <li>tools changing</li>
-                <li>assumptions expiring</li>
-              </ul>
-
-              <p class="mt-3">
-                If a system only works because its author is present, it is unfinished.
-              </p>
-            </li>
-
-            <li id="octave3-22" class="mb-6">
-              <strong>Operational Simplicity Is a Feature</strong>
-
-              <p class="mt-1">The easiest system to operate usually wins.</p>
-
-              <p class="mt-3">
-                Complex operations are a tax paid every day — not just during outages.
-              </p>
-            </li>
-
-            <li id="octave3-23" class="mb-6">
-              <strong>Security Is a Design Constraint, Not a Patch</strong>
-
-              <p class="mt-1">Security added later is security already compromised.</p>
-
-              <p class="mt-3">
-                Threat modeling, access control, and data protection are considered from the start —
-                and revisited continuously.
-              </p>
-            </li>
-
-            <li id="octave3-24" class="mb-6">
-              <strong>Learning Must Flow Backward</strong>
-
-              <p class="mt-1">Operations inform design.</p>
-
-              <p class="mt-3">Production feedback reshapes:</p>
-
-              <ul class="mt-1 ml-6 list-disc space-y-1">
-                <li>requirements</li>
-                <li>architecture</li>
-                <li>automation</li>
-                <li>tooling</li>
-              </ul>
-
-              <p class="mt-3">Without this loop, teams repeat the same failures faster.</p>
-            </li>
-          </ol>
         </div>
       </section>
 
-      <!-- Why / Making -->
-      <section id="making" class="bg-paper py-24" aria-label="Making">
-        <div class="mx-auto max-w-5xl px-4 space-y-4 text-sm text-ink/70">
-          <h2 class="text-2xl font-medium text-ink mb-3">Why 3 Octaves?</h2>
+      <!-- Octave 1 — Signal Definition -->
+      <section id="octave1" class="bg-paper py-24" aria-label="Octave 1">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-medium text-ink">Octave 1 — Signal Definition</h2>
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 italic">
+              The discipline of understanding before acting
+            </p>
+          </div>
 
-          <ol class="space-y-6 list-decimal list-inside leading-7 text-ink/90">
-            <li class="mb-3">
-              <strong>Octave means eight</strong> — in computing, <strong>8 bits = 1 byte</strong>,
-              a complete, meaningful unit formed from simple parts (<em>2<sup>8</sup> states</em>).
-            </li>
+          <div class="space-y-10 text-sm leading-7 text-ink/80">
+            <!-- 1.1 Clarity -->
+            <div>
+              <h3 class="font-medium text-ink">1.1 Clarity — Understanding precedes action.</h3>
+              <p class="mt-3">
+                Work begins with comprehension, not activity. A problem that cannot be explained
+                simply is not yet understood. The pressure to start is not the readiness to start.
+              </p>
+              <p class="mt-3">
+                If communication can fail, it will. The smaller the team, the fewer the
+                opportunities for miscommunication. Speak plainly. Write precisely. Jargon is fog.
+              </p>
+            </div>
 
-            <li class="mb-3">
-              In mathematics and music, an octave repeats the same structure at a
-              <strong>higher resolution and capability</strong>, not a different one.
-            </li>
+            <!-- 1.2 Boundaries -->
+            <div>
+              <h3 class="font-medium text-ink">1.2 Boundaries — Constraints are the problem.</h3>
+              <p class="mt-3">
+                Time, resources, physics, politics — these are not obstacles to the solution. They
+                are the substance of it. A solution that ignores constraints is a fantasy.
+              </p>
+              <p class="mt-3">
+                Every "yes" is a "no" to many other things. Know what you are not doing. The scope
+                you refuse to accept is as important as the scope you embrace. If time and budget
+                are fixed, scope must flex.
+              </p>
+            </div>
 
-            <li class="mb-3">
-              <strong>A symphony emerges</strong> from simple patterns, repeated, layered across
-              octaves, and shaped into <strong>coherence</strong>.
-            </li>
+            <!-- 1.3 Simplicity -->
+            <div>
+              <h3 class="font-medium text-ink">
+                1.3 Simplicity — The problem is not the solution.
+              </h3>
+              <p class="mt-3">
+                A problem properly stated contains no solution. It describes what is, what is wrong,
+                and what success looks like. The moment a solution enters the problem statement,
+                clarity dies.
+              </p>
+              <p class="mt-3">
+                Solve the smallest problem that matters. Most of what you think is essential is not.
+                Strip away until only the necessary remains.
+              </p>
+            </div>
 
-            <li class="mb-3">
-              <strong>3 Octaves</strong> applies this idea to engineering: the same principles,
-              applied with increasing <strong>scope</strong>, <strong>responsibility</strong>, and
-              <strong>consequence</strong>.
-            </li>
+            <!-- 1.4 Verification -->
+            <div>
+              <h3 class="font-medium text-ink">
+                1.4 Verification — Assumptions bear weight in silence.
+              </h3>
+              <p class="mt-3">
+                Every plan rests on beliefs taken as given. Unstated assumptions fail
+                catastrophically. The practice of surfacing them is structural engineering applied
+                to thought.
+              </p>
+              <p class="mt-3">
+                Challenge what seems obvious. The assumption everyone shares is the one no one
+                questions — and often the one that breaks first.
+                <strong>Clarity that is fluent but unverified is worse than ambiguity.</strong>
+              </p>
+            </div>
 
-            <li class="mb-3">
-              <strong>Octave 1</strong> defines the signal — understanding problems clearly before
-              acting.
-            </li>
+            <!-- 1.5 Evolution -->
+            <div>
+              <h3 class="font-medium text-ink">1.5 Evolution — Direction before speed.</h3>
+              <p class="mt-3">
+                Moving fast has value only when the destination is fixed. Plans are guesses — the
+                longer-term the plan, the worse the guess.
+              </p>
+              <p class="mt-3">
+                Shorten the horizon. Replace years with weeks. Plan more often, not further out.
+                Slow down to define, then execute without hesitation.
+              </p>
+            </div>
 
-            <li class="mb-3">
-              <strong>Octave 2</strong> constructs the signal into systems, where discipline and
-              verification matter most.
-            </li>
+            <!-- 1.6 Resilience -->
+            <div>
+              <h3 class="font-medium text-ink">1.6 Resilience — Failure modes are requirements.</h3>
+              <p class="mt-3">
+                How the system fails is as important as how it succeeds. If failure behavior isn't
+                specified, it will be improvised — usually at the worst possible moment.
+              </p>
+              <p class="mt-3">
+                A crisis is a terrible thing to waste. Define how the system should break so that
+                breaking makes it stronger.
+              </p>
+            </div>
 
-            <li class="mb-3">
-              <strong>Octave 3</strong> propagates the signal into production, where systems meet
-              time, scale, and reality.
-            </li>
+            <!-- 1.7 Ownership -->
+            <div>
+              <h3 class="font-medium text-ink">
+                1.7 Ownership — The decision to act is a commitment.
+              </h3>
+              <p class="mt-3">
+                Choosing to solve a problem creates obligations. Not all problems should be solved.
+                Not all opportunities should be pursued. Some are better left alone.
+              </p>
+              <p class="mt-3">
+                The discipline of definition includes deciding whether to begin. Err on the side of
+                action for reversible decisions. Deliberate longer for irreversible ones.
+                <strong>The cost of being wrong is a design parameter.</strong>
+              </p>
+            </div>
 
-            <li class="mb-3">
-              The Three Octaves follow a simple progression:
-              <strong>clarity → construction → consequence</strong>, repeated with increasing power
-              (<em>O<sup>1</sup> → O<sup>2</sup> → O<sup>3</sup></em
-              >).
-            </li>
-          </ol>
+            <!-- 1.8 Continuity -->
+            <div>
+              <h3 class="font-medium text-ink">
+                1.8 Continuity — What is not recorded is not retained.
+              </h3>
+              <p class="mt-3">
+                Memory fails. People leave. Context evaporates. Understanding not written will be
+                lost. Decisions not documented will be made again, differently, by those who don't
+                know they are repeating history.
+              </p>
+              <p class="mt-3">
+                Write it down while the context is fresh. The future cannot read minds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Octave 2 — Signal Construction -->
+      <section id="octave2" class="bg-paper-soft py-24" aria-label="Octave 2">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-medium text-ink">
+              Octave 2 — Signal Construction
+            </h2>
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 italic">
+              The discipline of building what was meant
+            </p>
+          </div>
+
+          <div class="space-y-10 text-sm leading-7 text-ink/80">
+            <!-- 2.1 Clarity -->
+            <div>
+              <h3 class="font-medium text-ink">2.1 Clarity — The artifact must explain itself.</h3>
+              <p class="mt-3">
+                What cannot be understood by those who did not build it is unfinished. Names,
+                structure, organization — these are not afterthoughts. They are the interface
+                between the system and its future.
+              </p>
+              <p class="mt-3">
+                A system that works but cannot be comprehended has simply deferred its failure to
+                the next person who must change it.
+              </p>
+            </div>
+
+            <!-- 2.2 Boundaries -->
+            <div>
+              <h3 class="font-medium text-ink">2.2 Boundaries — Interfaces are contracts.</h3>
+              <p class="mt-3">
+                Where components meet, there is a promise: what will be given, what will be
+                expected, what happens when expectations break. Vague interfaces guarantee
+                miscommunication. Precise interfaces enable independence.
+              </p>
+              <p class="mt-3">
+                Security lives here. Trust boundaries, access control, data protection — these are
+                not features bolted on. They are consequences of how boundaries are drawn. A system
+                designed without security cannot be made secure. It can only be made less insecure.
+              </p>
+            </div>
+
+            <!-- 2.3 Simplicity -->
+            <div>
+              <h3 class="font-medium text-ink">2.3 Simplicity — Simplicity is survival.</h3>
+              <p class="mt-3">
+                Every unnecessary element adds weight. This weight compounds into debt that accrues
+                interest — what was saved in days is paid in weeks, what was avoided in weeks is
+                paid in months.
+              </p>
+              <p class="mt-3">
+                Complex systems are not impressive; they are fragile. Small teams can do big things
+                precisely because they cannot afford complexity. Prefer ordinary technology. Boring
+                is a compliment.
+              </p>
+            </div>
+
+            <!-- 2.4 Verification -->
+            <div>
+              <h3 class="font-medium text-ink">
+                2.4 Verification — Trust is verified, not assumed.
+              </h3>
+              <p class="mt-3">
+                Nothing built should be trusted without verification — not because builders fail,
+                but because translation is lossy. Between intent and artifact, there is always
+                drift.
+              </p>
+              <p class="mt-3">
+                Sleep on it. The end of the day convinces you the work is good; the morning tells
+                you the truth. Verify, then verify again before shipping.
+              </p>
+            </div>
+
+            <!-- 2.5 Evolution -->
+            <div>
+              <h3 class="font-medium text-ink">
+                2.5 Evolution — Evolution is designed, not discovered.
+              </h3>
+              <p class="mt-3">
+                Systems change. The ability to evolve safely is a design choice. Systems that cannot
+                change safely are not changed — until they are replaced entirely.
+              </p>
+              <p class="mt-3">
+                Build for rollback. If you cannot undo a deployment in minutes, you are not ready to
+                deploy. Design for evolution or be destroyed by it.
+              </p>
+            </div>
+
+            <!-- 2.6 Resilience -->
+            <div>
+              <h3 class="font-medium text-ink">2.6 Resilience — Recovery is architecture.</h3>
+              <p class="mt-3">
+                Fallbacks, retries, graceful degradation, circuit breakers — these are not
+                afterthoughts. They are load-bearing structures.
+              </p>
+              <p class="mt-3">
+                A system without recovery paths is a system waiting to fail completely. When
+                something goes wrong — and it will — the architecture should already know what to
+                do.
+              </p>
+            </div>
+
+            <!-- 2.7 Ownership -->
+            <div>
+              <h3 class="font-medium text-ink">2.7 Ownership — Debt is acknowledged.</h3>
+              <p class="mt-3">
+                Shortcuts are loans against the future. The debt may be justified, but it must be
+                known and tracked. Unacknowledged debt compounds silently until it bankrupts the
+                system.
+              </p>
+              <p class="mt-3">
+                Ship good work. Not perfect — good. Work you would be pleased to revisit nine months
+                later without dread. If it's below the bar, it doesn't ship.
+              </p>
+            </div>
+
+            <!-- 2.8 Continuity -->
+            <div>
+              <h3 class="font-medium text-ink">
+                2.8 Continuity — Structure outlasts its builders.
+              </h3>
+              <p class="mt-3">
+                Code is read more than it is written. Systems are maintained longer than they are
+                built. Optimize for the reader, the maintainer, the operator — not the original
+                author.
+              </p>
+              <p class="mt-3">
+                Embed knowledge in structure. When the why is obvious from the what, the system
+                teaches itself to those who come after.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Octave 3 — Signal Propagation -->
+      <section id="octave3" class="bg-paper py-24" aria-label="Octave 3">
+        <div class="mx-auto max-w-5xl px-4 space-y-10">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-medium text-ink">Octave 3 — Signal Propagation</h2>
+            <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 italic">
+              The discipline of owning what runs
+            </p>
+          </div>
+
+          <div class="space-y-10 text-sm leading-7 text-ink/80">
+            <!-- 3.1 Clarity -->
+            <div>
+              <h3 class="font-medium text-ink">3.1 Clarity — The system must explain its state.</h3>
+              <p class="mt-3">
+                A system that cannot describe what it is doing cannot be trusted. Logs, metrics,
+                traces, alerts — these are not overhead. They are the interface between the system
+                and those responsible for it.
+              </p>
+              <p class="mt-3">Without observability, operation is hope. Hope is not a strategy.</p>
+            </div>
+
+            <!-- 3.2 Boundaries -->
+            <div>
+              <h3 class="font-medium text-ink">3.2 Boundaries — Failure must be contained.</h3>
+              <p class="mt-3">
+                When systems fail — and they will — the question is how much fails with them. Blast
+                radius is a design choice made during construction but proven in production.
+              </p>
+              <p class="mt-3">
+                Boundaries in operation determine whether failure is incident or catastrophe.
+                Contain the damage. Isolate the failure. Protect what remains.
+              </p>
+            </div>
+
+            <!-- 3.3 Simplicity -->
+            <div>
+              <h3 class="font-medium text-ink">3.3 Simplicity — Operational simplicity wins.</h3>
+              <p class="mt-3">
+                The easiest system to operate is the one that endures. Complexity is a tax paid
+                every day — in debugging time, in incident response, in explaining to the new person
+                how this actually works.
+              </p>
+              <p class="mt-3">
+                Simple systems are not just easier to build. They are easier to keep alive.
+              </p>
+            </div>
+
+            <!-- 3.4 Verification -->
+            <div>
+              <h3 class="font-medium text-ink">3.4 Verification — Reality is the only test.</h3>
+              <p class="mt-3">
+                Designs are hypotheses. Staging is approximation. Only production — the system under
+                real conditions — is truth.
+              </p>
+              <p class="mt-3">
+                Production reveals what was actually built, what users actually do, what actually
+                fails. Accept its verdicts. They are final.
+              </p>
+            </div>
+
+            <!-- 3.5 Evolution -->
+            <div>
+              <h3 class="font-medium text-ink">3.5 Evolution — Learning flows backward.</h3>
+              <p class="mt-3">
+                What is learned in production must reshape definition and construction. Operational
+                pain is design feedback. High operational cost is not fate — it is signal that
+                something upstream was wrong.
+              </p>
+              <p class="mt-3">
+                Without this loop, errors repeat — faster, at scale. The octaves are a cycle: signal
+                forward, learning backward.
+              </p>
+            </div>
+
+            <!-- 3.6 Resilience -->
+            <div>
+              <h3 class="font-medium text-ink">3.6 Resilience — Failure is tuition.</h3>
+              <p class="mt-3">
+                Systems fail. This is not a flaw; it is a condition. Failure that produces
+                understanding is valuable. Failure that produces blame is waste.
+              </p>
+              <p class="mt-3">
+                Organizations that punish failure get concealment. Organizations that study failure
+                get resilience. Every incident is an investment in future stability — if you let it
+                teach you.
+              </p>
+            </div>
+
+            <!-- 3.7 Ownership -->
+            <div>
+              <h3 class="font-medium text-ink">
+                3.7 Ownership — Ownership extends through consequence.
+              </h3>
+              <p class="mt-3">
+                Delivery is not the end of responsibility. It is the beginning of a different
+                responsibility — for reliability, performance, security, cost, and behavior as
+                conditions change.
+              </p>
+              <p class="mt-3">
+                Clean up your own mess. Pay attention after launching. If you did the work, you have
+                the context, and you should put it right if it's wrong. Ownership that ends at
+                delivery is abandonment.
+              </p>
+            </div>
+
+            <!-- 3.8 Continuity -->
+            <div>
+              <h3 class="font-medium text-ink">
+                3.8 Continuity — Systems must survive their creators.
+              </h3>
+              <p class="mt-3">
+                People leave. Knowledge fades. A system that works only because its builders are
+                present is unfinished.
+              </p>
+              <p class="mt-3">
+                Completion means others can understand, operate, and extend it without the original
+                architects. Longevity is not luck. It is designed. The goal is not a startup — it is
+                a stayup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coda (includes The Space Between) -->
+      <section id="coda" class="bg-paper-soft py-24" aria-label="Coda">
+        <div class="mx-auto max-w-5xl px-4">
+          <!-- The Space Between -->
+          <div class="space-y-6 mb-20">
+            <h2 class="text-2xl md:text-3xl font-medium text-ink">The Space Between</h2>
+
+            <p class="text-sm leading-7 text-ink/80">
+              The octaves do not operate alone. They resonate or they interfere.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              When aligned: clear intent enables disciplined construction enables confident
+              operation. Learning flows back to sharpen intent. Each cycle strengthens the signal.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              When misaligned: vague intent forces construction to guess. Sloppy construction
+              creates systems that cannot be operated. Operational chaos blocks learning from
+              reaching those who define and build.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              <strong
+                >Repeated heroics are evidence of upstream failure, not downstream
+                excellence.</strong
+              >
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">The transitions matter most.</p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              From Octave 1 to Octave 2: if definitions are vague, construction builds on sand. No
+              discipline downstream compensates for ambiguity upstream.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              From Octave 2 to Octave 3: if operational needs were not designed for, reality teaches
+              harsh lessons to those unprepared to learn.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              From Octave 3 to Octave 1: if this path is blocked — by walls, by blame, by distance —
+              the cycle breaks. Learning stops.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              <strong
+                >The health of a system is measured by the integrity of signal as it passes between
+                octaves.</strong
+              >
+            </p>
+          </div>
+
+          <!-- Coda proper -->
+          <div class="space-y-6 py-4">
+            <h2 class="text-2xl md:text-3xl font-medium text-ink">Coda</h2>
+
+            <p class="text-sm leading-7 text-ink/80">
+              What changes is who or what does the building.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              Hands gave way to tools. Tools gave way to machines. Machines give way to systems of
+              arbitrary capability. At each transition, voices declared the old principles obsolete.
+              At each transition, the principles remained — because they describe not the builder
+              but the built.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              As systems grow more capable, human discipline becomes more important, not less. Speed
+              without direction is faster divergence. Capability without verification is more
+              confident error. Automation without understanding is scaled confusion.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              <strong>The human role does not diminish. It concentrates.</strong>
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              The human defines intent, guards constraints, verifies alignment, learns from reality.
+              These cannot be delegated without delegating purpose itself.
+            </p>
+
+            <p class="text-sm leading-7 text-ink/80">
+              <strong>Entropy is patient.</strong> The signal begins with you. It passes through
+              systems you shape or choose. It produces consequences you must own.
+            </p>
+
+            <div class="border-t border-line pt-8 mt-8">
+              <p class="text-sm leading-7 text-ink/80 italic">
+                Define clearly. Build truly. Own completely.
+              </p>
+              <p class="text-sm leading-7 text-ink/80 italic mt-2">This is the work.</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

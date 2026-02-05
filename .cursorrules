@@ -1,0 +1,68 @@
+# Cursor Rules for trilpai.github.io
+
+## Project Context
+Static website for Trilp AI - a software consulting studio. Features the "3 Octaves" engineering philosophy and interactive browser games.
+
+## Tech Stack
+- Static HTML (no framework)
+- Tailwind CSS v4 (compiled via CLI)
+- Vanilla JavaScript ES6+ (IIFE pattern)
+- GitHub Pages deployment
+
+## Critical Rules
+
+### CSS
+- ONLY edit `assets/css/tailwind.css` - this is the source file
+- NEVER edit `assets/css/style.css` - it is compiled output
+- Use existing `@theme` tokens for colors (brand-blue, brand-lightblue, etc.)
+- Maintain CSS custom properties in `:root` for layout values
+
+### JavaScript
+- Use IIFE pattern with 'use strict'
+- No external dependencies or frameworks
+- Use IntersectionObserver for visibility detection
+- Throttle scroll handlers with requestAnimationFrame
+- Game state uses localStorage with `trilpai_` prefix
+
+### HTML
+- Semantic HTML5 with ARIA attributes
+- Include skip-to-content links for accessibility
+- Maintain JSON-LD structured data blocks
+- Use data-nav attributes for navigation highlighting
+
+## Code Style
+- 2 spaces indentation
+- Single quotes in JavaScript
+- Trailing commas (ES5 style)
+- LF line endings
+- Format with Prettier
+
+## File Patterns
+- `*.html` - Static pages with inline structured data
+- `assets/css/tailwind.css` - Tailwind source (edit this)
+- `assets/css/style.css` - Compiled CSS (do not edit)
+- `assets/js/*.js` - Vanilla JavaScript modules
+- `docs/*.md` - Documentation and philosophy content
+
+## Brand Colors
+```
+brand-blue: #002b5b
+brand-lightblue: #4f9df7
+brand-red: #d72638
+ink: #0b1220
+paper: #ffffff
+accent: #facc15
+```
+
+## Commands
+```bash
+npm run build   # Compile Tailwind CSS
+npm run watch   # Watch mode for development
+```
+
+## Avoid
+- Adding npm dependencies
+- Using build frameworks (Webpack, Vite, etc.)
+- Editing compiled CSS files
+- Inline styles (use Tailwind classes)
+- Breaking accessibility features
