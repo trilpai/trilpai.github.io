@@ -258,9 +258,7 @@
           <span class="sr-only">Trilp AI</span>
         </a>
 
-        <!-- Menu: Home 1 2 3 About 3octaves -->
         <ul class="flex items-center gap-6 text-sm text-ink/80">
-          <!-- Home is an absolute link and should NOT be highlighted -->
           <li>
             <a
               href="/"
@@ -268,30 +266,12 @@
               >Home</a
             >
           </li>
-
-          <!-- 1 / 2 / 3 are in-page sections and should be highlighted -->
           <li>
             <a
-              href="#focus"
-              data-nav="focus"
+              href="#ripple"
+              data-nav="ripple"
               class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >1</a
-            >
-          </li>
-          <li>
-            <a
-              href="#stack"
-              data-nav="stack"
-              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >2</a
-            >
-          </li>
-          <li>
-            <a
-              href="#signal"
-              data-nav="signal"
-              class="hover:text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
-              >3</a
+              >Ripples</a
             >
           </li>
           <li>
@@ -302,8 +282,6 @@
               >About</a
             >
           </li>
-
-          <!-- 3octaves is an absolute link and should NOT be highlighted -->
           <li>
             <a
               href="/3octaves/"
@@ -400,216 +378,73 @@
         </div>
       </section>
 
-      <!-- Section 1: Focus — pulled up so the game is visible on first screen -->
-      <section id="focus" class="bg-paper-soft pt-6 pb-20 md:pt-8 md:pb-24" aria-label="Focus">
+      <!-- Section 1: Ripple Resonance -->
+      <section id="ripple" class="bg-paper-soft pt-6 pb-20 md:pt-8 md:pb-24" aria-label="Ripple Resonance">
         <div class="mx-auto max-w-6xl px-4">
           <div class="w-full max-w-5xl mx-auto">
-            <div>
-              <h2 class="text-2xl md:text-3xl font-medium text-ink">Focus</h2>
-              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70 mb-4">
-                Keep the dot inside the focus zone.
+            <div class="mb-6">
+              <h2 class="text-2xl md:text-3xl font-medium text-ink">Ripples</h2>
+              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
+                Emit ripples to hit the pulsing target rings. Brighter targets = more points.
                 <span class="block mt-2 text-ink/60">
-                  Tap/click to steer. Keyboard: Space/Enter nudges from center.
+                  Tap/click the center circle to emit. Keyboard: Space/Enter.
                 </span>
               </p>
             </div>
 
-            <!-- Focus Drift Game -->
+            <!-- Ripple Resonance Game -->
             <div
-              id="focus-drift"
+              id="ripple-resonance"
               class="relative mx-auto w-full max-w-xl aspect-square rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
-              aria-label="Focus Drift game"
+              aria-label="Ripple Resonance game"
               role="application"
               tabindex="0"
             >
-              <!-- Focus Zone -->
-              <div
-                id="fd-zone"
-                class="absolute inset-8 rounded-md border border-brand-blue/30"
-              ></div>
+              <!-- Canvas for ripples and targets -->
+              <canvas id="rr-canvas" class="absolute inset-0 w-full h-full"></canvas>
 
-              <!-- Drifting Dot -->
+              <!-- HUD: Score and Timer -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+                <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70">
+                  <span id="rr-time" class="font-medium text-ink tabular-nums">0:30</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70">
+                    <span id="rr-score" class="font-medium text-ink tabular-nums">0</span>
+                  </div>
+                  <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-xs text-ink/50">
+                    Best: <span id="rr-best" class="tabular-nums">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center emit point -->
               <div
-                id="fd-dot"
-                class="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-lightblue shadow-[0_0_0_4px_rgba(79,157,247,0.15)]"
-                style="left: 50%; top: 50%"
-              ></div>
+                id="rr-center"
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-2 border-brand-lightblue/50 bg-brand-lightblue/10 cursor-pointer transition-transform hover:scale-110 active:scale-95"
+                aria-label="Emit ripple"
+              >
+                <div class="absolute inset-2 rounded-full bg-brand-lightblue/30"></div>
+              </div>
 
               <!-- Game Over Overlay -->
               <div
-                id="fd-overlay"
+                id="rr-overlay"
                 class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
                 role="dialog"
                 aria-modal="false"
                 aria-live="polite"
-                aria-label="Focus Drift result"
+                aria-label="Ripple Resonance result"
               >
                 <div>
-                  <p class="text-sm text-ink/70 mb-2">Focus lost</p>
-                  <p id="fd-score" class="text-lg font-medium mb-4"></p>
+                  <p class="text-sm text-ink/70 mb-2">Time's up!</p>
+                  <p id="rr-final" class="text-lg font-medium mb-4"></p>
                   <button
-                    id="fd-restart"
+                    id="rr-restart"
                     class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
                     type="button"
                   >
-                    Try again
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-10">
-              <a
-                href="#stack"
-                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
-                aria-label="Scroll to Stack"
-              >
-                <span class="text-2xl leading-none text-ink/60">↓</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2: Stack -->
-      <section id="stack" class="bg-paper py-20 md:py-28" aria-label="Stack">
-        <div class="mx-auto max-w-6xl px-4">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h2 class="text-2xl md:text-3xl font-medium text-ink">Stack</h2>
-              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
-                Stack the Thought — align each block. Misalignment trims it.
-                <span class="block mt-2 text-ink/60"
-                  >Tap/click to drop. Keyboard: Space/Enter.</span
-                >
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3">
-              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-                Score: <span id="st-score" class="font-medium text-ink tabular-nums">0</span>
-              </div>
-              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-                Best: <span id="st-best" class="font-medium text-ink tabular-nums">0</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <div
-              id="stack-thought"
-              class="relative mx-auto w-full max-w-xl h-[60vh] sm:h-[62vh] md:h-[65vh] rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
-              aria-label="Stack game"
-              role="application"
-              tabindex="0"
-            >
-              <div class="pointer-events-none absolute inset-0 opacity-[0.22] st-grid"></div>
-              <div id="st-stage" class="absolute inset-0"></div>
-
-              <div
-                id="st-overlay"
-                class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
-                role="dialog"
-                aria-modal="false"
-                aria-live="polite"
-                aria-label="Stack result"
-              >
-                <div class="px-6">
-                  <p class="text-sm text-ink/70 mb-2">That one slipped.</p>
-                  <p id="st-final" class="text-lg font-medium mb-4"></p>
-
-                  <button
-                    id="st-restart"
-                    class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
-                    type="button"
-                  >
-                    Try again
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-10">
-              <a
-                href="#signal"
-                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
-                aria-label="Scroll to Signal"
-              >
-                <span class="text-2xl leading-none text-ink/60">↓</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 3: Signal -->
-      <section id="signal" class="bg-paper-soft py-20 md:py-28" aria-label="Signal vs Noise">
-        <div class="mx-auto max-w-6xl px-4">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h2 class="text-2xl md:text-3xl font-medium text-ink">Signal</h2>
-              <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
-                Signal vs Noise — find what matches the rule.
-                <span class="block mt-2 text-ink/60"
-                  >Tap only the Signal. Keyboard: Tab to a cell, then Space/Enter.</span
-                >
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3">
-              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-                Score: <span id="sn-score" class="font-medium text-ink tabular-nums">0</span>
-              </div>
-              <div class="rounded-md border border-line bg-paper px-3 py-1.5 text-sm text-ink/70">
-                Best: <span id="sn-best" class="font-medium text-ink tabular-nums">0</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <div
-              id="signal-noise"
-              class="relative mx-auto w-full max-w-xl h-[58vh] sm:h-[60vh] md:h-[62vh] rounded-xl2 border border-ink/15 bg-paper overflow-hidden select-none touch-manipulation"
-              aria-label="Signal vs Noise game"
-              role="application"
-            >
-              <div class="pointer-events-none absolute inset-0 sn-grid"></div>
-
-              <div
-                class="absolute left-0 right-0 top-0 z-10 px-4 py-3 border-b border-line bg-paper/70 backdrop-blur"
-              >
-                <div class="flex items-center justify-between gap-3">
-                  <p class="text-xs sm:text-sm text-ink/70">
-                    Rule: <span id="sn-rule" class="font-medium text-ink">—</span>
-                  </p>
-                  <p class="text-xs sm:text-sm text-ink/60">
-                    Time: <span id="sn-time" class="tabular-nums">—</span>
-                  </p>
-                </div>
-              </div>
-
-              <div class="absolute inset-0 pt-14 px-4 pb-4">
-                <div id="sn-grid" class="sn-board"></div>
-              </div>
-
-              <div
-                id="sn-overlay"
-                class="absolute inset-0 hidden items-center justify-center bg-paper/80 backdrop-blur text-center"
-                role="dialog"
-                aria-modal="false"
-                aria-live="polite"
-                aria-label="Signal vs Noise result"
-              >
-                <div class="px-6">
-                  <p class="text-sm text-ink/70 mb-2">Round over.</p>
-                  <p id="sn-final" class="text-lg font-medium mb-4"></p>
-
-                  <button
-                    id="sn-restart"
-                    class="rounded-md border border-line px-4 py-2 text-sm hover:border-ink/30 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4"
-                    type="button"
-                  >
-                    Try again
+                    Play again
                   </button>
                 </div>
               </div>

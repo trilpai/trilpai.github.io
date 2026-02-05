@@ -1,4 +1,4 @@
-// Trilp AI — Games bundle (performance + accessibility tuned)
+// Trilp AI — Ripple Resonance Game
 (() => {
   'use strict';
 
@@ -24,21 +24,6 @@
       },
     };
 
-    const debouncedSave = (() => {
-      const timeouts = new Map();
-      return (key, value, delay = 300) => {
-        const t = timeouts.get(key);
-        if (t) clearTimeout(t);
-        const id = setTimeout(() => storage.setString(key, value), delay);
-        timeouts.set(key, id);
-      };
-    })();
-
-    function updateText(els, v) {
-      const s = String(v);
-      for (const el of els) if (el) el.textContent = s;
-    }
-
     function createVisibilityObserver(el, onVisible, onHidden) {
       let visible = true;
       const obs = new IntersectionObserver(
@@ -57,187 +42,454 @@
       return () => obs.disconnect();
     }
 
-    return { storage, debouncedSave, updateText, createVisibilityObserver };
+    return { storage, createVisibilityObserver };
   })();
 
   // ========================================================================
-  // Focus Drift
+  // Ripple Resonance
   // ========================================================================
   (() => {
-    const container = document.getElementById('focus-drift');
+    const container = document.getElementById('ripple-resonance');
     if (!container) return;
 
-    const dot = document.getElementById('fd-dot');
-    const overlay = document.getElementById('fd-overlay');
-    const scoreEl = document.getElementById('fd-score');
-    const restartBtn = document.getElementById('fd-restart');
-    const zoneEl = document.getElementById('fd-zone');
+    const canvas = document.getElementById('rr-canvas');
+    const ctx = canvas?.getContext('2d');
+    const centerEl = document.getElementById('rr-center');
+    const overlay = document.getElementById('rr-overlay');
+    const finalEl = document.getElementById('rr-final');
+    const restartBtn = document.getElementById('rr-restart');
+    const scoreEl = document.getElementById('rr-score');
+    const bestEl = document.getElementById('rr-best');
+    const timeEl = document.getElementById('rr-time');
 
+    if (!canvas || !ctx) return;
+
+    const STORAGE_KEY = 'trilpai_ripple_best';
     const CONFIG = {
-      DOT_R: 8,
-      INITIAL_ZONE_INSET: 32,
-      MIN_ZONE_INSET: 12,
-      ZONE_SHRINK_RATE: 0.6,
-      INITIAL_SPEED: 0.4,
-      SPEED_GROWTH: 0.03,
-      RANDOM_PUSH: 0.02,
-      NUDGE_STRENGTH: 0.01,
+      GAME_DURATION: 30000, // 30 seconds
+      RIPPLE_SPEED: 3,
+      RIPPLE_FADE: 0.008,
+      TARGET_PULSE_SPEED: 0.015, // Slower pulse for easier timing
+      TARGET_WINDOW: 0.5, // Much wider timing window (top 50% of pulse)
+      COLLISION_TOLERANCE: 25, // Wider collision detection
+      TARGET_SPAWN_INTERVAL: 2500,
+      MIN_TARGET_RADIUS: 0.2,
+      MAX_TARGET_RADIUS: 0.42,
     };
 
-    let cx = 0,
-      cy = 0,
-      vx = 0,
-      vy = 0;
-    let zoneInset = CONFIG.INITIAL_ZONE_INSET;
-    let startTime = 0;
-    let rafId = 0;
+    // Colors
+    const COLORS = {
+      ripple: 'rgba(79, 157, 247, 0.6)',
+      rippleFade: 'rgba(79, 157, 247, 0)',
+      target: 'rgba(79, 157, 247, 0.3)',
+      targetActive: 'rgba(79, 157, 247, 0.8)',
+      hit: 'rgba(79, 157, 247, 0.9)',
+      miss: 'rgba(215, 38, 56, 0.6)',
+      guide: 'rgba(11, 18, 32, 0.06)',
+    };
+
+    let score = 0;
+    let best = GameUtils.storage.getNumber(STORAGE_KEY, 0);
     let running = false;
     let isVisible = true;
+    let rafId = 0;
 
-    // Cache size (avoid layout reads in rAF)
-    const size = { w: 0, h: 0 };
-    const refreshSize = () => {
-      const r = container.getBoundingClientRect();
-      size.w = r.width;
-      size.h = r.height;
-    };
-    window.addEventListener('resize', refreshSize, { passive: true });
+    let ripples = [];
+    let targets = [];
+    let hitEffects = [];
+    let particles = [];
+    let scorePopups = [];
+    let targetsHit = 0;
+    let lastSpawnTime = 0;
+    let gameStartTime = 0;
+
+    let canvasSize = { w: 0, h: 0 };
+    let center = { x: 0, y: 0 };
+
+    function resizeCanvas() {
+      const rect = container.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvasSize.w = rect.width;
+      canvasSize.h = rect.height;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx.scale(dpr, dpr);
+      center.x = canvasSize.w / 2;
+      center.y = canvasSize.h / 2;
+    }
+
+    function updateScore(val) {
+      score = val;
+      if (scoreEl) scoreEl.textContent = String(score);
+    }
+
+    function updateBest(val) {
+      best = val;
+      if (bestEl) bestEl.textContent = String(best);
+      GameUtils.storage.setString(STORAGE_KEY, best);
+    }
 
     function showOverlay(msg) {
-      if (scoreEl) scoreEl.textContent = msg;
+      if (finalEl) finalEl.textContent = msg;
       overlay?.classList.remove('hidden');
       overlay?.classList.add('flex');
-      overlay?.setAttribute('aria-live', 'assertive');
     }
 
     function hideOverlay() {
       overlay?.classList.add('hidden');
       overlay?.classList.remove('flex');
-      overlay?.setAttribute('aria-live', 'polite');
     }
 
-    function updateZoneEl() {
-      if (!zoneEl) return;
-      zoneEl.style.inset = zoneInset + 'px';
-    }
-
-    function reset() {
-      cancelAnimationFrame(rafId);
-      refreshSize();
-
-      cx = size.w / 2;
-      cy = size.h / 2;
-
-      vx = (Math.random() - 0.5) * CONFIG.INITIAL_SPEED;
-      vy = (Math.random() - 0.5) * CONFIG.INITIAL_SPEED;
-
-      zoneInset = CONFIG.INITIAL_ZONE_INSET;
-      startTime = performance.now();
-      running = true;
-
-      hideOverlay();
-      updateZoneEl();
-
-      if (isVisible) loop();
-    }
-
-    function gameOver() {
-      running = false;
-      cancelAnimationFrame(rafId);
-      const seconds = ((performance.now() - startTime) / 1000).toFixed(1);
-      showOverlay(`You lasted ${seconds}s`);
-    }
-
-    function nudgeFromClientXY(clientX, clientY) {
+    function emitRipple() {
       if (!running) return;
-      const rect = container.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const y = clientY - rect.top;
+      ripples.push({
+        radius: 24,
+        opacity: 1,
+        maxRadius: Math.max(canvasSize.w, canvasSize.h),
+      });
 
-      const dx = cx - x;
-      const dy = cy - y;
-
-      vx += dx * CONFIG.NUDGE_STRENGTH;
-      vy += dy * CONFIG.NUDGE_STRENGTH;
+      // Pulse animation on center
+      centerEl?.classList.add('scale-90');
+      setTimeout(() => centerEl?.classList.remove('scale-90'), 100);
     }
 
-    function nudgeFromCenter() {
-      const rect = container.getBoundingClientRect();
-      nudgeFromClientXY(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    }
-
-    function loop() {
-      if (!running || !isVisible) return;
-
-      cx += vx;
-      cy += vy;
-
-      // gentle randomness
-      vx += (Math.random() - 0.5) * CONFIG.RANDOM_PUSH;
-      vy += (Math.random() - 0.5) * CONFIG.RANDOM_PUSH;
-
-      if (dot) {
-        dot.style.left = cx + 'px';
-        dot.style.top = cy + 'px';
+    function createHitCelebration(targetRadius, points) {
+      // Create particles bursting outward from the hit location
+      const numParticles = 12 + Math.floor(points / 2);
+      for (let i = 0; i < numParticles; i++) {
+        const angle = (Math.PI * 2 * i) / numParticles + Math.random() * 0.3;
+        const speed = 2 + Math.random() * 3;
+        const distance = targetRadius;
+        particles.push({
+          x: center.x + Math.cos(angle) * distance,
+          y: center.y + Math.sin(angle) * distance,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          size: 3 + Math.random() * 4,
+          color: points > 10 ? 'gold' : 'lightblue',
+        });
       }
 
-      // Difficulty ramp
-      const elapsed = (performance.now() - startTime) / 1000;
-      const speed = CONFIG.INITIAL_SPEED + elapsed * CONFIG.SPEED_GROWTH;
+      // Create score popup
+      const popupAngle = Math.random() * Math.PI * 2;
+      scorePopups.push({
+        x: center.x + Math.cos(popupAngle) * targetRadius,
+        y: center.y + Math.sin(popupAngle) * targetRadius,
+        text: `+${points}`,
+        life: 1,
+        vy: -1.5,
+      });
 
-      const mag = Math.hypot(vx, vy) || 1;
-      vx = (vx / mag) * Math.min(speed, 2.6);
-      vy = (vy / mag) * Math.min(speed, 2.6);
+      // Pulse the score display
+      scoreEl?.classList.add('score-pop');
+      setTimeout(() => scoreEl?.classList.remove('score-pop'), 200);
+    }
 
-      zoneInset = Math.max(
-        CONFIG.MIN_ZONE_INSET,
-        CONFIG.INITIAL_ZONE_INSET - elapsed * CONFIG.ZONE_SHRINK_RATE
-      );
-      updateZoneEl();
+    function spawnTarget() {
+      const minR = Math.min(canvasSize.w, canvasSize.h) * CONFIG.MIN_TARGET_RADIUS;
+      const maxR = Math.min(canvasSize.w, canvasSize.h) * CONFIG.MAX_TARGET_RADIUS;
+      const radius = minR + Math.random() * (maxR - minR);
 
-      // Containment check using cached size
-      const min = zoneInset + CONFIG.DOT_R;
-      const maxX = size.w - zoneInset - CONFIG.DOT_R;
-      const maxY = size.h - zoneInset - CONFIG.DOT_R;
+      targets.push({
+        radius,
+        pulse: 0,
+        pulseDir: 1,
+        hit: false,
+        missed: false,
+        fadeOut: 1,
+      });
+    }
 
-      if (cx < min || cx > maxX || cy < min || cy > maxY) {
-        gameOver();
+    function updateTimer(timestamp) {
+      const elapsed = timestamp - gameStartTime;
+      const remaining = Math.max(0, CONFIG.GAME_DURATION - elapsed);
+      const seconds = Math.ceil(remaining / 1000);
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      if (timeEl) {
+        timeEl.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+      }
+      return remaining;
+    }
+
+    function checkCollisions() {
+      for (const target of targets) {
+        if (target.hit || target.missed) continue;
+
+        for (const ripple of ripples) {
+          // Check if ripple is crossing the target radius (wider tolerance)
+          const distance = Math.abs(ripple.radius - target.radius);
+          const rippleCrossing = distance < CONFIG.COLLISION_TOLERANCE && ripple.opacity > 0.2;
+
+          if (rippleCrossing) {
+            // Any hit while target is visible counts!
+            // Bonus points if pulse is high (better timing)
+            const timingBonus = Math.floor(target.pulse * 10);
+            const points = 5 + timingBonus;
+            target.hit = true;
+            targetsHit++;
+            updateScore(score + points);
+
+            hitEffects.push({
+              radius: target.radius,
+              opacity: 1,
+              type: 'hit',
+            });
+
+            // Celebration!
+            createHitCelebration(target.radius, points);
+            break;
+          }
+        }
+
+        // Target expired without being hit (pulse completes full cycle)
+        if (!target.hit && target.pulse >= 1 && target.pulseDir === 1) {
+          target.pulseDir = -1;
+        }
+        if (!target.hit && !target.missed && target.pulse <= 0 && target.pulseDir === -1) {
+          target.missed = true;
+          // No penalty for missing - just no points
+          hitEffects.push({
+            radius: target.radius,
+            opacity: 0.5,
+            type: 'miss',
+          });
+        }
+      }
+    }
+
+    function update(timestamp) {
+      // Update timer and check if game is over
+      const remaining = updateTimer(timestamp);
+      if (remaining <= 0) {
+        endRound();
         return;
       }
+
+      // Spawn targets continuously
+      if (timestamp - lastSpawnTime > CONFIG.TARGET_SPAWN_INTERVAL) {
+        spawnTarget();
+        lastSpawnTime = timestamp;
+      }
+
+      // Update ripples
+      for (const ripple of ripples) {
+        ripple.radius += CONFIG.RIPPLE_SPEED;
+        ripple.opacity -= CONFIG.RIPPLE_FADE;
+      }
+      ripples = ripples.filter(r => r.opacity > 0);
+
+      // Update targets
+      for (const target of targets) {
+        if (!target.hit && !target.missed) {
+          target.pulse += CONFIG.TARGET_PULSE_SPEED * target.pulseDir;
+          target.pulse = Math.max(0, Math.min(1, target.pulse));
+        } else {
+          target.fadeOut -= 0.03;
+        }
+      }
+      targets = targets.filter(t => t.fadeOut > 0);
+
+      // Update hit effects
+      for (const effect of hitEffects) {
+        effect.opacity -= 0.04;
+      }
+      hitEffects = hitEffects.filter(e => e.opacity > 0);
+
+      // Update particles
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.1; // gravity
+        p.life -= 0.025;
+      }
+      particles = particles.filter(p => p.life > 0);
+
+      // Update score popups
+      for (const popup of scorePopups) {
+        popup.y += popup.vy;
+        popup.life -= 0.02;
+      }
+      scorePopups = scorePopups.filter(p => p.life > 0);
+
+      // Check collisions
+      checkCollisions();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvasSize.w, canvasSize.h);
+
+      // Draw guide circles
+      const guideRadii = [0.25, 0.35, 0.45];
+      ctx.strokeStyle = COLORS.guide;
+      ctx.lineWidth = 1;
+      for (const frac of guideRadii) {
+        const r = Math.min(canvasSize.w, canvasSize.h) * frac;
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Draw targets
+      for (const target of targets) {
+        const alpha = target.fadeOut;
+        // Pulse width grows as target becomes more "ready"
+        const pulseWidth = 2 + target.pulse * 8;
+
+        // Color intensity based on pulse (brighter = better time to hit)
+        let r = 79, g = 157, b = 247; // brand-lightblue
+        let intensity = 0.3 + target.pulse * 0.6;
+
+        if (target.hit) {
+          intensity = 0.9;
+        } else if (target.missed) {
+          r = 215; g = 38; b = 56; // brand-red
+          intensity = 0.5;
+        }
+
+        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${intensity * alpha})`;
+        ctx.lineWidth = pulseWidth;
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, target.radius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Draw ripples
+      for (const ripple of ripples) {
+        const gradient = ctx.createRadialGradient(
+          center.x,
+          center.y,
+          ripple.radius - 8,
+          center.x,
+          center.y,
+          ripple.radius + 8
+        );
+        gradient.addColorStop(0, COLORS.rippleFade);
+        gradient.addColorStop(0.5, COLORS.ripple.replace(/[\d.]+\)$/, `${ripple.opacity})`));
+        gradient.addColorStop(1, COLORS.rippleFade);
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, ripple.radius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Draw hit effects
+      for (const effect of hitEffects) {
+        ctx.strokeStyle =
+          effect.type === 'hit'
+            ? COLORS.hit.replace(/[\d.]+\)$/, `${effect.opacity})`)
+            : COLORS.miss.replace(/[\d.]+\)$/, `${effect.opacity})`);
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, effect.radius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Draw particles
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        if (p.color === 'gold') {
+          ctx.fillStyle = `rgba(250, 204, 21, ${p.life})`;
+        } else {
+          ctx.fillStyle = `rgba(79, 157, 247, ${p.life})`;
+        }
+        ctx.fill();
+      }
+
+      // Draw score popups
+      ctx.font = 'bold 18px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      for (const popup of scorePopups) {
+        ctx.fillStyle = `rgba(79, 157, 247, ${popup.life})`;
+        ctx.fillText(popup.text, popup.x, popup.y);
+      }
+    }
+
+    function loop(timestamp) {
+      if (!running || !isVisible) return;
+
+      update(timestamp);
+      draw();
 
       rafId = requestAnimationFrame(loop);
     }
 
-    container.addEventListener(
-      'pointerdown',
-      e => {
-        if (!running) return;
-        e.preventDefault?.();
-        nudgeFromClientXY(e.clientX, e.clientY);
-      },
-      { passive: false }
-    );
+    function endRound() {
+      running = false;
+      cancelAnimationFrame(rafId);
+
+      showOverlay(`Time's up! Score: ${score}`);
+
+      if (score > best) {
+        updateBest(score);
+      }
+    }
+
+    function start() {
+      resizeCanvas();
+      hideOverlay();
+
+      ripples = [];
+      targets = [];
+      hitEffects = [];
+      particles = [];
+      scorePopups = [];
+      targetsHit = 0;
+
+      const now = performance.now();
+      gameStartTime = now;
+      lastSpawnTime = now;
+
+      updateScore(0);
+      updateBest(best);
+      if (timeEl) timeEl.textContent = '0:30';
+
+      running = true;
+      rafId = requestAnimationFrame(loop);
+
+      // Spawn first target immediately
+      spawnTarget();
+    }
+
+    // Event handlers
+    centerEl?.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      emitRipple();
+    });
 
     container.addEventListener('keydown', e => {
-      if (!running) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
-        nudgeFromCenter();
+        if (running) {
+          emitRipple();
+        }
       }
     });
 
     restartBtn?.addEventListener('pointerup', e => {
-      e.preventDefault?.();
-      e.stopPropagation?.();
-      reset();
+      e.preventDefault();
+      e.stopPropagation();
+      start();
+    });
+
+    window.addEventListener('resize', () => {
+      if (running) {
+        resizeCanvas();
+      }
     });
 
     GameUtils.createVisibilityObserver(
       container,
       () => {
         isVisible = true;
-        refreshSize();
-        if (running) loop();
+        resizeCanvas();
+        if (running) rafId = requestAnimationFrame(loop);
       },
       () => {
         isVisible = false;
@@ -245,554 +497,8 @@
       }
     );
 
-    reset();
-  })();
-
-  // ========================================================================
-  // Stack the Thought
-  // ========================================================================
-  (() => {
-    const root = document.getElementById('stack-thought');
-    if (!root) return;
-
-    const stage = document.getElementById('st-stage');
-    const overlay = document.getElementById('st-overlay');
-    const finalEl = document.getElementById('st-final');
-    const restartBtn = document.getElementById('st-restart');
-
-    const scoreEls = [document.getElementById('st-score')].filter(Boolean);
-    const bestEls = [document.getElementById('st-best')].filter(Boolean);
-
-    const STORAGE_KEY = 'trilpai_stack_best';
-    const CONFIG = {
-      PAD: 14,
-      BLOCK_H: 16,
-      GAP: 6,
-      START_WIDTH_FRAC: 0.7,
-      SPEED_BASE: 1.25,
-      SPEED_INC: 0.08,
-      TOLERANCE: 3,
-    };
-
-    let moving = document.getElementById('st-block');
-    if (!moving) {
-      moving = document.createElement('div');
-      moving.id = 'st-block';
-      moving.className =
-        'absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]';
-      stage?.appendChild(moving);
-    }
-
-    let rafId = 0;
-    let running = false;
-    let isVisible = true;
-
-    let dir = 1;
-    let speed = CONFIG.SPEED_BASE;
-    let level = 0;
-
-    let best = GameUtils.storage.getNumber(STORAGE_KEY, 0);
-
-    let cachedW = 0;
-    let cachedH = 0;
-
-    const current = { width: 0, x: 0, y: 0 };
-    let last = null;
-    const stack = [];
-
-    function refreshSize() {
-      const r = root.getBoundingClientRect();
-      cachedW = r.width;
-      cachedH = r.height;
-    }
-
-    window.addEventListener('resize', refreshSize, { passive: true });
-
-    function showOverlay(msg) {
-      if (finalEl) finalEl.textContent = msg;
-      overlay?.classList.remove('hidden');
-      overlay?.classList.add('flex');
-      overlay?.setAttribute('aria-live', 'assertive');
-    }
-
-    function hideOverlay() {
-      overlay?.classList.add('hidden');
-      overlay?.classList.remove('flex');
-      overlay?.setAttribute('aria-live', 'polite');
-    }
-
-    function clearStack() {
-      for (const item of stack) item.el.remove();
-      stack.length = 0;
-      last = null;
-    }
-
-    function px(n) {
-      return `${Math.round(n)}px`;
-    }
-
-    function layoutMoving() {
-      if (!moving) return;
-      moving.style.width = px(current.width);
-      moving.style.left = px(current.x);
-      moving.style.top = px(current.y);
-      moving.style.transform = 'none';
-      moving.style.willChange = 'left, top, width';
-    }
-
-    function newMovingBlock() {
-      const usable = cachedW - CONFIG.PAD * 2;
-      const w = last ? last.width : usable * CONFIG.START_WIDTH_FRAC;
-
-      const startFromLeft = level % 2 === 0;
-      const x = startFromLeft ? CONFIG.PAD : CONFIG.PAD + usable - w;
-
-      const y = cachedH - 18 - level * (CONFIG.BLOCK_H + CONFIG.GAP) - CONFIG.BLOCK_H;
-
-      current.width = w;
-      current.x = x;
-      current.y = y;
-
-      dir = startFromLeft ? 1 : -1;
-      speed = CONFIG.SPEED_BASE + level * CONFIG.SPEED_INC;
-
-      layoutMoving();
-    }
-
-    function makeStackBlock(x, y, width) {
-      const el = document.createElement('div');
-      el.className = 'absolute h-4 rounded-sm bg-brand-blue/70 shadow-[0_1px_0_rgba(0,43,91,0.22)]';
-      el.style.left = px(x);
-      el.style.top = px(y);
-      el.style.width = px(width);
-      stage?.appendChild(el);
-      return el;
-    }
-
-    function gameOver() {
-      running = false;
-      cancelAnimationFrame(rafId);
-
-      const score = level;
-      showOverlay(`Score: ${score}`);
-
-      if (score > best) {
-        best = score;
-        GameUtils.debouncedSave(STORAGE_KEY, best, 0);
-        GameUtils.updateText(bestEls, best);
-      }
-    }
-
-    function setScore(v) {
-      GameUtils.updateText(scoreEls, v);
-    }
-
-    function drop() {
-      if (!running) return;
-
-      if (!last) {
-        const el = makeStackBlock(current.x, current.y, current.width);
-        stack.push({ el, x: current.x, y: current.y, width: current.width });
-        last = { x: current.x, y: current.y, width: current.width };
-        level += 1;
-        setScore(level);
-        newMovingBlock();
-        return;
-      }
-
-      const overlapLeft = Math.max(current.x, last.x);
-      const overlapRight = Math.min(current.x + current.width, last.x + last.width);
-      const overlap = overlapRight - overlapLeft;
-
-      if (overlap <= CONFIG.TOLERANCE) {
-        gameOver();
-        return;
-      }
-
-      const trimmedWidth = overlap;
-      const trimmedX = overlapLeft;
-
-      const el = makeStackBlock(trimmedX, current.y, trimmedWidth);
-      stack.push({ el, x: trimmedX, y: current.y, width: trimmedWidth });
-      last = { x: trimmedX, y: current.y, width: trimmedWidth };
-
-      level += 1;
-      setScore(level);
-
-      if (current.y <= 20) {
-        clearStack();
-        last = null;
-        newMovingBlock();
-        return;
-      }
-
-      newMovingBlock();
-    }
-
-    function loop() {
-      if (!running || !isVisible) return;
-
-      const minX = CONFIG.PAD;
-      const maxX = cachedW - CONFIG.PAD - current.width;
-
-      current.x += dir * speed;
-
-      if (current.x <= minX) {
-        current.x = minX;
-        dir = 1;
-      } else if (current.x >= maxX) {
-        current.x = maxX;
-        dir = -1;
-      }
-
-      if (moving) {
-        moving.style.left = px(current.x);
-        moving.style.top = px(current.y);
-      }
-
-      rafId = requestAnimationFrame(loop);
-    }
-
-    function start() {
-      refreshSize();
-      clearStack();
-      level = 0;
-
-      setScore(0);
-      GameUtils.updateText(bestEls, best);
-
-      hideOverlay();
-      newMovingBlock();
-
-      running = true;
-      if (isVisible) rafId = requestAnimationFrame(loop);
-    }
-
-    root.addEventListener(
-      'pointerdown',
-      e => {
-        if (!running) return;
-        e.preventDefault?.();
-        drop();
-      },
-      { passive: false }
-    );
-
-    root.addEventListener('keydown', e => {
-      if (!running) return;
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        drop();
-      }
-    });
-
-    restartBtn?.addEventListener('pointerup', e => {
-      e.preventDefault?.();
-      e.stopPropagation?.();
-      start();
-    });
-
-    GameUtils.createVisibilityObserver(
-      root,
-      () => {
-        isVisible = true;
-        refreshSize();
-        if (running) loop();
-      },
-      () => {
-        isVisible = false;
-        cancelAnimationFrame(rafId);
-      }
-    );
-
+    // Initialize
+    updateBest(best);
     start();
-  })();
-
-  // ========================================================================
-  // Signal vs Noise
-  // ========================================================================
-  (() => {
-    const root = document.getElementById('signal-noise');
-    if (!root) return;
-
-    const gridEl = document.getElementById('sn-grid');
-    const ruleEl = document.getElementById('sn-rule');
-    const timeEl = document.getElementById('sn-time');
-
-    const overlay = document.getElementById('sn-overlay');
-    const finalEl = document.getElementById('sn-final');
-    const restartBtn = document.getElementById('sn-restart');
-
-    const scoreEl = document.getElementById('sn-score');
-    const bestEl = document.getElementById('sn-best');
-
-    if (!gridEl || !ruleEl || !timeEl || !overlay || !finalEl || !restartBtn || !scoreEl || !bestEl)
-      return;
-
-    const STORAGE_KEY = 'trilpai_signal_best';
-    let best = GameUtils.storage.getNumber(STORAGE_KEY, 0);
-
-    const CONFIG = {
-      BASE_TIME: 15000,
-      MIN_TIME: 6500,
-      REVEAL_MS: 1200,
-    };
-
-    let score = 0;
-    let running = false;
-    let isVisible = true;
-
-    let rule = null;
-    let remainingSignals = 0;
-
-    let rafId = 0;
-    let roundStart = 0;
-    let roundMs = CONFIG.BASE_TIME;
-
-    // pause bookkeeping
-    let pausedAt = 0;
-
-    const WORDS_REAL = [
-      'clarity',
-      'signal',
-      'focus',
-      'proof',
-      'stack',
-      'model',
-      'craft',
-      'method',
-      'logic',
-      'truth',
-      'reason',
-      'design',
-    ];
-    const WORDS_BUZZ = [
-      'synergy',
-      'disrupt',
-      'hyper',
-      'growth',
-      'vibes',
-      'viral',
-      'scale',
-      'hustle',
-      'guru',
-      'magic',
-      'crypto',
-      'ai-ai',
-    ];
-
-    const setScore = v => {
-      score = v;
-      scoreEl.textContent = String(v);
-    };
-
-    const setBest = v => {
-      best = v;
-      bestEl.textContent = String(v);
-    };
-
-    const showOverlay = msg => {
-      finalEl.textContent = msg;
-      overlay.classList.remove('hidden');
-      overlay.classList.add('flex');
-      overlay.setAttribute('aria-live', 'assertive');
-    };
-
-    const hideOverlay = () => {
-      overlay.classList.add('hidden');
-      overlay.classList.remove('flex');
-      overlay.setAttribute('aria-live', 'polite');
-    };
-
-    const randInt = (a, b) => Math.floor(a + Math.random() * (b - a + 1));
-
-    const pickRule = () => {
-      const r = randInt(1, 4);
-      if (r === 1) return { id: 'prime', label: 'Tap PRIME numbers', kind: 'number' };
-      if (r === 2) return { id: 'even', label: 'Tap EVEN numbers', kind: 'number' };
-      if (r === 3) return { id: 'vowel', label: 'Tap words WITH a vowel', kind: 'word' };
-      return { id: 'real', label: 'Tap REAL words (not buzz)', kind: 'word' };
-    };
-
-    const isPrime = n => {
-      if (n < 2) return false;
-      if (n % 2 === 0) return n === 2;
-      for (let i = 3; i * i <= n; i += 2) if (n % i === 0) return false;
-      return true;
-    };
-
-    const forceSignals = (cells, minSignals = 5) => {
-      const indices = [];
-      for (let i = 0; i < cells.length; i++) if (!cells[i].isSignal) indices.push(i);
-      while (cells.filter(c => c.isSignal).length < minSignals && indices.length) {
-        const j = indices.splice(randInt(0, indices.length - 1), 1)[0];
-        cells[j].isSignal = true;
-      }
-    };
-
-    const makeCells = () => {
-      const w = root.getBoundingClientRect().width;
-      const cols = w >= 640 ? 7 : 6;
-      const rows = 6;
-      const total = cols * rows;
-
-      gridEl.innerHTML = '';
-
-      const cells = [];
-
-      if (rule.kind === 'number') {
-        for (let i = 0; i < total; i++) {
-          const n = randInt(10, 99);
-          cells.push({ text: String(n), isSignal: rule.id === 'prime' ? isPrime(n) : n % 2 === 0 });
-        }
-      } else {
-        for (let i = 0; i < total; i++) {
-          if (rule.id === 'real') {
-            const useReal = Math.random() < 0.32;
-            const word = useReal
-              ? WORDS_REAL[randInt(0, WORDS_REAL.length - 1)]
-              : WORDS_BUZZ[randInt(0, WORDS_BUZZ.length - 1)];
-            cells.push({ text: word, isSignal: useReal });
-          } else {
-            const useVowel = Math.random() < 0.55;
-            const word = useVowel
-              ? WORDS_REAL[randInt(0, WORDS_REAL.length - 1)]
-              : ['rhythm', 'myth', 'crypt', 'brrr', 'tsktsk', 'nth'][randInt(0, 5)];
-            const hasVowel = /[aeiou]/i.test(word);
-            cells.push({ text: word, isSignal: hasVowel });
-          }
-        }
-      }
-
-      if (cells.filter(c => c.isSignal).length < 5) forceSignals(cells, 5);
-      remainingSignals = cells.filter(c => c.isSignal).length;
-
-      for (let idx = 0; idx < cells.length; idx++) {
-        const c = cells[idx];
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'sn-cell';
-        btn.textContent = c.text;
-        btn.dataset.signal = c.isSignal ? '1' : '0';
-        btn.dataset.used = '0';
-        gridEl.appendChild(btn);
-      }
-    };
-
-    const endRound = () => {
-      running = false;
-      cancelAnimationFrame(rafId);
-      showOverlay(`Score: ${score}`);
-
-      if (score > best) {
-        setBest(score);
-        GameUtils.debouncedSave(STORAGE_KEY, best, 0);
-      }
-    };
-
-    const tick = ts => {
-      if (!running || !isVisible) return;
-
-      const elapsed = ts - roundStart;
-      const msLeft = Math.max(0, roundMs - elapsed);
-      timeEl.textContent = (msLeft / 1000).toFixed(1);
-
-      if (msLeft <= 0) {
-        endRound();
-        return;
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-
-    const startRound = () => {
-      hideOverlay();
-      running = true;
-
-      rule = pickRule();
-      ruleEl.textContent = rule.label;
-
-      makeCells();
-
-      const difficulty = Math.min(1.6, 1 + score * 0.03);
-      roundMs = Math.max(CONFIG.MIN_TIME, CONFIG.BASE_TIME / difficulty);
-
-      roundStart = performance.now();
-      rafId = requestAnimationFrame(tick);
-
-      root.classList.add('sn-reveal');
-      setTimeout(() => root.classList.remove('sn-reveal'), CONFIG.REVEAL_MS);
-    };
-
-    const restart = () => {
-      setScore(0);
-      setBest(best);
-      startRound();
-    };
-
-    const handleCell = btn => {
-      if (!running) return;
-      if (btn.dataset.used === '1') return;
-      btn.dataset.used = '1';
-
-      const isSignal = btn.dataset.signal === '1';
-      if (isSignal) {
-        btn.classList.add('is-hit');
-        setScore(score + 1);
-        remainingSignals -= 1;
-        if (remainingSignals <= 0) startRound();
-      } else {
-        btn.classList.add('is-miss');
-        setScore(Math.max(0, score - 1));
-      }
-    };
-
-    // pointer/click
-    gridEl.addEventListener(
-      'pointerdown',
-      e => {
-        const btn = e.target?.closest?.('.sn-cell');
-        if (!btn) return;
-        handleCell(btn);
-      },
-      { passive: true }
-    );
-
-    // Keyboard: Space/Enter triggers the focused button
-    gridEl.addEventListener('keydown', e => {
-      const btn = e.target?.closest?.('.sn-cell');
-      if (!btn) return;
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        handleCell(btn);
-      }
-    });
-
-    restartBtn.addEventListener('pointerup', e => {
-      e.preventDefault?.();
-      e.stopPropagation?.();
-      restart();
-    });
-
-    // Pause when off-screen (preserve timing)
-    GameUtils.createVisibilityObserver(
-      root,
-      () => {
-        isVisible = true;
-        if (running && pausedAt) {
-          const now = performance.now();
-          roundStart += now - pausedAt;
-          pausedAt = 0;
-        }
-        if (running) rafId = requestAnimationFrame(tick);
-      },
-      () => {
-        isVisible = false;
-        if (running) pausedAt = performance.now();
-        cancelAnimationFrame(rafId);
-      }
-    );
-
-    setBest(best);
-    restart();
   })();
 })();
