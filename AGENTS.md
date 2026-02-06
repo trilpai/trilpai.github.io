@@ -5,6 +5,7 @@
 **Project:** Trilp AI website (static HTML + Tailwind CSS + vanilla JS)
 **URL:** https://www.trilp.in
 **Deployment:** GitHub Pages (auto-deploy on push to `main`)
+**Status:** Preserved record of consulting work (concluded late 2025)
 
 ---
 
@@ -18,9 +19,9 @@
                            │
         ┌──────────────────┼──────────────────┐
         │                  │                  │
-   index.html        3octaves/           404.html
-   (Main page)       index.html          (Error page)
-        │
+   index.html        3octaves/           ripples/
+   (Main + Game)     index.html          index.html
+        │            (Philosophy)        (AI Playbook)
    ┌────┴────┐
    │ assets/ │
    ├─────────┤
@@ -33,16 +34,28 @@
 
 ---
 
+## Site Pages
+
+| Page | URL | Purpose |
+|------|-----|---------|
+| Home | `/` | Landing with 3 Octaves intro, Ripples game, About section |
+| 3 Octaves | `/3octaves/` | Full 3 Octaves maturity model philosophy |
+| RIPPLES | `/ripples/` | AI transition playbook for engineering leadership |
+| 404 | `/404.html` | Custom error page |
+
+---
+
 ## File Responsibilities
 
 | File | Purpose | Editable |
 |------|---------|----------|
-| `index.html` | Landing page with 3 interactive games | Yes |
+| `index.html` | Landing page with Ripple Resonance game | Yes |
 | `3octaves/index.html` | 3 Octaves maturity model content | Yes |
+| `ripples/index.html` | RIPPLES AI transition playbook | Yes |
 | `assets/css/tailwind.css` | Tailwind source with @theme tokens | **Yes - Primary CSS source** |
 | `assets/css/style.css` | Compiled CSS output | **No - Never edit** |
 | `assets/js/site.js` | Nav highlighting, progress bar, reveals | Yes |
-| `assets/js/trilpai.js` | Three interactive games | Yes |
+| `assets/js/trilpai.js` | Ripple Resonance game | Yes |
 | `docs/*.md` | Philosophy documentation | Yes (content only) |
 
 ---
@@ -127,7 +140,7 @@
 ## Testing Priorities
 
 1. **Visual:** Pages render correctly across browsers
-2. **Interactive:** Games respond to mouse, touch, and keyboard
+2. **Interactive:** Game responds to mouse, touch, and keyboard
 3. **Accessible:** Screen reader compatible, focus visible
 4. **Performance:** Animations smooth, no layout thrashing
 5. **SEO:** OG images and structured data valid
@@ -137,10 +150,15 @@
 ## Documentation Reference
 
 - **3 Octaves Philosophy:** `docs/3_octaves.md`
-- **RIPPLES AI Guide:** `docs/ripples.md`
+- **RIPPLES Playbook:** `docs/ripples.md`
 - **37signals Principles:** `docs/37signals-principles.md`
 
-These documents inform the site's design philosophy and content. The 3 Octaves model has 24 principles across 3 phases (8 each):
+### 3 Octaves (8 principles × 3 phases)
 - Octave 1: Signal Definition (clarity, thinking)
 - Octave 2: Signal Construction (building, verification)
 - Octave 3: Signal Propagation (operations, ownership)
+
+### RIPPLES (3 phases of AI transition)
+- Phase 1: AI Accelerated (humans lead, AI assists)
+- Phase 2: AI Native (AI leads routine, humans govern)
+- Phase 3: AI Autonomous (AI operates within boundaries)

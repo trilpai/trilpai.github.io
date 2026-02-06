@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Trilp AI** is the official website for a software consulting studio based in Pune, India. The site showcases the "3 Octaves" engineering philosophy and includes interactive browser games demonstrating focus, alignment, and signal recognition concepts.
+**Trilp AI** was an independent software consulting studio based in Pune, India, operating from late 2022 through 2025. This site is preserved as a record of that phase and showcases two engineering frameworks: **3 Octaves** and **RIPPLES**.
 
 - **Live URL:** https://www.trilp.in
 - **Backup:** https://trilpai.github.io
@@ -28,9 +28,11 @@
 
 ```
 .
-├── index.html              # Main landing page with 3 interactive games
+├── index.html              # Main landing page with Ripple Resonance game
 ├── 3octaves/
 │   └── index.html          # 3 Octaves maturity model page
+├── ripples/
+│   └── index.html          # RIPPLES AI transition playbook
 ├── 404.html                # Custom 404 page
 ├── assets/
 │   ├── css/
@@ -40,11 +42,11 @@
 │   ├── img/                # Logos, OG images, favicons
 │   └── js/
 │       ├── site.js         # Nav highlight, progress bar, section reveal
-│       └── trilpai.js      # Three interactive games (Focus, Stack, Signal)
+│       └── trilpai.js      # Ripple Resonance game
 ├── docs/                   # Markdown documentation
 │   ├── 3_octaves.md        # Full 3 Octaves philosophy document
-│   ├── 37signals-principles.md  # 37signals principles reference
-│   └── ripples.md          # RIPPLES AI transition guide
+│   ├── ripples.md          # RIPPLES AI transition guide
+│   └── 37signals-principles.md  # 37signals principles reference
 ├── CNAME                   # Custom domain: trilp.in
 ├── robots.txt              # Search engine directives
 ├── sitemap.xml             # XML sitemap
@@ -89,7 +91,7 @@ python -m http.server
 - IIFE pattern with `'use strict'`
 - Uses `IntersectionObserver` for visibility-based optimizations
 - `requestAnimationFrame` throttled scroll handlers
-- LocalStorage for game high scores (keys: `trilpai_stack_best`, `trilpai_signal_best`)
+- LocalStorage for game high scores (key: `trilpai_ripple_best`)
 
 ### HTML
 - Semantic HTML5 with ARIA attributes
@@ -122,22 +124,13 @@ python -m http.server
 
 ---
 
-## Interactive Games (trilpai.js)
+## Interactive Game (trilpai.js)
 
-### 1. Focus Drift (`#focus-drift`)
-- Keep a drifting dot inside a shrinking focus zone
-- Tap/click to nudge toward pointer position
-- Difficulty increases over time (speed + zone shrinkage)
-
-### 2. Stack the Thought (`#stack-thought`)
-- Stacker game - align moving blocks to build a tower
-- Misalignment trims block width
+### Ripple Resonance (`#ripple-resonance`)
+- Emit ripples from center to hit pulsing target rings
+- Brighter targets = more points
+- 30-second timed rounds
 - Score persisted to localStorage
-
-### 3. Signal vs Noise (`#signal-noise`)
-- Pattern recognition game
-- Rules: PRIME numbers, EVEN numbers, words WITH vowels, REAL words
-- Timed rounds with increasing difficulty
 
 ---
 
@@ -161,10 +154,10 @@ The complete "3 Octaves" philosophy - a maturity model for software engineering 
 - **Octave 3:** Signal Propagation (owning what runs)
 
 ### ripples.md
-RIPPLES framework for engineering leadership navigating AI transition:
-- Phase 1: AI Accelerated (humans lead, AI assists)
-- Phase 2: AI Native (AI leads routine, humans govern)
-- Phase 3: AI Autonomous (AI operates within boundaries)
+RIPPLES playbook for engineering leadership navigating AI transition:
+- **Phase 1:** AI Accelerated (humans lead, AI assists)
+- **Phase 2:** AI Native (AI leads routine, humans govern)
+- **Phase 3:** AI Autonomous (AI operates within boundaries)
 
 ### 37signals-principles.md
 Reference document of 37signals company principles (inspiration).
@@ -186,11 +179,10 @@ Reference document of 37signals company principles (inspiration).
 3. Run `npm run build` or `npm run watch`
 4. Never edit `style.css` directly
 
-### Updating games
+### Updating the game
 1. Edit `assets/js/trilpai.js`
-2. Each game is self-contained IIFE
-3. Uses `GameUtils` for shared utilities
-4. Test in browser with console open
+2. Game uses IIFE pattern with GameUtils
+3. Test in browser with console open
 
 ---
 
@@ -206,10 +198,10 @@ Reference document of 37signals company principles (inspiration).
 
 ## Testing Checklist
 
-- [ ] All pages render correctly
+- [ ] All pages render correctly (index, 3octaves, ripples, 404)
 - [ ] Navigation highlights work on scroll
 - [ ] Progress bar updates on scroll
-- [ ] Games function on desktop and mobile
+- [ ] Ripple Resonance game functions on desktop and mobile
 - [ ] Focus-visible outlines appear on keyboard navigation
 - [ ] Reduced motion preferences respected
 - [ ] OG images display correctly when shared

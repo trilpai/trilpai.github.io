@@ -1,9 +1,14 @@
 /* TEAM */
 Developer & Maintainer: Pradyumna Das Roy (Prady)
-Organization: Trilp AI — AI-Accelerated Software Engineering Studio
+Organization: Trilp AI — Software Consulting Studio
 Location: Pune, Maharashtra, India
 Contact: info@trilp.in
 Website: https://www.trilp.in
+
+/* STATUS */
+Trilp AI operated as an independent software consulting studio
+from late 2022 through 2025. This site is preserved as a record
+of that phase. Active consulting has concluded.
 
 /* PHILOSOPHY */
 Clarity before speed.
@@ -11,33 +16,31 @@ Systems before shortcuts.
 Quality before urgency.
 AI accelerates engineering — it does not replace thinking.
 
-/* FRAMEWORK */
+/* FRAMEWORKS */
+
 3 Octaves — A maturity model for software engineering.
 
-Octave 1: Signal Definition  
+Octave 1: Signal Definition
 Understanding problems clearly before building.
 
-Octave 2: Signal Construction  
+Octave 2: Signal Construction
 Building systems with discipline, verification, and intent.
 
-Octave 3: Signal Propagation  
+Octave 3: Signal Propagation
 Operating, owning, and sustaining systems in production.
 
-The same principles repeat at higher levels of responsibility:
-clarity → construction → consequence.
+---
 
-/* ABOUT */
-Trilp AI is a software engineering studio focused on building
-production-grade systems using AI-accelerated engineering pipelines.
+RIPPLES — A guide for engineering leadership navigating AI transition.
 
-Work emphasizes:
-– clear intent and specifications  
-– strong architecture and boundaries  
-– disciplined implementation  
-– verification by default  
-– reliable operations over time  
+Phase 1: AI Accelerated
+Humans lead. AI assists.
 
-AI is used to amplify execution, not outsource responsibility.
+Phase 2: AI Native
+AI leads routine work. Humans govern.
+
+Phase 3: AI Autonomous
+AI operates within boundaries humans set.
 
 /* PRINCIPLES */
 Understanding is the first deliverable.
@@ -48,9 +51,9 @@ Systems must outlive their creators.
 
 /* TECHNOLOGY */
 Static HTML
-Tailwind CSS (locally compiled)
+Tailwind CSS v4 (locally compiled)
 Inter font (local .woff2)
-Minimal, intentional JavaScript
+Vanilla JavaScript ES6+
 No frameworks unless justified
 Hosted via GitHub Pages
 
@@ -60,4 +63,4 @@ Logo and brand assets are proprietary.
 Source code is licensed under the MIT License (see /LICENSE).
 
 /* LAST UPDATED */
-2026-01-01
+2026-02-06

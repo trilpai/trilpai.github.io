@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
@@ -370,7 +370,7 @@
 
             <a
               href="/3octaves/"
-              class="inline-flex items-center gap-1 mt-4 text-sm text-ink/70 hover:text-ink transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
+              class="inline-flex items-center gap-1 mt-4 text-sm text-brand-lightblue hover:text-brand-blue focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-4 rounded"
             >
               Read the Philosophy <span aria-hidden="true">→</span>
             </a>
@@ -379,11 +379,21 @@
       </section>
 
       <!-- Section 1: Ripple Resonance -->
-      <section id="ripple" class="bg-paper-soft pt-6 pb-20 md:pt-8 md:pb-24" aria-label="Ripple Resonance">
+      <section
+        id="ripple"
+        class="bg-paper-soft pt-6 pb-20 md:pt-8 md:pb-24"
+        aria-label="Ripple Resonance"
+      >
         <div class="mx-auto max-w-6xl px-4">
           <div class="w-full max-w-5xl mx-auto">
             <div class="mb-6">
               <h2 class="text-2xl md:text-3xl font-medium text-ink">Ripples</h2>
+              <a
+                href="/ripples/"
+                class="inline-block mt-6 text-brand-lightblue hover:text-brand-blue focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-lightblue focus-visible:outline-offset-2 rounded"
+              >
+                Read the ripples playbook &rarr;
+              </a>
               <p class="mt-2 max-w-xl text-sm leading-7 text-ink/70">
                 Emit ripples to hit the pulsing target rings. Brighter targets = more points.
                 <span class="block mt-2 text-ink/60">
@@ -404,15 +414,23 @@
               <canvas id="rr-canvas" class="absolute inset-0 w-full h-full"></canvas>
 
               <!-- HUD: Score and Timer -->
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
-                <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70">
+              <div
+                class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10"
+              >
+                <div
+                  class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70"
+                >
                   <span id="rr-time" class="font-medium text-ink tabular-nums">0:30</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70">
+                  <div
+                    class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-sm text-ink/70"
+                  >
                     <span id="rr-score" class="font-medium text-ink tabular-nums">0</span>
                   </div>
-                  <div class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-xs text-ink/50">
+                  <div
+                    class="rounded-md border border-line/50 bg-paper/70 backdrop-blur px-3 py-1.5 text-xs text-ink/50"
+                  >
                     Best: <span id="rr-best" class="tabular-nums">0</span>
                   </div>
                 </div>

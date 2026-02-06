@@ -1,7 +1,13 @@
 # Cursor Rules for trilpai.github.io
 
 ## Project Context
-Static website for Trilp AI - a software consulting studio. Features the "3 Octaves" engineering philosophy and interactive browser games.
+Static website for Trilp AI - a software consulting studio (concluded late 2025). Features the "3 Octaves" engineering philosophy, "RIPPLES" AI transition playbook, and an interactive browser game.
+
+## Site Pages
+- `/` - Home with 3 Octaves intro, Ripples game, About section
+- `/3octaves/` - Full 3 Octaves maturity model
+- `/ripples/` - RIPPLES AI transition playbook
+- `/404.html` - Custom error page
 
 ## Tech Stack
 - Static HTML (no framework)

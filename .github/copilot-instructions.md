@@ -2,7 +2,14 @@
 
 ## Project Summary
 
-Static website for **Trilp AI**, a software consulting studio. Built with HTML, Tailwind CSS v4, and vanilla JavaScript. Hosted on GitHub Pages.
+Static website for **Trilp AI**, a software consulting studio (concluded late 2025). Built with HTML, Tailwind CSS v4, and vanilla JavaScript. Hosted on GitHub Pages.
+
+## Site Structure
+
+- `/` - Home page with 3 Octaves intro, Ripples game, About
+- `/3octaves/` - Full 3 Octaves philosophy
+- `/ripples/` - RIPPLES AI transition playbook
+- `/404.html` - Error page
 
 ## Technology Choices
 
@@ -89,3 +96,8 @@ npm run watch  # Watch mode (development)
 - Include `aria-label` on sections and buttons
 - Maintain skip-to-content link
 - Respect `prefers-reduced-motion`
+
+## Philosophy Documentation
+
+- `docs/3_octaves.md` - 3 Octaves maturity model (8 principles × 3 phases)
+- `docs/ripples.md` - RIPPLES AI transition playbook (3 phases)
